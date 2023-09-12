@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Hello from '../components/Hello'
+import Navbar from '../components/Navbar'
+
+import styles from './index.module.scss'
 ---
 
-<Layout title="Engineering Open house 2023">
+<Layout title="KMUTT Carnival 2023">
   <main>
-    <Hello text="Hello KMUTT!" />
+    <Navbar styles={styles} />
+    <Hello text="Hello World!" client:load />
   </main>
 </Layout>

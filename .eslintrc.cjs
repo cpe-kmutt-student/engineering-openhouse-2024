@@ -26,7 +26,6 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    extraFileExtensions: ['.astro'],
   },
   overrides: [
     {
@@ -38,6 +37,12 @@ module.exports = {
       },
       rules: {
         'astro/no-conflict-set-directives': 'error',
+        'astro/no-deprecated-astro-canonicalurl': 'error',
+        'astro/no-deprecated-astro-fetchcontent': 'error',
+        'astro/no-deprecated-astro-resolve': 'error',
+        'astro/no-deprecated-getentrybyslug': 'error',
+        'astro/no-unused-define-vars-in-style': 'error',
+        'astro/valid-compile': 'error',
       },
     },
   ],
@@ -46,7 +51,7 @@ module.exports = {
     'react/jsx-uses-react': 'error',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
-    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-explicit-any': 'warn',
     'prefer-const': 'off',
     '@typescript-eslint/ban-types': 'off',
     'no-console': 'warn',

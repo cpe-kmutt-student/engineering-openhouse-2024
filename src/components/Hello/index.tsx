@@ -1,9 +1,9 @@
-const Hello: React.FC<Hello> = ({ text }: Hello): JSX.Element => {
+const Hello: React.FC<Props> = ({ text }: Props): JSX.Element => {
   return <div>{text}</div>
 }
 
 export default Hello
 
-interface Hello {
+interface Props {
   text: string
 }

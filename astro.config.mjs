@@ -1,12 +1,16 @@
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config'
 
-import react from "@astrojs/react";
+import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     react({
-      include: "**/*.tsx",
+      include: '**/*.tsx',
     }),
   ],
-});
+
+  server: {
+    port: 3000,
+  },
+})
