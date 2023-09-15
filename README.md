@@ -1,4 +1,4 @@
-# 🎡 Engineering Open House Carnival 2023 🎪
+# 🎡 Engineering Open House Carnival 2024 🎪
 
 ## ⚙️ Setup
 install dependencies
