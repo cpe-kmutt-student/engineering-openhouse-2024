@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-i18n:
-    name: Run eslint scanning
+    name: Build i18n
     runs-on: ubuntu-latest
 
     permissions:
@@ -40,7 +40,7 @@ jobs:
         run: pnpm run i18n
 
   build-vite:
-    name: Run eslint scanning
+    name: Build Vite for production
     runs-on: ubuntu-latest
     needs:
       - build-i18n
