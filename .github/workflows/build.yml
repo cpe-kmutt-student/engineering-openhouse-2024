@@ -1,4 +1,4 @@
-name: Build Astro
+name: Build
 
 on:
   push:
