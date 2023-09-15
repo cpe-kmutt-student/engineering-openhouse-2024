@@ -1,6 +1,6 @@
-# Engineering Open House Carnival 2023
+# 🎡 Engineering Open House Carnival 2023 🎪
 
-## Setup
+## ⚙️ Setup
 install dependencies
 ```sh
 pnpm i
@@ -17,12 +17,12 @@ pnpm build
 ```
 
 ## Start
-### Development
+### 🛠️ Development
 ```sh
 pnpm dev
 ```
 
-### Production
+### 🏭 Production
 preview as production
 ```sh
 pnpm preview
