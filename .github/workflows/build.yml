@@ -9,41 +9,9 @@ on:
       - main
 
 jobs:
-  build-i18n:
-    name: Build i18n
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      security-events: write
-      actions: read
-
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
-
-      - name: Checkout pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Setup Node.js with pnpm
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build i18n
-        run: pnpm run i18n
-
   build-vite:
     name: Build Vite for production
     runs-on: ubuntu-latest
-    needs:
-      - build-i18n
 
     permissions:
       contents: read
