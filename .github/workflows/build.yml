@@ -36,8 +36,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build i18n
-        run: pnpm run i18n
-
       - name: Build vite
         run: pnpm run build
