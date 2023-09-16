@@ -1,4 +1,4 @@
-name: Build Astro
+name: Build
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  eslint:
-    name: Run eslint scanning
+  build-vite:
+    name: Build Vite for production
     runs-on: ubuntu-latest
 
     permissions:
@@ -36,5 +36,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Astro
+      - name: Build vite
         run: pnpm run build
