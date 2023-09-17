@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { BASE_PATH, NOT_FOUND_PATH, OH_PAGE } from './services/routes'
+import {
+  ABOUT_PATH,
+  BASE_PATH,
+  EVENT_PATH,
+  NOT_FOUND_PATH,
+  PROFILE_PATH,
+  SIGN_IN_PATH,
+  SIGN_UP_PATH,
+} from './configs/routes'
 import Landing from './pages/Landing'
-import Openhouse from './pages/Openhouse'
+import { LoadingPage } from './pages/Loading'
 
 const App: React.FC = (): JSX.Element => {
   return (
     <div className="App">
-      <Routes>
-        <Route path={BASE_PATH} element={<Landing />} />
-        <Route path={OH_PAGE} element={<Openhouse />} />
+      <Suspense fallback={<LoadingPage />}>
+        <Routes>
+          <Route path={BASE_PATH} element={<Landing />} />
+          <Route path={ABOUT_PATH} element={<LoadingPage />} />
+          <Route path={EVENT_PATH} element={<Landing />} />
 
-        <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
-      </Routes>
+          <Route path={SIGN_IN_PATH} element={<Landing />} />
+          <Route path={SIGN_UP_PATH} element={<Landing />} />
+          <Route path={PROFILE_PATH} element={<Landing />} />
+          <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
+        </Routes>
+      </Suspense>
     </div>
   )
 }

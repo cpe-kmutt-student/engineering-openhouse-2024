@@ -1,17 +1,12 @@
 # 🎡 Engineering Open House Carnival 2024 🎪
 
 ## ⚙️ Setup
-install dependencies
+Install dependencies
 ```sh
 pnpm i
 ```
 
-build i18n
-```sh
-pnpm i18n
-```
-
-build vite (for production)
+Build vite (for production only)
 ```sh
 pnpm build
 ```
@@ -23,7 +18,7 @@ pnpm dev
 ```
 
 ### 🏭 Production
-preview as production
+Preview as production
 ```sh
 pnpm preview
 ```
