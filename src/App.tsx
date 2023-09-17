@@ -9,7 +9,7 @@ import {
   SIGN_IN_PATH,
   SIGN_UP_PATH,
 } from './configs/routes'
-import Landing from './pages/Landing'
+import Home from './pages/Home'
 import { LoadingPage } from './pages/Loading'
 
 const App: React.FC = (): JSX.Element => {
@@ -17,13 +17,13 @@ const App: React.FC = (): JSX.Element => {
     <div className="App">
       <Suspense fallback={<LoadingPage />}>
         <Routes>
-          <Route path={BASE_PATH} element={<Landing />} />
+          <Route path={BASE_PATH} element={<Home />} />
           <Route path={ABOUT_PATH} element={<LoadingPage />} />
-          <Route path={EVENT_PATH} element={<Landing />} />
+          <Route path={EVENT_PATH} element={<Home />} />
 
-          <Route path={SIGN_IN_PATH} element={<Landing />} />
-          <Route path={SIGN_UP_PATH} element={<Landing />} />
-          <Route path={PROFILE_PATH} element={<Landing />} />
+          <Route path={SIGN_IN_PATH} element={<Home />} />
+          <Route path={SIGN_UP_PATH} element={<Home />} />
+          <Route path={PROFILE_PATH} element={<Home />} />
           <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
         </Routes>
       </Suspense>

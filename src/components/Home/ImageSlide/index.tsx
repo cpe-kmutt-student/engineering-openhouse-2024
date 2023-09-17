@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styles from './index.module.scss'
 import { Carousel } from 'antd'
-import { cacheImages } from '../../utils/cacheImage'
+import { cacheImages } from '../../../utils/cacheImage'
 
 interface Props {
   images: string[]
