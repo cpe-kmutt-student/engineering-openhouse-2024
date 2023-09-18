@@ -1,0 +1,16 @@
+.departmentPage {
+    .content {
+        width: 1024px;
+        margin: 50px auto;
+
+        @media screen and (max-width: 1070px) {
+            width: 512px;
+        }
+
+        @media screen and (max-width: 512px) {
+            margin: 10px auto;
+            padding: 0 10px;
+            width: 100%;
+        }
+    }
+}

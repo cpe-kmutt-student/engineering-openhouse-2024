@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styles from './index.module.scss'
 import { Carousel } from 'antd'
-import { cacheImages } from '../../../utils/cacheImage'
+import { cacheImage } from '../../../utils/cacheImage'
 
 interface Props {
   images: string[]
@@ -9,7 +9,7 @@ interface Props {
 
 const ImageSlide: React.FC<Props> = ({ images }: Props): JSX.Element => {
   useEffect(() => {
-    images.map((image) => cacheImages(image))
+    images.map((image) => cacheImage(image))
   }, [images])
 
   const renderImage = images.map((image: string, i: number) => {

@@ -8,7 +8,7 @@ const Sponsors: React.FC = (): JSX.Element => {
     <div className={styles.sponsors}>
       <Title level={2}>Sponsors</Title>
       <Text>Me and the boys</Text>
-      <img src="https://i.ytimg.com/vi/mIag4j4Jt-0/hqdefault.jpg" alt="cunny" />
+      <img src="https://i.kym-cdn.com/photos/images/newsfeed/002/266/457/538.png" alt="cunny" loading="lazy" />
     </div>
   )
 }

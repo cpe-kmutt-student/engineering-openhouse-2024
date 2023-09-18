@@ -1,4 +1,4 @@
-export const cacheImages = (source: string) => {
+export const cacheImage = (source: string) => {
   new Promise((resolve, reject) => {
     const img = new Image()
     img.onload = () => resolve(source)
