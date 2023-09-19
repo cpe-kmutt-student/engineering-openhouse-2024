@@ -2,8 +2,11 @@ import styles from './index.module.scss'
 import { Navigate, useParams } from 'react-router-dom'
 import { IDepartmentInfo, IWorkshop, departmentInfo } from '../../contents/departmentInfo'
 import { BASE_PATH } from '../../configs/routes'
-import { Button, Space, Typography } from 'antd'
 import ImageHeader from '../../components/ImageHeader'
+import WorkshopSchedule from '../../components/Department/WorkshopSchedule'
+import WorkshopLocation from '../../components/Department/WorkshopLocation'
+import Contact from '../../components/Department/Contact'
+import { Typography } from 'antd'
 
 const Department: React.FC = (): JSX.Element => {
   const { departmentInitial } = useParams()
@@ -35,14 +38,9 @@ const Department: React.FC = (): JSX.Element => {
           <Title level={3}>Workshop Detail</Title>
           {renderWorkshopDetails}
         </div>
-        <div className={styles.workshopSchedule}></div>
-        <div className={styles.location}>
-          <Title level={3}>Location</Title>
-          <Title level={4}>{department.location}</Title>
-          <Space direction="vertical" align="center" style={{ width: '100%' }}>
-            <Button type="primary">ดูแผนที่ภายในงาน</Button>
-          </Space>
-        </div>
+        <WorkshopSchedule schedule={department.workshopSchedule} />
+        <WorkshopLocation department={department} />
+        <Contact contact={department.contact} />
       </div>
     </div>
   )

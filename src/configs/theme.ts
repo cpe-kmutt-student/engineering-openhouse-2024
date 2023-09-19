@@ -12,4 +12,10 @@ export const theme: ThemeConfig = {
     fontSize: 14,
     fontFamily: 'Noto Sans Thai',
   },
+  components: {
+    Table: {
+      headerBg: '#9e1204',
+      headerColor: '#FFFFFF',
+    },
+  },
 }
