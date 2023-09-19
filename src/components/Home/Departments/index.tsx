@@ -6,7 +6,7 @@ import { cacheImage } from '../../../utils/cacheImage'
 import { departments } from '../../../contents/departments'
 import { WORKSHOP_DEPARTMENT_PATH } from '../../../configs/routes'
 
-const BranchActivities: React.FC = (): JSX.Element => {
+const DepartmentsWorkshop: React.FC = (): JSX.Element => {
   const { Text } = Typography
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const BranchActivities: React.FC = (): JSX.Element => {
   return <div className={styles.branchActivities}>{renderActivities}</div>
 }
 
-export default BranchActivities
+export default DepartmentsWorkshop
