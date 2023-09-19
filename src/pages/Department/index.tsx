@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
 import { Navigate, useParams } from 'react-router-dom'
-import { IDepartmentInfo, IWorkshop, departmentInfo } from '../../contents/departmentInfo'
+import { IDepartmentInfo, IWorkshop, IWorkshopSchedule, departmentInfo } from '../../contents/departmentInfo'
 import { BASE_PATH } from '../../configs/routes'
 import ImageHeader from '../../components/ImageHeader'
 import WorkshopSchedule from '../../components/Department/WorkshopSchedule'
@@ -11,9 +11,17 @@ import { Typography } from 'antd'
 const Department: React.FC = (): JSX.Element => {
   const { departmentInitial } = useParams()
 
-  const department = departmentInfo.filter((info: IDepartmentInfo) => info.name.initial === departmentInitial)[0]
-
   const { Paragraph, Title } = Typography
+
+  const department = departmentInfo.filter((info: IDepartmentInfo) => info.name.initial === departmentInitial)[0]
+  const sortRoundSchedule = department.workshopSchedule
+    .sort((a: IWorkshopSchedule, b: IWorkshopSchedule) => a.round - b.round)
+    .map((schedule: IWorkshopSchedule) => {
+      return {
+        key: schedule.round,
+        ...schedule,
+      }
+    })
 
   if (!departmentInitial || !department) return <Navigate to={BASE_PATH} />
 
@@ -38,7 +46,7 @@ const Department: React.FC = (): JSX.Element => {
           <Title level={3}>Workshop Detail</Title>
           {renderWorkshopDetails}
         </div>
-        <WorkshopSchedule schedule={department.workshopSchedule} />
+        <WorkshopSchedule schedule={sortRoundSchedule} />
         <WorkshopLocation department={department} />
         <Contact contact={department.contact} />
       </div>
