@@ -15,7 +15,7 @@ const Register: React.FC = (): JSX.Element => {
     <div className={styles.registerPage}>
       <div className={styles.button}>
         <Link to={BASE_PATH}>
-          <Button icon={<ArrowLeftOutlined />} type="text">
+          <Button icon={<ArrowLeftOutlined />} type="default">
             กลับไปหน้า Openhouse
           </Button>
         </Link>
@@ -23,22 +23,41 @@ const Register: React.FC = (): JSX.Element => {
       <div className={styles.form}>
         <Title>ลงทะเบียน</Title>
         <Form layout="vertical" onFinish={onFinish}>
-          <Space>
-            <Form.Item<IRegister>
-              label="ชื่อจริง"
-              name="firstName"
-              rules={[{ required: true, message: 'กรุณาระบุชื่อจริง' }]}
-            >
-              <Input />
-            </Form.Item>
+          <Space direction="vertical">
+            <Space direction="horizontal">
+              <Form.Item<IRegister>
+                label="ชื่อจริง"
+                name="firstName"
+                rules={[{ required: true, message: 'กรุณาระบุชื่อจริง' }]}
+              >
+                <Input />
+              </Form.Item>
 
-            <Form.Item<IRegister>
-              label="นามสกุล"
-              name="lastName"
-              rules={[{ required: true, message: 'กรุณาระบุนามสกุล' }]}
-            >
-              <Input />
-            </Form.Item>
+              <Form.Item<IRegister>
+                label="นามสกุล"
+                name="lastName"
+                rules={[{ required: true, message: 'กรุณาระบุนามสกุล' }]}
+              >
+                <Input />
+              </Form.Item>
+            </Space>
+            <Space direction="horizontal">
+              <Form.Item<IRegister>
+                label="First Name"
+                name="firstNameEN"
+                rules={[{ required: true, message: 'กรุณาระบุชื่อจริง (ภาษาอังกฤษ)' }]}
+              >
+                <Input />
+              </Form.Item>
+
+              <Form.Item<IRegister>
+                label="Last name"
+                name="lastNameEN"
+                rules={[{ required: true, message: 'กรุณาระบุนามสกุล (ภาษาอังกฤษ)' }]}
+              >
+                <Input />
+              </Form.Item>
+            </Space>
           </Space>
           <Form.Item<IRegister>
             label="หมายเลขโทรศัพท์"
@@ -60,7 +79,7 @@ const Register: React.FC = (): JSX.Element => {
             </Radio.Group>
           </Form.Item>
           <Button type="primary" htmlType="submit">
-            Submit
+            ลงทะเบียน
           </Button>
         </Form>
       </div>
@@ -73,6 +92,8 @@ export default Register
 interface IRegister {
   firstName: string
   lastName: string
+  firstNameEN: string
+  lastNameEN: string
   phoneNumber: string
   userType: IUserType
   educationLevel: string

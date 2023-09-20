@@ -24,7 +24,7 @@ const DepartmentsWorkshop: React.FC = (): JSX.Element => {
     )
   })
 
-  return <div className={styles.branchActivities}>{renderActivities}</div>
+  return <div className={styles.departmentWorkshops}>{renderActivities}</div>
 }
 
 export default DepartmentsWorkshop

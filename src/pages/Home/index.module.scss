@@ -1,13 +1,26 @@
 .homePage {
+    background-color: #550700;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: #ffffff;
+    }
+
     .content {
-        margin: 0 50px;
-
-        .departmentsWorkshop {
+        .activities {
+            padding: 20px 0;
             margin-bottom: 20px;
-        }
+            margin-inline: 50px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
 
-        @media screen and (max-width: 768px) {
-            margin: 0 10px;
+            @media screen and (max-width: 768px) {
+                margin-inline: 10px;
+            }
         }
     }
 }

@@ -1,4 +1,3 @@
-import { GoogleOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 import { axiosInstance } from '../../../../utils/axios'
 
@@ -13,8 +12,8 @@ const GoogleSignIn: React.FC = (): JSX.Element => {
   }
 
   return (
-    <Button type="primary" icon={<GoogleOutlined />} onClick={handleSignInWithGoogle}>
-      เข้าสู่ระบบด้วย Google
+    <Button type="primary" onClick={handleSignInWithGoogle}>
+      Login
     </Button>
   )
 }

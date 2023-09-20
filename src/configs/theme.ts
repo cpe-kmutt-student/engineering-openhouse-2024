@@ -10,7 +10,7 @@ export const theme: ThemeConfig = {
     colorWarning: '#ffc041',
     colorSuccess: '#77de44',
     fontSize: 14,
-    fontFamily: 'Noto Sans Thai',
+    fontFamily: 'K2D',
   },
   components: {
     Table: {
