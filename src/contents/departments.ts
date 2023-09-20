@@ -60,8 +60,8 @@ export const departments: IDepartment[] = [
     image: 'https://media.tenor.com/MgNiRu0jum0AAAAC/blue-archive-koharu.gif',
   },
   {
-    name: 'พื้นที่การศึกษาราชบุรี (RE)',
-    link: 'RE',
+    name: 'พื้นที่การศึกษาราชบุรี (RC)',
+    link: 'RC',
     image: 'https://pbs.twimg.com/media/F0NaLpqaIAAhv7n.jpg:large',
   },
 ]
