@@ -5,7 +5,11 @@ import { axiosInstance } from '../../../../utils/axios'
 const GoogleSignIn: React.FC = (): JSX.Element => {
   const handleSignInWithGoogle = async () => {
     // TODO: Sign in with Google
-    await axiosInstance.post('<API_PATH>')
+    const res = await axiosInstance.get('/api/auth/google')
+    console.log(res)
+    if (res.status === 200) {
+      window.location.href = res.data.url
+    }
   }
 
   return (
