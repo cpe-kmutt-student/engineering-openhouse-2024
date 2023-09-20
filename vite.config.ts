@@ -6,7 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 const ENV_PREFIX = 'APP_'
 
 export default defineConfig(({ mode }) => {
-  process.env = loadEnv(mode, process.cwd(), '')
+  process.env = loadEnv(mode, process.cwd())
 
   return {
     plugins: [
