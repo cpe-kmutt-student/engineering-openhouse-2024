@@ -1,12 +1,22 @@
 import { Button } from 'antd'
 import { axiosInstance } from '../../../../utils/axios'
+import { useNavigate } from 'react-router-dom'
 
-const GoogleSignIn: React.FC = (): JSX.Element => {
+interface Props {
+  continuePath: string | null
+}
+
+const GoogleSignIn: React.FC<Props> = ({ continuePath }: Props): JSX.Element => {
+  const navigate = useNavigate()
+
   const handleSignInWithGoogle = async () => {
     // TODO: Sign in with Google
     const res = await axiosInstance.get('/api/auth/google')
     console.log(res)
-    if (res.status === 200) {
+
+    if (continuePath) {
+      navigate(continuePath)
+    } else if (res.status === 200) {
       window.location.href = res.data.url
     }
   }

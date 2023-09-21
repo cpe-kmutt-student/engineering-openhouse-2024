@@ -5,7 +5,11 @@ import Logo from '../../../contents/images/logo.svg'
 import { useEffect } from 'react'
 import { cacheImage } from '../../../utils/cacheImage'
 
-const Navbar: React.FC = (): JSX.Element => {
+interface Props {
+  continuePath: string | null
+}
+
+const Navbar: React.FC<Props> = ({ continuePath }: Props) => {
   useEffect(() => {
     cacheImage(Logo)
   }, [])
@@ -16,7 +20,7 @@ const Navbar: React.FC = (): JSX.Element => {
         <Image preview={false} src={Logo} width={45} />
       </div>
       <div className={styles.links}>
-        <GoogleSignIn />
+        <GoogleSignIn continuePath={continuePath} />
       </div>
     </div>
   )

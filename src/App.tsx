@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation, useSearchParams } from 'react-router-dom'
 import {
   ABOUT_PATH,
   WORKSHOP_DEPARTMENT_PATH,
@@ -18,14 +18,20 @@ import Navbar from './components/Navigations/Navbar'
 import BackToOpenhouse from './components/Navigations/BackToOpenhouseNav'
 import Register from './pages/Register'
 import AboutUs from './pages/AboutUs'
+import Protected from './components/Protected'
 
 const App: React.FC = (): JSX.Element => {
   const location = useLocation()
 
+  const [searchParams] = useSearchParams()
+  const continuePath = searchParams.get('continue')
+
+  console.log(continuePath)
+
   const routeNavFilter = (pathname: string) => {
     switch (pathname) {
       case BASE_PATH:
-        return <Navbar />
+        return <Navbar continuePath={continuePath} />
 
       case REGISTER_PATH:
         return
@@ -37,8 +43,6 @@ const App: React.FC = (): JSX.Element => {
         return <BackToOpenhouse />
     }
   }
-
-  // TODO: Protected Routes
 
   return (
     <div className="App">
@@ -52,8 +56,8 @@ const App: React.FC = (): JSX.Element => {
           <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
           <Route path={ENGINEER_STARTER_TOUR_PATH} element={<EngineerStarterTour />} />
 
-          <Route path={REGISTER_PATH} element={<Register />} />
-          <Route path={PROFILE_PATH} element={<Home />} />
+          <Route path={REGISTER_PATH} element={<Protected element={<Register />} />} />
+          <Route path={PROFILE_PATH} element={<Protected element={<Home />} />} />
 
           <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
         </Routes>
