@@ -10,22 +10,30 @@ const Activities: React.FC = (): JSX.Element => {
     <div className={styles.activities}>
       <Link to={ENGINEER_STARTER_TOUR_PATH}>
         <div className={styles.activity}>
-          <Title level={4}>พี่พาน้องทัวร์</Title>
+          <Title level={4} style={{ textAlign: 'center' }}>
+            พี่พาน้องทัวร์
+          </Title>
         </div>
       </Link>
       <Link to={ENGINEER_STARTER_TOUR_PATH}>
         <div className={styles.activity}>
-          <Title level={4}>Inno-X</Title>
+          <Title level={4} style={{ textAlign: 'center' }}>
+            Inno-X
+          </Title>
         </div>
       </Link>
       <Link to={ENGINEER_STARTER_TOUR_PATH}>
         <div className={styles.activity}>
-          <Title level={4}>Carnival Market</Title>
+          <Title level={4} style={{ textAlign: 'center' }}>
+            Carnival Market
+          </Title>
         </div>
       </Link>
       <Link to={ENGINEER_STARTER_TOUR_PATH}>
         <div className={styles.activity}>
-          <Title level={4}>Talk Show</Title>
+          <Title level={4} style={{ textAlign: 'center' }}>
+            Talk Show
+          </Title>
         </div>
       </Link>
     </div>

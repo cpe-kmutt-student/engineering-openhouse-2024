@@ -1,6 +1,4 @@
 .homePage {
-    background-color: #550700;
-
     h1,
     h2,
     h3,
@@ -9,13 +7,23 @@
     }
 
     .content {
-        .activities {
+        .departmentActivities {
             padding: 20px 0;
             margin-bottom: 20px;
             margin-inline: 50px;
             border-radius: 10px;
             background: rgba(95, 55, 51, 0.5);
             backdrop-filter: blur(4px);
+
+            @media screen and (max-width: 768px) {
+                margin-inline: 10px;
+                background: transparent;
+            }
+        }
+
+        .collegeActivities {
+            margin-inline: 30px;
+            margin-bottom: 20px;
 
             @media screen and (max-width: 768px) {
                 margin-inline: 10px;

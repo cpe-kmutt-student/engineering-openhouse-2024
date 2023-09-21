@@ -14,13 +14,13 @@ const Home: React.FC = (): JSX.Element => {
       <div className={styles.homePage}>
         <ImageSlide images={imageSlide} />
         <div className={styles.content}>
-          <div className={styles.activities}>
+          <div className={styles.departmentActivities}>
             <Title level={2} style={{ textAlign: 'center' }}>
               กิจกรรมส่วนภาควิชา
             </Title>
             <DepartmentsWorkshop />
           </div>
-          <div className={styles.activities}>
+          <div className={styles.collegeActivities}>
             <Title level={2} style={{ textAlign: 'center' }}>
               กิจกรรมส่วนกลาง
             </Title>

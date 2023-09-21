@@ -26,7 +26,9 @@ const WorkshopLocation: React.FC<Props> = ({ department }: Props): JSX.Element =
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
-        <Button type="primary">ดูแผนที่ภายในงาน</Button>
+        <Button type="default" style={{ border: 'none' }}>
+          ดูแผนที่ภายในงาน
+        </Button>
       </Space>
     </div>
   )

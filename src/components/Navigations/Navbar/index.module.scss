@@ -1,12 +1,15 @@
 .navbar {
     position: sticky;
-    top: 0;
+    top: 10px;
     left: 0;
     right: 0;
-    z-index: 100;
-    background: #ffffff;
+    z-index: 1000;
     padding: 10px 20px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+    background: rgba(95, 55, 51, 0.5);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    margin: 10px;
 }

@@ -1,4 +1,4 @@
-import { Button, Form, FormInstance, Input, Radio, Select, Space, Typography } from 'antd'
+import { Button, Form, FormInstance, Input, Radio, Select, Typography } from 'antd'
 import { IEducationLevel, educationLevel } from '../../../contents/register/educationLevel'
 import styles from './index.module.scss'
 import { UserType } from '../../../contents/register/enum'
@@ -30,42 +30,40 @@ const RegisterForm: React.FC<Props> = ({ onFinish }: Props): JSX.Element => {
     <div className={styles.form}>
       <Title>ลงทะเบียน</Title>
       <Form layout="vertical" onFinish={onFinish} ref={formRef} form={form}>
-        <Space direction="vertical">
-          <Space direction="horizontal">
-            <Form.Item<IRegister>
-              label="ชื่อจริง"
-              name="firstName"
-              rules={[{ required: true, message: 'กรุณาระบุชื่อจริง' }]}
-            >
-              <Input />
-            </Form.Item>
+        <div className={styles.formGroup}>
+          <Form.Item<IRegister>
+            label="ชื่อจริง"
+            name="firstName"
+            rules={[{ required: true, message: 'กรุณาระบุชื่อจริง' }]}
+          >
+            <Input />
+          </Form.Item>
 
-            <Form.Item<IRegister>
-              label="นามสกุล"
-              name="lastName"
-              rules={[{ required: true, message: 'กรุณาระบุนามสกุล' }]}
-            >
-              <Input />
-            </Form.Item>
-          </Space>
-          <Space direction="horizontal">
-            <Form.Item<IRegister>
-              label="First Name"
-              name="firstNameEN"
-              rules={[{ required: true, message: 'กรุณาระบุชื่อจริง (ภาษาอังกฤษ)' }]}
-            >
-              <Input />
-            </Form.Item>
+          <Form.Item<IRegister>
+            label="นามสกุล"
+            name="lastName"
+            rules={[{ required: true, message: 'กรุณาระบุนามสกุล' }]}
+          >
+            <Input />
+          </Form.Item>
+        </div>
+        <div className={styles.formGroup}>
+          <Form.Item<IRegister>
+            label="First name"
+            name="firstNameEN"
+            rules={[{ required: true, message: 'กรุณาระบุชื่อจริง (ภาษาอังกฤษ)' }]}
+          >
+            <Input />
+          </Form.Item>
 
-            <Form.Item<IRegister>
-              label="Last name"
-              name="lastNameEN"
-              rules={[{ required: true, message: 'กรุณาระบุนามสกุล (ภาษาอังกฤษ)' }]}
-            >
-              <Input />
-            </Form.Item>
-          </Space>
-        </Space>
+          <Form.Item<IRegister>
+            label="Last name"
+            name="lastNameEN"
+            rules={[{ required: true, message: 'กรุณาระบุนามสกุล (ภาษาอังกฤษ)' }]}
+          >
+            <Input />
+          </Form.Item>
+        </div>
         <Form.Item<IRegister>
           label="หมายเลขโทรศัพท์"
           name="phoneNumber"

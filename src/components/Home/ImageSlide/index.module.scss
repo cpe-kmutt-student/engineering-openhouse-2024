@@ -22,23 +22,8 @@
         }
     }
 
-    @media screen and (max-width: 768px) {
-        .content {
-            height: 480px;
-        }
-    }
-
     @media screen and (max-width: 600px) {
         margin-bottom: 10px;
-
-        .content {
-            height: 100%;
-
-            img {
-                object-position: unset;
-                object-fit: contain;
-            }
-        }
     }
 }
 

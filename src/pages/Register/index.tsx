@@ -1,9 +1,6 @@
-import { Button } from 'antd'
 import styles from './index.module.scss'
-import { ArrowLeftOutlined } from '@ant-design/icons'
-import { Link } from 'react-router-dom'
-import { BASE_PATH } from '../../configs/routes'
 import RegisterForm, { IRegister } from '../../components/Register/Form'
+import BackToOpenhouse from '../../components/Navigations/BackToOpenhouseNav'
 
 const Register: React.FC = (): JSX.Element => {
   const onFinish = (values: IRegister) => {
@@ -12,14 +9,10 @@ const Register: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.registerPage}>
-      <div className={styles.button}>
-        <Link to={BASE_PATH}>
-          <Button icon={<ArrowLeftOutlined />} type="default">
-            กลับไปหน้า Openhouse
-          </Button>
-        </Link>
+      <BackToOpenhouse />
+      <div className={styles.content}>
+        <RegisterForm onFinish={onFinish} />
       </div>
-      <RegisterForm onFinish={onFinish} />
     </div>
   )
 }

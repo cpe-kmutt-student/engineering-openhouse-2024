@@ -1,46 +1,40 @@
-import { Space, Table, Typography } from 'antd'
+import { Space, Typography } from 'antd'
 import { IWorkshopSchedule } from '../../../contents/departmentInfo'
-import { ColumnsType } from 'antd/es/table'
 import { convertDateLocale } from '../../../utils/date'
+import styles from './index.module.scss'
 
 interface Props {
   schedule: IWorkshopSchedule[]
 }
 
-const columns: ColumnsType<IWorkshopSchedule> = [
-  {
-    title: 'รอบ',
-    dataIndex: 'round',
-    key: 'round',
-    responsive: ['sm'],
-  },
-  {
-    title: 'วันที่',
-    dataIndex: 'date',
-    key: 'date',
-    render: (date) => <div>{convertDateLocale(date)}</div>,
-  },
-  {
-    title: 'เวลา',
-    dataIndex: 'time',
-    key: 'time',
-  },
-  {
-    title: 'จำนวนรับ',
-    dataIndex: 'amount',
-    key: 'amount',
-  },
-]
-
 const WorkshopSchedule: React.FC<Props> = ({ schedule }: Props): JSX.Element => {
   const { Title, Text } = Typography
+
+  const renderTableRow = schedule.map((schedule: IWorkshopSchedule, i: number) => {
+    return (
+      <tr key={i}>
+        <td>{convertDateLocale(schedule.date)}</td>
+        <td>{schedule.time}</td>
+        <td>{schedule.amount}</td>
+      </tr>
+    )
+  })
 
   return (
     <div>
       <Title level={3} style={{ textAlign: 'center' }}>
         เวิร์คช็อป
       </Title>
-      <Table size="middle" columns={columns} pagination={false} dataSource={schedule} />
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>วันที่</th>
+            <th>เวลา</th>
+            <th>จำนวนรับ</th>
+          </tr>
+        </thead>
+        <tbody>{renderTableRow}</tbody>
+      </table>
       <Space direction="vertical" align="center" style={{ width: '100%', marginBlock: '20px' }}>
         <Text italic strong style={{ color: '#FFFFFF' }}>
           *ลงทะเบียนหน้างานเท่านั้น*

@@ -20,5 +20,12 @@ export const theme: ThemeConfig = {
       colorBgContainer: '#FFFFFF',
       headerSplitColor: '#FFFFFF',
     },
+    Button: {
+      colorPrimary: '#FFB031',
+      colorPrimaryHover: '#e39c29',
+      colorPrimaryActive: '#946821',
+      defaultBg: 'rgba(95, 55, 51, 0.5)',
+      colorText: '#FFFFFF',
+    },
   },
 }
