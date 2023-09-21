@@ -1,7 +1,7 @@
 import styles from './index.module.scss'
 import GoogleSignIn from './GoogleSignIn'
 import { Image } from 'antd'
-import Logo from '../../../contents/images/Logo.png'
+import Logo from '../../../contents/images/logo.svg'
 import { useEffect } from 'react'
 import { cacheImage } from '../../../utils/cacheImage'
 
