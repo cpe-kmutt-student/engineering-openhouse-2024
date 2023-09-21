@@ -1,5 +1,5 @@
 import { Space, Typography } from 'antd'
-import { IContact, IContactSocial } from '../../../contents/departmentInfo'
+import { IContact, IContactSocial } from '../../../contents/department/departmentInfo'
 
 interface Props {
   contact: IContact

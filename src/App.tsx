@@ -17,6 +17,7 @@ import EngineerStarterTour from './pages/Activities/EngineerStarterTour'
 import Navbar from './components/Navigations/Navbar'
 import BackToOpenhouse from './components/Navigations/BackToOpenhouseNav'
 import Register from './pages/Register'
+import AboutUs from './pages/AboutUs'
 
 const App: React.FC = (): JSX.Element => {
   const location = useLocation()
@@ -45,8 +46,8 @@ const App: React.FC = (): JSX.Element => {
         {routeNavFilter(location.pathname)}
         <Routes>
           <Route path={BASE_PATH} element={<Home />} />
-          <Route path={ABOUT_PATH} element={<LoadingPage />} />
           <Route path={EVENT_PATH} element={<Home />} />
+          <Route path={ABOUT_PATH} element={<AboutUs />} />
 
           <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
           <Route path={ENGINEER_STARTER_TOUR_PATH} element={<EngineerStarterTour />} />

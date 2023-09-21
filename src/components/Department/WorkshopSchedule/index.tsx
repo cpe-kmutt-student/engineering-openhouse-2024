@@ -1,5 +1,5 @@
 import { Space, Typography } from 'antd'
-import { IWorkshopSchedule } from '../../../contents/departmentInfo'
+import { IWorkshopSchedule } from '../../../contents/department/departmentInfo'
 import { convertDateLocale } from '../../../utils/date'
 import styles from './index.module.scss'
 

@@ -13,13 +13,6 @@ export const theme: ThemeConfig = {
     fontFamily: 'K2D',
   },
   components: {
-    Table: {
-      headerBg: '#9e1204',
-      headerColor: '#FFFFFF',
-      colorText: '#000000',
-      colorBgContainer: '#FFFFFF',
-      headerSplitColor: '#FFFFFF',
-    },
     Button: {
       colorPrimary: '#FFB031',
       colorPrimaryHover: '#FFA10B',

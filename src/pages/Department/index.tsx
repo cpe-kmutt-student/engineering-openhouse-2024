@@ -1,6 +1,5 @@
 import styles from './index.module.scss'
 import { Navigate, useParams } from 'react-router-dom'
-import { IDepartmentInfo, IWorkshopSchedule, departmentInfo } from '../../contents/departmentInfo'
 import { BASE_PATH } from '../../configs/routes'
 import ImageHeader from '../../components/ImageHeader'
 import WorkshopSchedule from '../../components/Department/WorkshopSchedule'
@@ -8,6 +7,7 @@ import WorkshopLocation from '../../components/Department/WorkshopLocation'
 import Contact from '../../components/Department/Contact'
 import { Typography } from 'antd'
 import WorkshopDetail from '../../components/Department/WorkshopDetail'
+import { IDepartmentInfo, IWorkshopSchedule, departmentInfo } from '../../contents/department/departmentInfo'
 
 const Department: React.FC = (): JSX.Element => {
   const { departmentInitial } = useParams()

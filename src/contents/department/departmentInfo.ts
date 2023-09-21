@@ -1,4 +1,4 @@
-import CPE from './images/CPE.png'
+import CPE from '../images/CPE.png'
 
 export interface IDepartmentInfo {
   name: {

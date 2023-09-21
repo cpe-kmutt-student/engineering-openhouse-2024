@@ -1,5 +1,5 @@
 import { Typography } from 'antd'
-import { IDepartmentInfo, IWorkshop } from '../../../contents/departmentInfo'
+import { IDepartmentInfo, IWorkshop } from '../../../contents/department/departmentInfo'
 
 interface Props {
   department: IDepartmentInfo

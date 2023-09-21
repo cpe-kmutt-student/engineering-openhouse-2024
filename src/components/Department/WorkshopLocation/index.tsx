@@ -1,5 +1,5 @@
 import { Button, Space, Typography } from 'antd'
-import { IDepartmentInfo } from '../../../contents/departmentInfo'
+import { IDepartmentInfo } from '../../../contents/department/departmentInfo'
 import styles from './index.module.scss'
 interface Props {
   department: IDepartmentInfo
