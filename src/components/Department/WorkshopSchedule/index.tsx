@@ -36,7 +36,7 @@ const WorkshopSchedule: React.FC<Props> = ({ schedule }: Props): JSX.Element => 
         <tbody>{renderTableRow}</tbody>
       </table>
       <Space direction="vertical" align="center" style={{ width: '100%', marginBlock: '20px' }}>
-        <Text italic strong style={{ color: '#FFFFFF' }}>
+        <Text italic strong style={{ color: '#f3b34e' }}>
           *ลงทะเบียนหน้างานเท่านั้น*
         </Text>
       </Space>

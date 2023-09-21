@@ -22,7 +22,7 @@ export const theme: ThemeConfig = {
     },
     Button: {
       colorPrimary: '#FFB031',
-      colorPrimaryHover: '#e39c29',
+      colorPrimaryHover: '#FFA10B',
       colorPrimaryActive: '#946821',
       defaultBg: 'rgba(95, 55, 51, 0.5)',
       colorText: '#FFFFFF',

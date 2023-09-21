@@ -9,7 +9,7 @@
         padding: 10px 20px;
         border-radius: 10px;
         background: rgba(95, 55, 51, 0.5);
-        backdrop-filter: blur(4px);
+        box-shadow: 0 0 25px 0 rgba(255,255,255,0.1);
         transition: all 300ms;
 
         &:hover {

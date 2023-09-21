@@ -70,12 +70,12 @@ export const departmentInfo: IDepartmentInfo[] = [
     },
     workshop: [
       {
-        title: 'WORKSHOP #1 name',
+        title: 'name',
         description:
           'Lorem ipsum dolor sit amet consectetur. Blandit convallis netus sed mus sed tincidunt. Hac suscipit feugiat consectetur habitasse pulvinar quisque. Tellus purus facilisi lacus ac interdum. Quam id sodales fringilla tempor vivamus etiam ultrices.',
       },
       {
-        title: 'WORKSHOP #2 name',
+        title: 'name',
         description:
           'Lorem ipsum dolor sit amet consectetur. Blandit convallis netus sed mus sed tincidunt. Hac suscipit feugiat consectetur habitasse pulvinar quisque. Tellus purus facilisi lacus ac interdum. Quam id sodales fringilla tempor vivamus etiam ultrices.',
       },
@@ -89,24 +89,6 @@ export const departmentInfo: IDepartmentInfo[] = [
       },
       {
         round: 2,
-        date: new Date(),
-        time: '12:30 - 14:30',
-        amount: 30,
-      },
-      {
-        round: 3,
-        date: new Date(),
-        time: '12:30 - 14:30',
-        amount: 30,
-      },
-      {
-        round: 4,
-        date: new Date(),
-        time: '12:30 - 14:30',
-        amount: 30,
-      },
-      {
-        round: 5,
         date: new Date(),
         time: '12:30 - 14:30',
         amount: 30,
