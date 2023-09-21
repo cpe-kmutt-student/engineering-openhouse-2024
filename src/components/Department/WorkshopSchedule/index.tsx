@@ -37,10 +37,12 @@ const WorkshopSchedule: React.FC<Props> = ({ schedule }: Props): JSX.Element => 
 
   return (
     <div>
-      <Title level={3}>Workshop schedule / ROUND</Title>
+      <Title level={3} style={{ textAlign: 'center' }}>
+        เวิร์คช็อป
+      </Title>
       <Table size="middle" columns={columns} pagination={false} dataSource={schedule} />
       <Space direction="vertical" align="center" style={{ width: '100%', marginBlock: '20px' }}>
-        <Text italic strong>
+        <Text italic strong style={{ color: '#FFFFFF' }}>
           *ลงทะเบียนหน้างานเท่านั้น*
         </Text>
       </Space>

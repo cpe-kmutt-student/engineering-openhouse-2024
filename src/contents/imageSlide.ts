@@ -1,5 +1,5 @@
-export const imageSlide = [
-  'https://initiate.alphacoders.com/images/119/cropped-1200-600-1198959.png?1847',
-  'https://initiate.alphacoders.com/images/120/cropped-1200-600-1201376.jpg?3208',
-  'https://initiate.alphacoders.com/images/130/cropped-1200-600-1309668.jpg?6102',
-]
+import Slide1 from './images/Slide-1.jpeg'
+import Slide2 from './images/Slide-2.jpeg'
+import Slide3 from './images/Slide-3.jpeg'
+
+export const imageSlide = [Slide1, Slide2, Slide3]

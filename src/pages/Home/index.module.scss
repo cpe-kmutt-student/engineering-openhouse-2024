@@ -14,9 +14,8 @@
             margin-bottom: 20px;
             margin-inline: 50px;
             border-radius: 10px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+            background: rgba(95, 55, 51, 0.5);
             backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
 
             @media screen and (max-width: 768px) {
                 margin-inline: 10px;

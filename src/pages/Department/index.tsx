@@ -32,8 +32,10 @@ const Department: React.FC = (): JSX.Element => {
       <ImageHeader title={department.name.th} subTitle={department.name.en} image={department.image} />
       <div className={styles.content}>
         <div className={styles.description}>
-          <Title level={3}>Description</Title>
-          <Paragraph>{department.description}</Paragraph>
+          <Title level={3} style={{ textAlign: 'center' }}>
+            รายละเอียด
+          </Title>
+          <Paragraph style={{ color: '#FFFFFF' }}>{department.description}</Paragraph>
         </div>
         <WorkshopDetail department={department} />
         <WorkshopSchedule schedule={sortRoundSchedule} />

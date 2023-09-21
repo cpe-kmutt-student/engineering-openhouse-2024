@@ -9,7 +9,7 @@ const Contact: React.FC<Props> = ({ contact }: Props): JSX.Element => {
   const { Title, Text, Link } = Typography
 
   const renderSocialContact = contact.social.map((social: IContactSocial, i: number) => (
-    <Link key={i} href={social.link}>
+    <Link key={i} href={social.link} style={{ color: '#FFFFFF' }}>
       {social.name}
     </Link>
   ))
@@ -18,8 +18,12 @@ const Contact: React.FC<Props> = ({ contact }: Props): JSX.Element => {
     <div>
       <Space direction="vertical">
         <Title level={3}>Contact</Title>
-        <Text strong>{contact.name}</Text>
-        <Text strong>{contact.tel}</Text>
+        <Text strong style={{ color: '#FFFFFF' }}>
+          {contact.name}
+        </Text>
+        <Text strong style={{ color: '#FFFFFF' }}>
+          {contact.tel}
+        </Text>
         <Space direction="horizontal">{renderSocialContact}</Space>
       </Space>
     </div>

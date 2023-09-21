@@ -10,8 +10,12 @@ const WorkshopLocation: React.FC<Props> = ({ department }: Props): JSX.Element =
 
   return (
     <div>
-      <Title level={3}>Location</Title>
-      <Title level={4}>{department.location}</Title>
+      <Title level={3} style={{ textAlign: 'center' }}>
+        สถานที่
+      </Title>
+      <Title level={4} style={{ textAlign: 'center' }}>
+        {department.location}
+      </Title>
       <Space direction="vertical" align="center" style={{ width: '100%' }}>
         <div className={styles.map}>
           <iframe

@@ -18,7 +18,11 @@ const DepartmentsWorkshop: React.FC = (): JSX.Element => {
       <Link to={WORKSHOP_DEPARTMENT_PATH.replace(':departmentInitial', department.link)} key={i}>
         <div className={styles.card}>
           <img src={department.image} alt="image" loading="lazy" />
-          <Text className={styles.text}>{department.name}</Text>
+          <Text className={styles.text}>
+            {department.link !== 'RC' && 'วิศวกรรม'}
+            <span style={{ color: '#F3B34E' }}>{department.name}</span>
+            <br />({department.link})
+          </Text>
         </div>
       </Link>
     )

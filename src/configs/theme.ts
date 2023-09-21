@@ -4,7 +4,7 @@ export const theme: ThemeConfig = {
   token: {
     colorPrimary: '#9e1204',
     colorInfo: '#9e1204',
-    colorTextBase: '#0a0105',
+    colorTextBase: '#000000',
     colorLink: '#864854',
     colorError: '#ff503e',
     colorWarning: '#ffc041',
@@ -16,6 +16,9 @@ export const theme: ThemeConfig = {
     Table: {
       headerBg: '#9e1204',
       headerColor: '#FFFFFF',
+      colorText: '#000000',
+      colorBgContainer: '#FFFFFF',
+      headerSplitColor: '#FFFFFF',
     },
   },
 }

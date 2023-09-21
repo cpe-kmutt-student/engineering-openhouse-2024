@@ -1,12 +1,11 @@
-import { Button, Form, Input, Radio, Space, Typography } from 'antd'
+import { Button } from 'antd'
 import styles from './index.module.scss'
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import { BASE_PATH } from '../../configs/routes'
+import RegisterForm, { IRegister } from '../../components/Register/Form'
 
 const Register: React.FC = (): JSX.Element => {
-  const { Title } = Typography
-
   const onFinish = (values: IRegister) => {
     console.log(values)
   }
@@ -20,89 +19,9 @@ const Register: React.FC = (): JSX.Element => {
           </Button>
         </Link>
       </div>
-      <div className={styles.form}>
-        <Title>ลงทะเบียน</Title>
-        <Form layout="vertical" onFinish={onFinish}>
-          <Space direction="vertical">
-            <Space direction="horizontal">
-              <Form.Item<IRegister>
-                label="ชื่อจริง"
-                name="firstName"
-                rules={[{ required: true, message: 'กรุณาระบุชื่อจริง' }]}
-              >
-                <Input />
-              </Form.Item>
-
-              <Form.Item<IRegister>
-                label="นามสกุล"
-                name="lastName"
-                rules={[{ required: true, message: 'กรุณาระบุนามสกุล' }]}
-              >
-                <Input />
-              </Form.Item>
-            </Space>
-            <Space direction="horizontal">
-              <Form.Item<IRegister>
-                label="First Name"
-                name="firstNameEN"
-                rules={[{ required: true, message: 'กรุณาระบุชื่อจริง (ภาษาอังกฤษ)' }]}
-              >
-                <Input />
-              </Form.Item>
-
-              <Form.Item<IRegister>
-                label="Last name"
-                name="lastNameEN"
-                rules={[{ required: true, message: 'กรุณาระบุนามสกุล (ภาษาอังกฤษ)' }]}
-              >
-                <Input />
-              </Form.Item>
-            </Space>
-          </Space>
-          <Form.Item<IRegister>
-            label="หมายเลขโทรศัพท์"
-            name="phoneNumber"
-            rules={[{ required: true, message: 'กรุณาระบุหมายเลขโทรศัพท์' }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item<IRegister>
-            label="ประเภทผู้ใช้งาน"
-            rules={[{ required: true, message: 'กรุณาระบุประเภทผู้ใช้งาน' }]}
-            name="userType"
-          >
-            <Radio.Group>
-              <Radio value={IUserType.student}>นักเรียน/นักศึกษา</Radio>
-              <Radio value={IUserType.teacher}>อาจารย์</Radio>
-              <Radio value={IUserType.guardian}>ผู้ปกครอง</Radio>
-              <Radio value={IUserType.general}>บุคคลทั่วไป</Radio>
-            </Radio.Group>
-          </Form.Item>
-          <Button type="primary" htmlType="submit">
-            ลงทะเบียน
-          </Button>
-        </Form>
-      </div>
+      <RegisterForm onFinish={onFinish} />
     </div>
   )
 }
 
 export default Register
-
-interface IRegister {
-  firstName: string
-  lastName: string
-  firstNameEN: string
-  lastNameEN: string
-  phoneNumber: string
-  userType: IUserType
-  educationLevel: string
-  schoolName: string
-}
-
-enum IUserType {
-  student = 'student',
-  teacher = 'teacher',
-  guardian = 'guardian',
-  general = 'general',
-}
