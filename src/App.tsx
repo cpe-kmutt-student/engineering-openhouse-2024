@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { Routes, Route, Navigate, useLocation, useSearchParams } from 'react-router-dom'
 import {
   ABOUT_PATH,
@@ -19,14 +19,19 @@ import BackToOpenhouse from './components/Navigations/BackToOpenhouseNav'
 import Register from './pages/Register'
 import AboutUs from './pages/AboutUs'
 import Protected from './components/Protected'
+import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
+import { useCookies } from 'react-cookie'
+import { ACCESS_TOKEN } from './configs/cookie'
 
 const App: React.FC = (): JSX.Element => {
+  const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
+
+  const [cookie] = useCookies([ACCESS_TOKEN])
+
   const location = useLocation()
 
   const [searchParams] = useSearchParams()
   const continuePath = searchParams.get('continue')
-
-  console.log(continuePath)
 
   const routeNavFilter = (pathname: string) => {
     switch (pathname) {
@@ -44,25 +49,33 @@ const App: React.FC = (): JSX.Element => {
     }
   }
 
+  useEffect(() => {
+    if (cookie.access_token) {
+      // Handle verify cookie after login
+    }
+  }, [cookie.access_token])
+
   return (
-    <div className="App">
-      <Suspense fallback={<LoadingPage />}>
-        {routeNavFilter(location.pathname)}
-        <Routes>
-          <Route path={BASE_PATH} element={<Home />} />
-          <Route path={EVENT_PATH} element={<Home />} />
-          <Route path={ABOUT_PATH} element={<AboutUs />} />
+    <AuthContext.Provider value={{ authContext, setAuthContext }}>
+      <div className="App">
+        <Suspense fallback={<LoadingPage />}>
+          {routeNavFilter(location.pathname)}
+          <Routes>
+            <Route path={BASE_PATH} element={<Home />} />
+            <Route path={EVENT_PATH} element={<Home />} />
+            <Route path={ABOUT_PATH} element={<AboutUs />} />
 
-          <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
-          <Route path={ENGINEER_STARTER_TOUR_PATH} element={<EngineerStarterTour />} />
+            <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
+            <Route path={ENGINEER_STARTER_TOUR_PATH} element={<EngineerStarterTour />} />
 
-          <Route path={REGISTER_PATH} element={<Protected element={<Register />} />} />
-          <Route path={PROFILE_PATH} element={<Protected element={<Home />} />} />
+            <Route path={REGISTER_PATH} element={<Protected element={<Register />} />} />
+            <Route path={PROFILE_PATH} element={<Protected element={<Home />} />} />
 
-          <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
-        </Routes>
-      </Suspense>
-    </div>
+            <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </AuthContext.Provider>
   )
 }
 

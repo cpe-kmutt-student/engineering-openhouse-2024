@@ -1,14 +1,16 @@
 import { Navigate } from 'react-router-dom'
 import { BASE_PATH } from '../../configs/routes'
-import { ReactNode } from 'react'
+import { ReactNode, useContext } from 'react'
+import { AuthContext } from '../../utils/Context/AuthContext'
 
 interface Props {
   element: ReactNode
 }
 
 const Protected: React.FC<Props> = ({ element }: Props) => {
-  // TODO: Auth context or use Redux instead
-  const isAuth = false
+  const authContext = useContext(AuthContext)
+
+  const isAuthenticated = !!authContext?.authContext.email
 
   const redirectWithContinuePath = (): ReactNode => {
     const pathname = location.pathname + location.search
@@ -16,7 +18,7 @@ const Protected: React.FC<Props> = ({ element }: Props) => {
     return <Navigate to={`${BASE_PATH}?continue=${encodeURIComponent(pathname)}`} />
   }
 
-  return isAuth ? element : redirectWithContinuePath()
+  return isAuthenticated ? element : redirectWithContinuePath()
 }
 
 export default Protected
