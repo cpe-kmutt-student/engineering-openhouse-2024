@@ -1,6 +1,8 @@
 import { Button, Space, Typography } from 'antd'
 import { IDepartmentInfo } from '../../../contents/department/departmentInfo'
 import styles from './index.module.scss'
+import { Link } from 'react-router-dom'
+import { ABOUT_PATH } from '../../../configs/routes'
 interface Props {
   department: IDepartmentInfo
 }
@@ -26,9 +28,11 @@ const WorkshopLocation: React.FC<Props> = ({ department }: Props): JSX.Element =
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
-        <Button type="default" style={{ border: 'none' }}>
-          ดูแผนที่ภายในงาน
-        </Button>
+        <Link to={ABOUT_PATH}>
+          <Button type="default" style={{ border: 'none' }}>
+            ดูแผนที่ภายในงาน
+          </Button>
+        </Link>
       </Space>
     </div>
   )

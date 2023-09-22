@@ -23,6 +23,15 @@
             }
         }
 
+        .questions {
+            margin-bottom: 20px;
+
+            div,
+            span {
+                color: #ffffff;
+            }
+        }
+
         @media screen and (max-width: 1070px) {
             width: 720px;
         }

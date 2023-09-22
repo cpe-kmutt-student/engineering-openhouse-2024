@@ -20,5 +20,9 @@ export const theme: ThemeConfig = {
       defaultBg: 'rgba(95, 55, 51, 0.5)',
       colorText: '#FFFFFF',
     },
+    Collapse: {
+      headerBg: 'rgba(95, 55, 51, 0.5)',
+      contentBg: 'rgba(95, 55, 51, 0.5)',
+    },
   },
 }
