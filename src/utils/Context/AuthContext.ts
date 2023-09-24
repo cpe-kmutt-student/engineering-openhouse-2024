@@ -7,8 +7,8 @@ export interface IAuthContext {
 }
 
 export const initialContextValue: IAuthContext = {
-  name: '',
-  email: '',
+  name: 'Lorem Ipsum',
+  email: 'Lipsum@gmail.com',
   tel: '',
 }
 

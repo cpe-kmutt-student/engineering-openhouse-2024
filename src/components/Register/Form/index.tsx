@@ -1,8 +1,8 @@
 import { Button, Form, FormInstance, Input, Radio, Select, Typography } from 'antd'
-import { IEducationLevel, educationLevel } from '../../../contents/register/educationLevel'
 import styles from './index.module.scss'
-import { UserType } from '../../../contents/register/enum'
 import { useRef } from 'react'
+import { IEducationLevel, educationLevel } from 'src/contents/register/educationLevel'
+import { UserType } from 'src/contents/register/enum'
 
 interface Props {
   onFinish: (value: IRegister) => void

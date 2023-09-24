@@ -1,9 +1,9 @@
 import { Typography } from 'antd'
 import styles from './index.module.scss'
 import { Link } from 'react-router-dom'
-import { ENGINEER_STARTER_TOUR_PATH } from '../../../configs/routes'
+import { ENGINEER_STARTER_TOUR_PATH } from 'src/configs/routes'
 
-const Activities: React.FC = (): JSX.Element => {
+const FacultyActivities: React.FC = (): JSX.Element => {
   const { Title } = Typography
 
   return (
@@ -40,4 +40,4 @@ const Activities: React.FC = (): JSX.Element => {
   )
 }
 
-export default Activities
+export default FacultyActivities

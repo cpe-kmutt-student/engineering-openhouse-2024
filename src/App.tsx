@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Routes, Route, Navigate, useLocation, useSearchParams } from 'react-router-dom'
 import {
   ABOUT_PATH,
@@ -20,13 +20,10 @@ import Register from './pages/Register'
 import AboutUs from './pages/AboutUs'
 import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
-import { useCookies } from 'react-cookie'
-import { ACCESS_TOKEN } from './configs/cookie'
+import Profile from './pages/Profile'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
-
-  const [cookie] = useCookies([ACCESS_TOKEN])
 
   const location = useLocation()
 
@@ -38,22 +35,15 @@ const App: React.FC = (): JSX.Element => {
       case BASE_PATH:
         return <Navbar continuePath={continuePath} />
 
-      case REGISTER_PATH:
-        return
-
-      case PROFILE_PATH:
-        return
-
       default:
         return <BackToOpenhouse />
     }
   }
 
-  useEffect(() => {
-    if (cookie.access_token) {
-      // TODO : Handle verify cookie after login
-    }
-  }, [cookie.access_token])
+  // TODO : handle context
+
+  // useEffect(() => {
+  // }, [])
 
   return (
     <AuthContext.Provider value={{ authContext, setAuthContext }}>
@@ -69,7 +59,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path={ENGINEER_STARTER_TOUR_PATH} element={<EngineerStarterTour />} />
 
             <Route path={REGISTER_PATH} element={<Protected element={<Register />} />} />
-            <Route path={PROFILE_PATH} element={<Protected element={<Home />} />} />
+            <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
 
             <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
           </Routes>

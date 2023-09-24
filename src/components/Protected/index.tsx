@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom'
-import { BASE_PATH } from '../../configs/routes'
 import { ReactNode, useContext } from 'react'
-import { AuthContext } from '../../utils/Context/AuthContext'
+import { AuthContext } from 'src/utils/Context/AuthContext'
+import { BASE_PATH } from 'src/configs/routes'
 
 interface Props {
   element: ReactNode

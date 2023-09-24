@@ -1,5 +1,5 @@
 import { Collapse, CollapseProps, Typography } from 'antd'
-import { IQandA, frequentlyQuestions } from '../../../contents/about/frequentlyQuestions'
+import { IQandA, frequentlyQuestions } from 'src/contents/about/frequentlyQuestions'
 
 const FrequentlyQuestion: React.FC = (): JSX.Element => {
   const { Text } = Typography

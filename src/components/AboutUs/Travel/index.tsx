@@ -1,8 +1,8 @@
 import { Image, Typography } from 'antd'
-import { ITravel, ITravelWay, travels } from '../../../contents/about/travel'
+import { ITravel, ITravelWay, travels } from 'src/contents/about/travel'
 import styles from './index.module.scss'
 import { useEffect } from 'react'
-import { cacheImage } from '../../../utils/cacheImage'
+import { cacheImage } from 'src/utils/cacheImage'
 
 const AboutTravel: React.FC = (): JSX.Element => {
   const { Title, Paragraph } = Typography

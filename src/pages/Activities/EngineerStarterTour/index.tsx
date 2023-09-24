@@ -1,4 +1,4 @@
-import ImageHeader from '../../../components/ImageHeader'
+import ImageHeader from 'src/components/ImageHeader'
 import styles from '../inedx.module.scss'
 
 const EngineerStarterTour: React.FC = (): JSX.Element => {

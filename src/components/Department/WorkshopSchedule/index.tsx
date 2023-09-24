@@ -1,6 +1,6 @@
 import { Space, Typography } from 'antd'
-import { IWorkshopSchedule } from '../../../contents/department/departmentInfo'
-import { convertDateLocale } from '../../../utils/date'
+import { IWorkshopSchedule } from 'src/contents/department/departmentInfo'
+import { convertDateLocale } from 'src/utils/date'
 import styles from './index.module.scss'
 
 interface Props {

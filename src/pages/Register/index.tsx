@@ -1,6 +1,5 @@
 import styles from './index.module.scss'
-import RegisterForm, { IRegister } from '../../components/Register/Form'
-import BackToOpenhouse from '../../components/Navigations/BackToOpenhouseNav'
+import RegisterForm, { IRegister } from 'src/components/Register/Form'
 
 const Register: React.FC = (): JSX.Element => {
   const onFinish = (values: IRegister) => {
@@ -9,7 +8,6 @@ const Register: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.registerPage}>
-      <BackToOpenhouse />
       <div className={styles.content}>
         <RegisterForm onFinish={onFinish} />
       </div>

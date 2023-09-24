@@ -2,9 +2,9 @@ import { Typography } from 'antd'
 import styles from './index.module.scss'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
-import { cacheImage } from '../../../utils/cacheImage'
-import { departments } from '../../../contents/departments'
-import { WORKSHOP_DEPARTMENT_PATH } from '../../../configs/routes'
+import { cacheImage } from 'src/utils/cacheImage'
+import { departments } from 'src/contents/departments'
+import { WORKSHOP_DEPARTMENT_PATH } from 'src/configs/routes'
 
 const DepartmentsWorkshop: React.FC = (): JSX.Element => {
   const { Text } = Typography

@@ -1,5 +1,5 @@
 import { Typography } from 'antd'
-import { IDepartmentInfo, IActivity } from '../../../contents/department/departmentInfo'
+import { IDepartmentInfo, IActivity } from 'src/contents/department/departmentInfo'
 
 interface Props {
   department: IDepartmentInfo

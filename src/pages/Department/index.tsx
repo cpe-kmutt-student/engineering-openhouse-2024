@@ -1,13 +1,13 @@
 import styles from './index.module.scss'
 import { Navigate, useParams } from 'react-router-dom'
-import { BASE_PATH } from '../../configs/routes'
-import ImageHeader from '../../components/ImageHeader'
-import WorkshopSchedule from '../../components/Department/WorkshopSchedule'
-import WorkshopLocation from '../../components/Department/WorkshopLocation'
-import Contact from '../../components/Department/Contact'
 import { Typography } from 'antd'
-import ActivityDetail from '../../components/Department/ActivityDetail'
-import { IDepartmentInfo, IWorkshopSchedule, departmentInfo } from '../../contents/department/departmentInfo'
+import { IDepartmentInfo, IWorkshopSchedule, departmentInfo } from 'src/contents/department/departmentInfo'
+import { BASE_PATH } from 'src/configs/routes'
+import ImageHeader from 'src/components/ImageHeader'
+import ActivityDetail from 'src/components/Department/ActivityDetail'
+import WorkshopSchedule from 'src/components/Department/WorkshopSchedule'
+import WorkshopLocation from 'src/components/Department/WorkshopLocation'
+import Contact from 'src/components/Department/Contact'
 
 const Department: React.FC = (): JSX.Element => {
   const { departmentInitial } = useParams()

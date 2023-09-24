@@ -1,7 +1,7 @@
 import { Typography } from 'antd'
 import styles from './index.module.scss'
 import { useEffect } from 'react'
-import { cacheImage } from '../../utils/cacheImage'
+import { cacheImage } from 'src/utils/cacheImage'
 
 interface Props {
   title: string

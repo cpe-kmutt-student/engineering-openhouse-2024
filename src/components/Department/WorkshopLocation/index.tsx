@@ -1,8 +1,8 @@
 import { Button, Space, Typography } from 'antd'
-import { IDepartmentInfo } from '../../../contents/department/departmentInfo'
+import { IDepartmentInfo } from 'src/contents/department/departmentInfo'
 import styles from './index.module.scss'
 import { Link } from 'react-router-dom'
-import { ABOUT_PATH } from '../../../configs/routes'
+import { ABOUT_PATH } from 'src/configs/routes'
 interface Props {
   department: IDepartmentInfo
 }

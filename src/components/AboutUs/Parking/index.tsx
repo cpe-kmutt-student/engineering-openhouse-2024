@@ -1,5 +1,5 @@
 import { Image, Space, Typography } from 'antd'
-import { IParkingInfo, parkingInfo } from '../../../contents/about/parking'
+import { IParkingInfo, parkingInfo } from 'src/contents/about/parking'
 import styles from './index.module.scss'
 
 const Parking: React.FC = (): JSX.Element => {

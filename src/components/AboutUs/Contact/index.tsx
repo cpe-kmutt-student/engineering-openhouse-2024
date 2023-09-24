@@ -1,5 +1,5 @@
 import { Typography } from 'antd'
-import { IContact, contacts } from '../../../contents/about/contact'
+import { IContact, contacts } from 'src/contents/about/contact'
 import styles from './index.module.scss'
 
 const AboutContact: React.FC = (): JSX.Element => {

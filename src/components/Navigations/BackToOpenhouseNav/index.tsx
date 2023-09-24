@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import styles from './index.module.scss'
-import { BASE_PATH } from '../../../configs/routes'
+import { BASE_PATH } from 'src/configs/routes'
 import { Button, Image } from 'antd'
 import { ArrowLeftOutlined } from '@ant-design/icons'
-import Logo from '../../../contents/images/logo.svg'
+import Logo from 'src/contents/images/logo.svg'
 import { useEffect } from 'react'
-import { cacheImage } from '../../../utils/cacheImage'
+import { cacheImage } from 'src/utils/cacheImage'
 
 const BackToOpenhouse: React.FC = (): JSX.Element => {
   useEffect(() => {

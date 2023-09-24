@@ -1,9 +1,11 @@
 import styles from './index.module.scss'
 import GoogleSignIn from './GoogleSignIn'
-import { Image } from 'antd'
-import Logo from '../../../contents/images/logo.svg'
+import { Button, Image } from 'antd'
+import Logo from 'src/contents/images/logo.svg'
 import { useEffect } from 'react'
-import { cacheImage } from '../../../utils/cacheImage'
+import { Link } from 'react-router-dom'
+import { cacheImage } from 'src/utils/cacheImage'
+import { ABOUT_PATH } from 'src/configs/routes'
 
 interface Props {
   continuePath: string | null
@@ -16,12 +18,13 @@ const Navbar: React.FC<Props> = ({ continuePath }: Props) => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.logo}>
-        <Image preview={false} src={Logo} width={45} />
-      </div>
       <div className={styles.links}>
-        <GoogleSignIn continuePath={continuePath} />
+        <Image preview={false} src={Logo} width={45} />
+        <Link to={ABOUT_PATH}>
+          <Button type="text">เกี่ยวกับเรา</Button>
+        </Link>
       </div>
+      <GoogleSignIn continuePath={continuePath} />
     </div>
   )
 }
