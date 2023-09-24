@@ -23,7 +23,7 @@ const WorkshopSchedule: React.FC<Props> = ({ schedule }: Props): JSX.Element => 
   return (
     <div>
       <Title level={3} style={{ textAlign: 'center' }}>
-        เวิร์คช็อป
+        ตารางเวิร์คช็อป
       </Title>
       <table className={styles.table}>
         <thead>

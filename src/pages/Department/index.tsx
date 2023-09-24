@@ -6,7 +6,7 @@ import WorkshopSchedule from '../../components/Department/WorkshopSchedule'
 import WorkshopLocation from '../../components/Department/WorkshopLocation'
 import Contact from '../../components/Department/Contact'
 import { Typography } from 'antd'
-import WorkshopDetail from '../../components/Department/WorkshopDetail'
+import ActivityDetail from '../../components/Department/ActivityDetail'
 import { IDepartmentInfo, IWorkshopSchedule, departmentInfo } from '../../contents/department/departmentInfo'
 
 const Department: React.FC = (): JSX.Element => {
@@ -37,7 +37,7 @@ const Department: React.FC = (): JSX.Element => {
           </Title>
           <Paragraph style={{ color: '#FFFFFF' }}>{department.description}</Paragraph>
         </div>
-        <WorkshopDetail department={department} />
+        <ActivityDetail department={department} />
         <WorkshopSchedule schedule={sortRoundSchedule} />
         <WorkshopLocation department={department} />
         <Contact contact={department.contact} />

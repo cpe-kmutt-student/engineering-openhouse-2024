@@ -10,7 +10,8 @@ const GoogleSignIn: React.FC<Props> = ({ continuePath }: Props): JSX.Element => 
   const navigate = useNavigate()
 
   const handleSignInWithGoogle = async () => {
-    // TODO: Sign in with Google
+    // TODO: Sign in with Google & handle access_token cookie
+
     const res = await axiosInstance.get('/api/auth/google')
     console.log(res)
 

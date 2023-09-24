@@ -51,7 +51,7 @@ const App: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     if (cookie.access_token) {
-      // Handle verify cookie after login
+      // TODO : Handle verify cookie after login
     }
   }, [cookie.access_token])
 

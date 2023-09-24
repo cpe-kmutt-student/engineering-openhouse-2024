@@ -10,7 +10,7 @@ export interface IDepartmentInfo {
   description: string
   location: string
   gmap: string
-  workshop: IWorkshop[]
+  activities: IActivity[]
   workshopSchedule: IWorkshopSchedule[]
   contact: IContact
 }
@@ -26,7 +26,7 @@ export interface IContactSocial {
   link: string
 }
 
-export interface IWorkshop {
+export interface IActivity {
   title: string
   description: string
 }
@@ -68,16 +68,16 @@ export const departmentInfo: IDepartmentInfo[] = [
         },
       ],
     },
-    workshop: [
+    activities: [
       {
-        title: 'name',
+        title: 'ซุ้มนิทรรศการ',
         description:
-          'Lorem ipsum dolor sit amet consectetur. Blandit convallis netus sed mus sed tincidunt. Hac suscipit feugiat consectetur habitasse pulvinar quisque. Tellus purus facilisi lacus ac interdum. Quam id sodales fringilla tempor vivamus etiam ultrices.',
+          'กิจกรรมที่ผู้เข้าร่วมจะได้รู้จักแต่ละภาควิชาผ่านนิทรรศการ ซึ่งจะมีพี่แต่ละภาคคอยให้ความรู้หรือตอบคำถามต่างๆกับผู้เข้าร่วม โดยตั้งที่บริเวณห้องประจำของแต่ละภาควิชา',
       },
       {
-        title: 'name',
+        title: 'Workshop',
         description:
-          'Lorem ipsum dolor sit amet consectetur. Blandit convallis netus sed mus sed tincidunt. Hac suscipit feugiat consectetur habitasse pulvinar quisque. Tellus purus facilisi lacus ac interdum. Quam id sodales fringilla tempor vivamus etiam ultrices.',
+          'กิจกรรมที่ให้ผู้เข้าร่วมลงมือปฏิบัติในห้องปฏิบัติการของแต่ละภาควิชา โดยมีทั้งหมด 4 รอบ รอบละ 1 ชั่วโมง 30 นาที โดยผู้เข้าร่วมจะได้รับ E-stamp และใบประกาศนียบัตรจากภาควิชา ซึ่งการลงทะเบียนจะเป็นแบบ walk-in เท่านั้น',
       },
     ],
     workshopSchedule: [
