@@ -2,9 +2,10 @@
     width: 650px;
     height: 450px;
 
-    iframe {
+    .googleMap {
         width: 100%;
         height: 100%;
+        border-radius: 20px;
     }
 
     @media screen and (max-width: 1070px) {

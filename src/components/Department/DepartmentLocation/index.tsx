@@ -7,7 +7,7 @@ interface Props {
   department: IDepartmentInfo
 }
 
-const WorkshopLocation: React.FC<Props> = ({ department }: Props): JSX.Element => {
+const DepartmentLocation: React.FC<Props> = ({ department }: Props): JSX.Element => {
   const { Title } = Typography
 
   return (
@@ -24,6 +24,7 @@ const WorkshopLocation: React.FC<Props> = ({ department }: Props): JSX.Element =
             src={department.gmap}
             style={{ border: 0 }}
             allowFullScreen={false}
+            className={styles.googleMap}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
@@ -38,4 +39,4 @@ const WorkshopLocation: React.FC<Props> = ({ department }: Props): JSX.Element =
   )
 }
 
-export default WorkshopLocation
+export default DepartmentLocation

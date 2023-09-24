@@ -1,0 +1,36 @@
+.profilePage {
+    margin: 0 auto;
+    width: 1024px;
+
+    .eStamp {
+        text-align: center;
+        margin-block: 20px;
+        background: rgba(95, 55, 51, 0.5);
+        border-radius: 20px;
+        padding: 50px;
+
+        h3 {
+            color: #ffffff;
+        }
+    }
+
+    .logout {
+        width: 100%;
+        text-align: right;
+
+        @media screen and (max-width: 768px) {
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1070px) {
+        width: 720px;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        padding-inline: 25px;
+    }
+}

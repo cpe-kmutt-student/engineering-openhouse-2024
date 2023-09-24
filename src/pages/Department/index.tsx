@@ -6,7 +6,7 @@ import { BASE_PATH } from 'src/configs/routes'
 import ImageHeader from 'src/components/ImageHeader'
 import ActivityDetail from 'src/components/Department/ActivityDetail'
 import WorkshopSchedule from 'src/components/Department/WorkshopSchedule'
-import WorkshopLocation from 'src/components/Department/WorkshopLocation'
+import DepartmentLocation from 'src/components/Department/DepartmentLocation'
 import Contact from 'src/components/Department/Contact'
 
 const Department: React.FC = (): JSX.Element => {
@@ -39,7 +39,7 @@ const Department: React.FC = (): JSX.Element => {
         </div>
         <ActivityDetail department={department} />
         <WorkshopSchedule schedule={sortRoundSchedule} />
-        <WorkshopLocation department={department} />
+        <DepartmentLocation department={department} />
         <Contact contact={department.contact} />
       </div>
     </div>
