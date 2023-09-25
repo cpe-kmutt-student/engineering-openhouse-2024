@@ -1,4 +1,11 @@
 .homePage {
+    background: url("../../contents/images/landing-background.svg");
+    background-size: cover;
+
+    @media screen and (max-width: 768px) {
+        background: none;
+    }
+
     h1,
     h2,
     h3,
