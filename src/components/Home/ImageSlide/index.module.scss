@@ -1,6 +1,7 @@
 .imageSlide {
     margin: 0 auto;
     margin-bottom: 50px;
+    margin-inline: 10px;
     animation: fade-in 300ms ease-in;
 
     .content {
@@ -12,6 +13,7 @@
         text-align: center;
         background: #550700;
         display: relative;
+        border-radius: 10px;
 
         img {
             width: 100%;
@@ -19,11 +21,8 @@
             object-fit: cover;
             object-position: center center;
             user-select: none;
+            border-radius: 10px;
         }
-    }
-
-    @media screen and (max-width: 600px) {
-        margin-bottom: 10px;
     }
 }
 
