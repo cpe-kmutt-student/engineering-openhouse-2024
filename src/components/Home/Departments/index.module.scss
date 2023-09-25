@@ -11,7 +11,7 @@
         position: relative;
         transition: transform 300ms;
         background: #640700;
-        border-radius: 20px;
+        border-radius: 10px;
         box-shadow: 0 0 25px 0 rgba(255, 255, 255, 0.1);
 
         .text {
@@ -30,7 +30,7 @@
             opacity: 0.4;
             object-fit: cover;
             pointer-events: none;
-            border-radius: 20px;
+            border-radius: 10px;
         }
 
         &:hover {
