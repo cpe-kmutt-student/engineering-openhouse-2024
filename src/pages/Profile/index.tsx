@@ -15,6 +15,12 @@ const Profile: React.FC = (): JSX.Element => {
     console.log('nice')
   }
 
+  // TODO : E-stamp handler
+
+  // useEffect(() => {
+
+  // }, [])
+
   if (!user) return <LoadingPage />
 
   return (

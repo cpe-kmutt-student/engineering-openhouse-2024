@@ -9,6 +9,7 @@ import {
   PROFILE_PATH,
   ENGINEER_STARTER_TOUR_PATH,
   REGISTER_PATH,
+  QR_CODE_VERITY,
 } from './configs/routes'
 import Home from './pages/Home'
 import { LoadingPage } from './pages/Loading'
@@ -21,6 +22,7 @@ import AboutUs from './pages/AboutUs'
 import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
 import Profile from './pages/Profile'
+import QRCode from './pages/QRCode'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -43,6 +45,11 @@ const App: React.FC = (): JSX.Element => {
   // TODO : handle context
 
   // useEffect(() => {
+  //   const res = axiosInstance.get('<USER_INFO_API>')
+
+  //   if (res) {
+  //     setAuthContext(res)
+  //   }
   // }, [])
 
   return (
@@ -60,6 +67,7 @@ const App: React.FC = (): JSX.Element => {
 
             <Route path={REGISTER_PATH} element={<Protected element={<Register />} />} />
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
+            <Route path={QR_CODE_VERITY} element={<Protected element={<QRCode />} />} />
 
             <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
           </Routes>
