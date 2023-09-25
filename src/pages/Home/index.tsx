@@ -33,8 +33,8 @@ const Home: React.FC = (): JSX.Element => {
             </Title>
             <FacultyActivities />
           </div>
-          <Sponsors />
         </div>
+        <Sponsors />
       </div>
     </>
   )
