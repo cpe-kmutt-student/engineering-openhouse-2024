@@ -4,8 +4,10 @@ import styles from './index.module.scss'
 import { useState } from 'react'
 import { convertDateLocaleToThai } from 'src/utils/date'
 
+const EVENT_TO_SHOW = 6
+
 const EventSchedules: React.FC = (): JSX.Element => {
-  const [eventsToShow, setEventsToShow] = useState<number>(5)
+  const [eventsToShow, setEventsToShow] = useState<number>(EVENT_TO_SHOW)
 
   const { Title } = Typography
 
@@ -26,13 +28,14 @@ const EventSchedules: React.FC = (): JSX.Element => {
   return (
     <div className={styles.events}>
       {renderEvent}
-      {eventsToShow === 5 && (
-        <div className={styles.button}>
-          <Button type="default" onClick={() => setEventsToShow(events.length)}>
-            ดูทั้งหมด
-          </Button>
-        </div>
-      )}
+      {eventsToShow === EVENT_TO_SHOW ||
+        (events.length !== EVENT_TO_SHOW && (
+          <div className={styles.button}>
+            <Button type="default" onClick={() => setEventsToShow(events.length)}>
+              ดูทั้งหมด
+            </Button>
+          </div>
+        ))}
     </div>
   )
 }

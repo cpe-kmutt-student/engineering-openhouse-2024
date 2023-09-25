@@ -7,24 +7,23 @@
     }
 
     .content {
+        width: 1024px;
+        margin: 0 auto;
+
+        .eventSchedules {
+            margin: 5rem 0;
+        }
+
         .departmentActivities {
             padding: 20px 0;
-            margin: 20px 50px;
             border-radius: 10px;
+            margin: 5rem 0;
             background: rgba(95, 55, 51, 0.5);
 
             @media screen and (max-width: 768px) {
+                margin: 50px 0;
                 padding: 0;
-                margin: 20px 10px;
                 background: transparent;
-            }
-        }
-
-        .eventSchedules {
-            margin: 20px 50px;
-
-            @media screen and (max-width: 768px) {
-                margin: 20px;
             }
         }
 
@@ -33,6 +32,19 @@
 
             @media screen and (max-width: 768px) {
                 margin: 0 10px 50px 10px;
+            }
+        }
+
+        @media screen and (max-width: 1070px) {
+            width: 768px;
+        }
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            padding-inline: 25px;
+
+            .eventSchedules, .departmentActivities {
+                margin: 30px 0;
             }
         }
     }
