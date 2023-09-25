@@ -5,6 +5,7 @@ import ImageSlide from 'src/components/Home/ImageSlide'
 import DepartmentsWorkshop from 'src/components/Home/Departments'
 import FacultyActivities from 'src/components/Home/FacultyActivities'
 import Sponsors from 'src/components/Sponsors'
+import EventSchedules from 'src/components/Home/EventSchedules'
 
 const Home: React.FC = (): JSX.Element => {
   const { Title } = Typography
@@ -14,10 +15,11 @@ const Home: React.FC = (): JSX.Element => {
       <div className={styles.homePage}>
         <ImageSlide images={imageSlide} />
         <div className={styles.content}>
-          <div className={styles.activitySchedules}>
+          <div className={styles.eventSchedules}>
             <Title level={2} style={{ textAlign: 'center' }}>
               กิจกรรม
             </Title>
+            <EventSchedules />
           </div>
           <div className={styles.departmentActivities}>
             <Title level={2} style={{ textAlign: 'center' }}>

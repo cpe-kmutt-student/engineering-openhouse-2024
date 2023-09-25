@@ -19,6 +19,7 @@ export const theme: ThemeConfig = {
       colorPrimaryActive: '#946821',
       defaultBg: 'rgba(95, 55, 51, 0.5)',
       colorText: '#FFFFFF',
+      defaultBorderColor: 'transparent',
     },
     Collapse: {
       headerBg: 'rgba(95, 55, 51, 0.5)',

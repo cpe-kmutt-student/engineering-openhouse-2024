@@ -1,6 +1,6 @@
 import { Space, Typography } from 'antd'
 import { IWorkshopSchedule } from 'src/contents/department/departmentInfo'
-import { convertDateLocale } from 'src/utils/date'
+import { convertShortDateLocaleToThai } from 'src/utils/date'
 import styles from './index.module.scss'
 
 interface Props {
@@ -13,7 +13,7 @@ const WorkshopSchedule: React.FC<Props> = ({ schedule }: Props): JSX.Element => 
   const renderTableRow = schedule.map((schedule: IWorkshopSchedule, i: number) => {
     return (
       <tr key={i}>
-        <td>{convertDateLocale(schedule.date)}</td>
+        <td>{convertShortDateLocaleToThai(schedule.date)}</td>
         <td>{schedule.time}</td>
         <td>{schedule.amount}</td>
       </tr>
