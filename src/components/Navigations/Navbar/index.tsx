@@ -20,7 +20,7 @@ const Navbar: React.FC<Props> = ({ continuePath }: Props) => {
     <div className={styles.navbar}>
       <div className={styles.links}>
         <Image preview={false} src={Logo} width={45} />
-        <Link to={ABOUT_PATH}>
+        <Link to={ABOUT_PATH} replace>
           <Button type="text">เกี่ยวกับเรา</Button>
         </Link>
       </div>

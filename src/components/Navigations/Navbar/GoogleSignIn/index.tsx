@@ -1,5 +1,7 @@
 import { Button } from 'antd'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from 'src/utils/Context/AuthContext'
 import { axiosInstance } from 'src/utils/axios'
 
 interface Props {
@@ -7,6 +9,8 @@ interface Props {
 }
 
 const GoogleSignIn: React.FC<Props> = ({ continuePath }: Props): JSX.Element => {
+  const auth = useContext(AuthContext)
+
   const navigate = useNavigate()
 
   const handleSignInWithGoogle = async () => {
@@ -14,11 +18,13 @@ const GoogleSignIn: React.FC<Props> = ({ continuePath }: Props): JSX.Element => 
 
     const res = await axiosInstance.get('/api/auth/google')
 
-    if (continuePath) {
-      navigate(continuePath)
-    }
     if (res.status === 200) {
-      window.location.href = res.data.url
+      const userRes = await axiosInstance.get('/api/users')
+
+      if (userRes.status === 200) {
+        auth?.setAuthContext(userRes.data.data)
+        navigate(continuePath ?? res.data.url, { replace: true })
+      }
     }
   }
 

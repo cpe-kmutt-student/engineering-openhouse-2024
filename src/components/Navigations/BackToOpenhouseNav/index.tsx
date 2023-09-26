@@ -14,7 +14,7 @@ const BackToOpenhouse: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.backToOpenhouse}>
-      <Link to={BASE_PATH}>
+      <Link to={BASE_PATH} replace>
         <div className={styles.buttonDesktop}>
           <Button type="text" icon={<ArrowLeftOutlined />}>
             กลับสู่&nbsp;<span>Openhouse</span>

@@ -29,7 +29,7 @@ const DepartmentLocation: React.FC<Props> = ({ department }: Props): JSX.Element
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
-        <Link to={ABOUT_PATH}>
+        <Link to={ABOUT_PATH} replace>
           <Button type="default" style={{ border: 'none' }}>
             ดูแผนที่ภายในงาน
           </Button>

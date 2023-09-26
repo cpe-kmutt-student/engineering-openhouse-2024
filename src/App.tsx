@@ -53,7 +53,7 @@ const App: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     handleLogin()
-  }, [])
+  }, [handleLogin])
 
   return (
     <AuthContext.Provider value={{ authContext, setAuthContext }}>

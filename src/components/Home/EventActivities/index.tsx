@@ -9,7 +9,7 @@ const EventActivities: React.FC = (): JSX.Element => {
 
   const renderEvents = eventActivities.map((event: IEventActivity, i: number) => {
     return (
-      <Link to={EVENT_PATH.replace(':event', event.link)} key={i}>
+      <Link to={EVENT_PATH.replace(':event', event.link)} key={i} replace>
         <div className={styles.eventActivity}>
           <img src={event.thumbnail} alt="image" loading="lazy" />
           <Text className={styles.text} style={{ textAlign: 'center' }}>
