@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense, useCallback, useEffect, useState } from 'react'
 import { Routes, Route, Navigate, useLocation, useSearchParams } from 'react-router-dom'
 import {
   ABOUT_PATH,
@@ -22,6 +22,7 @@ import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/
 import Profile from './pages/Profile'
 import QRCode from './pages/QRCode'
 import EventActivity from './pages/EventActivity'
+import { axiosInstance } from './utils/axios'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -42,14 +43,17 @@ const App: React.FC = (): JSX.Element => {
   }
 
   // TODO : handle context
+  const handleLogin = useCallback(async (): Promise<void> => {
+    const res = await axiosInstance.get('/api/users')
+    console.log(res)
+    if (res.status === 200) {
+      setAuthContext(res.data.data)
+    }
+  }, [])
 
-  // useEffect(() => {
-  //   const res = axiosInstance.get('<USER_INFO_API>')
-
-  //   if (res) {
-  //     setAuthContext(res)
-  //   }
-  // }, [])
+  useEffect(() => {
+    handleLogin()
+  }, [])
 
   return (
     <AuthContext.Provider value={{ authContext, setAuthContext }}>

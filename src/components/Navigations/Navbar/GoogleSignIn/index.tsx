@@ -13,11 +13,11 @@ const GoogleSignIn: React.FC<Props> = ({ continuePath }: Props): JSX.Element => 
     // TODO: Sign in with Google & handle access_token cookie
 
     const res = await axiosInstance.get('/api/auth/google')
-    console.log(res)
 
     if (continuePath) {
       navigate(continuePath)
-    } else if (res.status === 200) {
+    }
+    if (res.status === 200) {
       window.location.href = res.data.url
     }
   }
