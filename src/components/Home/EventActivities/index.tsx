@@ -1,16 +1,16 @@
 import { Typography } from 'antd'
 import styles from './index.module.scss'
 import { Link } from 'react-router-dom'
-import { IEvent, events } from 'src/contents/event/events'
 import { EVENT_PATH } from 'src/configs/routes'
+import { IEventActivity, eventActivities } from 'src/contents/event/events'
 
-const FacultyEvents: React.FC = (): JSX.Element => {
+const EventActivities: React.FC = (): JSX.Element => {
   const { Text } = Typography
 
-  const renderEvents = events.map((event: IEvent, i: number) => {
+  const renderEvents = eventActivities.map((event: IEventActivity, i: number) => {
     return (
       <Link to={EVENT_PATH.replace(':event', event.link)} key={i}>
-        <div className={styles.facultyEvent}>
+        <div className={styles.eventActivity}>
           <img src={event.thumbnail} alt="image" loading="lazy" />
           <Text className={styles.text} style={{ textAlign: 'center' }}>
             {event.title}
@@ -20,7 +20,7 @@ const FacultyEvents: React.FC = (): JSX.Element => {
     )
   })
 
-  return <div className={styles.facultyEvents}>{renderEvents}</div>
+  return <div className={styles.eventActivities}>{renderEvents}</div>
 }
 
-export default FacultyEvents
+export default EventActivities

@@ -3,7 +3,7 @@ import styles from './index.module.scss'
 import { imageSlide } from 'src/contents/imageSlide'
 import ImageSlide from 'src/components/Home/ImageSlide'
 import DepartmentsWorkshop from 'src/components/Home/Departments'
-import FacultyEvents from 'src/components/Home/FacultyEvents'
+import EventActivities from 'src/components/Home/EventActivities'
 import Sponsors from 'src/components/Sponsors'
 import EventSchedules from 'src/components/Home/EventSchedules'
 
@@ -31,7 +31,7 @@ const Home: React.FC = (): JSX.Element => {
             <Title level={2} style={{ textAlign: 'center' }}>
               กิจกรรมส่วนกลาง
             </Title>
-            <FacultyEvents />
+            <EventActivities />
           </div>
         </div>
         <Sponsors />

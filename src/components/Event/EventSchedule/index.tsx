@@ -1,17 +1,17 @@
 import { Space, Typography } from 'antd'
 import styles from './index.module.scss'
-import { IEventRound, IEventSchedule } from 'src/contents/event/events'
+import { IActivityRound, IActivitySchedule } from 'src/contents/event/events'
 
 interface Props {
-  rounds: IEventRound[]
+  rounds: IActivityRound[]
   description: string
 }
 
 const EventSchedule: React.FC<Props> = ({ rounds, description }: Props): JSX.Element => {
   const { Title, Text } = Typography
 
-  const renderTableRow = (schedules: IEventSchedule[]) => {
-    return schedules.map((schedule: IEventSchedule, i: number) => {
+  const renderTableRow = (schedules: IActivitySchedule[]) => {
+    return schedules.map((schedule: IActivitySchedule, i: number) => {
       return (
         <tr key={i}>
           <td>{schedule.time}</td>
@@ -21,7 +21,7 @@ const EventSchedule: React.FC<Props> = ({ rounds, description }: Props): JSX.Ele
     })
   }
 
-  const renderEventRounds = rounds.map((round: IEventRound, i: number) => {
+  const renderEventRounds = rounds.map((round: IActivityRound, i: number) => {
     return (
       <div key={i}>
         <Title level={4} style={{ textAlign: 'center' }}>

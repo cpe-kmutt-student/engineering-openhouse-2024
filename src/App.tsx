@@ -21,7 +21,7 @@ import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
 import Profile from './pages/Profile'
 import QRCode from './pages/QRCode'
-import Event from './pages/Events'
+import EventActivity from './pages/EventActivity'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -61,7 +61,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path={ABOUT_PATH} element={<AboutUs />} />
 
             <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
-            <Route path={EVENT_PATH} element={<Event />} />
+            <Route path={EVENT_PATH} element={<EventActivity />} />
 
             <Route path={REGISTER_PATH} element={<Protected element={<Register />} />} />
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />

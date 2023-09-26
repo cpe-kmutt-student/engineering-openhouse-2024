@@ -1,24 +1,24 @@
-export interface IEvent {
+export interface IEventActivity {
   title: string
   link: string
   description: string
   thumbnail: string
   image: string
   lowerDescription: string
-  rounds?: IEventRound[]
+  rounds?: IActivityRound[]
 }
 
-export interface IEventRound {
+export interface IActivityRound {
   title: string
-  schedules: IEventSchedule[]
+  schedules: IActivitySchedule[]
 }
 
-export interface IEventSchedule {
+export interface IActivitySchedule {
   time: string
   amount: number
 }
 
-export const events: IEvent[] = [
+export const eventActivities: IEventActivity[] = [
   {
     title: 'กิจกรรมพาน้องทัวร์',
     link: 'starter-tour',
