@@ -1,14 +1,21 @@
-import { Button, Form, FormInstance, Input, Radio, Select, Typography } from 'antd'
+import { AutoComplete, Button, Form, FormInstance, Input, Radio, Select, Typography } from 'antd'
 import styles from './index.module.scss'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { IEducationLevel, educationLevel } from 'src/contents/register/educationLevel'
 import { UserType } from 'src/contents/register/enum'
 
 interface Props {
+  schoolData: ISchoolData[]
   onFinish: (value: IRegister) => void
 }
 
-const RegisterForm: React.FC<Props> = ({ onFinish }: Props): JSX.Element => {
+interface ISchoolData {
+  school_name: string
+}
+
+const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Element => {
+  const [options, setOptions] = useState<{ value: string }[]>([])
+
   const formRef = useRef<FormInstance>(null)
   const [form] = Form.useForm()
   const userType = Form.useWatch('userType', form)
@@ -18,6 +25,18 @@ const RegisterForm: React.FC<Props> = ({ onFinish }: Props): JSX.Element => {
 
   const handleSelectChange = (value: string) => {
     formRef.current?.setFieldsValue({ educationLevel: value })
+  }
+
+  const searchSchool = (searchText: string) => {
+    const searchValue = schoolData
+      .filter((el: ISchoolData) => el.school_name.includes(searchText))
+      .map((el: ISchoolData) => {
+        return {
+          value: el.school_name,
+        }
+      })
+
+    return searchText ? searchValue.slice(0, 10) : []
   }
 
   const renderEducationLevel = educationLevel.map((item: IEducationLevel, i: number) => (
@@ -97,7 +116,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish }: Props): JSX.Element => {
               name="schoolName"
               rules={[{ required: true, message: 'กรุณาระบุชื่อสถานศึกษา' }]}
             >
-              <Input />
+              <AutoComplete options={options} onSearch={(text) => setOptions(searchSchool(text))} />
             </Form.Item>
           </>
         )}

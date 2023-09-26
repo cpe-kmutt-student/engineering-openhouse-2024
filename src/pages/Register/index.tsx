@@ -1,5 +1,6 @@
 import styles from './index.module.scss'
 import RegisterForm, { IRegister } from 'src/components/Register/Form'
+import schoolData from 'src/contents/thailand_school_name.json'
 
 const Register: React.FC = (): JSX.Element => {
   const onFinish = (values: IRegister) => {
@@ -9,7 +10,7 @@ const Register: React.FC = (): JSX.Element => {
   return (
     <div className={styles.registerPage}>
       <div className={styles.content}>
-        <RegisterForm onFinish={onFinish} />
+        <RegisterForm onFinish={onFinish} schoolData={schoolData} />
       </div>
     </div>
   )
