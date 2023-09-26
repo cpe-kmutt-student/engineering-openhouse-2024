@@ -5,7 +5,7 @@ interface Props {
   department: IDepartmentInfo
 }
 
-const ActivityDetail: React.FC<Props> = ({ department }: Props): JSX.Element => {
+const WorkshopDetail: React.FC<Props> = ({ department }: Props): JSX.Element => {
   const { Title, Paragraph } = Typography
 
   const renderWorkshopDetails = department.activities.map((activity: IActivity, i: number) => {
@@ -29,4 +29,4 @@ const ActivityDetail: React.FC<Props> = ({ department }: Props): JSX.Element => 
   )
 }
 
-export default ActivityDetail
+export default WorkshopDetail

@@ -1,10 +1,11 @@
 import CPE from '../images/CPE.png'
+import { DepartmentEnum } from './enum'
 
 export interface IDepartmentInfo {
   name: {
     en: string
     th: string
-    initial: string
+    initial: DepartmentEnum
   }
   image: string
   description: string
@@ -32,7 +33,6 @@ export interface IActivity {
 }
 
 export interface IWorkshopSchedule {
-  round: number
   date: Date
   time: string
   amount: number
@@ -43,7 +43,7 @@ export const departmentInfo: IDepartmentInfo[] = [
     name: {
       en: 'Computer Engineering',
       th: 'ภาควิชาวิศวกรรมคอมพิวเตอร์',
-      initial: 'CPE',
+      initial: DepartmentEnum.CPE,
     },
     image: CPE,
     description:
@@ -82,13 +82,11 @@ export const departmentInfo: IDepartmentInfo[] = [
     ],
     workshopSchedule: [
       {
-        round: 1,
         date: new Date(),
         time: '12:30 - 14:30',
         amount: 30,
       },
       {
-        round: 2,
         date: new Date(),
         time: '12:30 - 14:30',
         amount: 30,

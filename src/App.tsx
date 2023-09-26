@@ -4,17 +4,15 @@ import {
   ABOUT_PATH,
   WORKSHOP_DEPARTMENT_PATH,
   BASE_PATH,
-  EVENT_PATH,
   NOT_FOUND_PATH,
   PROFILE_PATH,
-  ENGINEER_STARTER_TOUR_PATH,
+  EVENT_PATH,
   REGISTER_PATH,
   QR_CODE_VERITY,
 } from './configs/routes'
 import Home from './pages/Home'
 import { LoadingPage } from './pages/Loading'
 import Department from './pages/Department'
-import EngineerStarterTour from './pages/Activities/EngineerStarterTour'
 import Navbar from './components/Navigations/Navbar'
 import BackToOpenhouse from './components/Navigations/BackToOpenhouseNav'
 import Register from './pages/Register'
@@ -23,6 +21,7 @@ import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
 import Profile from './pages/Profile'
 import QRCode from './pages/QRCode'
+import Event from './pages/Events'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -59,11 +58,10 @@ const App: React.FC = (): JSX.Element => {
           {routeNavFilter(location.pathname)}
           <Routes>
             <Route path={BASE_PATH} element={<Home />} />
-            <Route path={EVENT_PATH} element={<Home />} />
             <Route path={ABOUT_PATH} element={<AboutUs />} />
 
             <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
-            <Route path={ENGINEER_STARTER_TOUR_PATH} element={<EngineerStarterTour />} />
+            <Route path={EVENT_PATH} element={<Event />} />
 
             <Route path={REGISTER_PATH} element={<Protected element={<Register />} />} />
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />

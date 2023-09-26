@@ -4,7 +4,7 @@ import { Typography } from 'antd'
 import { IDepartmentInfo, IWorkshopSchedule, departmentInfo } from 'src/contents/department/departmentInfo'
 import { BASE_PATH } from 'src/configs/routes'
 import ImageHeader from 'src/components/ImageHeader'
-import ActivityDetail from 'src/components/Department/ActivityDetail'
+import WorkshopDetail from 'src/components/Department/WorkshopDetail'
 import WorkshopSchedule from 'src/components/Department/WorkshopSchedule'
 import DepartmentLocation from 'src/components/Department/DepartmentLocation'
 import Contact from 'src/components/Department/Contact'
@@ -18,14 +18,12 @@ const Department: React.FC = (): JSX.Element => {
 
   if (!departmentInitial || !department) return <Navigate to={BASE_PATH} />
 
-  const sortRoundSchedule = department.workshopSchedule
-    .sort((a: IWorkshopSchedule, b: IWorkshopSchedule) => a.round - b.round)
-    .map((schedule: IWorkshopSchedule) => {
-      return {
-        key: schedule.round,
-        ...schedule,
-      }
-    })
+  const sortRoundSchedule = department.workshopSchedule.map((schedule: IWorkshopSchedule, i: number) => {
+    return {
+      key: i,
+      ...schedule,
+    }
+  })
 
   return (
     <div className={styles.departmentPage}>
@@ -37,7 +35,7 @@ const Department: React.FC = (): JSX.Element => {
           </Title>
           <Paragraph style={{ color: '#FFFFFF' }}>{department.description}</Paragraph>
         </div>
-        <ActivityDetail department={department} />
+        <WorkshopDetail department={department} />
         <WorkshopSchedule schedule={sortRoundSchedule} />
         <DepartmentLocation department={department} />
         <Contact contact={department.contact} />

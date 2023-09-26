@@ -5,7 +5,7 @@ import { cacheImage } from 'src/utils/cacheImage'
 
 interface Props {
   title: string
-  subTitle: string
+  subTitle?: string
   image: string
 }
 

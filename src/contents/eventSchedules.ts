@@ -1,10 +1,10 @@
-export interface IEvent {
+export interface IEventSchedule {
   title: string
   date: Date | string
   time: string
 }
 
-export const events: IEvent[] = [
+export const eventSchedules: IEventSchedule[] = [
   {
     title:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',

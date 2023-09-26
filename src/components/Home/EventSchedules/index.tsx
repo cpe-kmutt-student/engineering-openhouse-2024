@@ -1,5 +1,5 @@
 import { Button, Space, Typography } from 'antd'
-import { IEvent, events } from 'src/contents/events'
+import { IEventSchedule, eventSchedules } from 'src/contents/eventSchedules'
 import styles from './index.module.scss'
 import { useState } from 'react'
 import { convertDateLocaleToThai } from 'src/utils/date'
@@ -11,15 +11,15 @@ const EventSchedules: React.FC = (): JSX.Element => {
 
   const { Title } = Typography
 
-  const renderEvent = events.slice(0, eventsToShow).map((event: IEvent, i: number) => {
+  const renderEvent = eventSchedules.slice(0, eventsToShow).map((schedule: IEventSchedule, i: number) => {
     return (
       <div className={styles.event} key={i}>
         <Space direction="vertical" className={styles.schedule}>
-          <Title level={3}>{convertDateLocaleToThai(event.date)}</Title>
-          <Title level={4}>{event.time}</Title>
+          <Title level={3}>{convertDateLocaleToThai(schedule.date)}</Title>
+          <Title level={4}>{schedule.time}</Title>
         </Space>
         <Space direction="vertical" className={styles.content}>
-          <Title level={4}>{event.title}</Title>
+          <Title level={4}>{schedule.title}</Title>
         </Space>
       </div>
     )
@@ -29,9 +29,9 @@ const EventSchedules: React.FC = (): JSX.Element => {
     <div className={styles.events}>
       {renderEvent}
       {eventsToShow === EVENT_TO_SHOW ||
-        (events.length !== EVENT_TO_SHOW && (
+        (eventSchedules.length !== EVENT_TO_SHOW && (
           <div className={styles.button}>
-            <Button type="default" onClick={() => setEventsToShow(events.length)}>
+            <Button type="default" onClick={() => setEventsToShow(eventSchedules.length)}>
               ดูทั้งหมด
             </Button>
           </div>
