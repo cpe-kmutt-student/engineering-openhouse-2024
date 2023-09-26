@@ -12,18 +12,14 @@ const ProfileInfo: React.FC<Props> = ({ auth }: Props): JSX.Element => {
   return (
     <div className={styles.profile}>
       <div className={styles.avatar}>
-        <Image
-          src="https://static.miraheze.org/bluearchivewiki/c/c3/Koharu.png?version=fa543d09d94b998647a5273a0d05c1bb"
-          alt="avatar"
-          width={150}
-          height={150}
-          preview={false}
-        />
+        <Image src={auth.profileUrl} alt="avatar" width={150} height={150} preview={false} />
       </div>
       <div className={styles.content}>
         <Space align="center" direction="vertical" style={{ width: '100%' }}>
-          <Title level={2}>{auth.name}</Title>
-          <Title level={3}>Phubordin Poolnai</Title>
+          <Title level={2}>
+            {auth.firstName} {auth.lastName}
+          </Title>
+          <Title level={3}>{auth.email}</Title>
         </Space>
       </div>
     </div>

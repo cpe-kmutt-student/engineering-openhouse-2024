@@ -4,14 +4,19 @@ import { useContext } from 'react'
 import { AuthContext } from 'src/utils/Context/AuthContext'
 import { LoadingPage } from '../Loading'
 import ProfileInfo from 'src/components/Profile/ProfileInfo'
+import { axiosInstance } from 'src/utils/axios'
 
 const Profile: React.FC = (): JSX.Element => {
   const { Title } = Typography
 
   const user = useContext(AuthContext)
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     // TODO : Logout handler
+    const res = await axiosInstance.post('/api/auth/logout')
+    if (res.status === 200) {
+      window.location.href = '/'
+    }
     console.log('nice')
   }
 

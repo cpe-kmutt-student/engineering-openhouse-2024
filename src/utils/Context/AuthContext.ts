@@ -1,15 +1,19 @@
 import { createContext } from 'react'
 
 export interface IAuthContext {
-  name: string
+  id: string
   email: string
-  tel: string
+  firstName: string
+  lastName: string
+  profileUrl: string
 }
 
 export const initialContextValue: IAuthContext = {
-  name: 'Lorem Ipsum',
-  email: 'Lipsum@gmail.com',
-  tel: '',
+  id: '',
+  email: '',
+  firstName: '',
+  lastName: '',
+  profileUrl: '',
 }
 
 interface IAuthContextType {
