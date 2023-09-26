@@ -2,7 +2,7 @@ import { AutoComplete, Button, Form, FormInstance, Input, Radio, Select, Typogra
 import styles from './index.module.scss'
 import { useRef, useState } from 'react'
 import { IEducationLevel, educationLevel } from 'src/contents/register/educationLevel'
-import { UserType } from 'src/contents/register/enum'
+import { AccountType } from 'src/contents/register/enum'
 
 interface Props {
   schoolData: ISchoolData[]
@@ -18,7 +18,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
 
   const formRef = useRef<FormInstance>(null)
   const [form] = Form.useForm()
-  const userType = Form.useWatch('userType', form)
+  const accountType = Form.useWatch('accountType', form)
 
   const { Option } = Select
   const { Title } = Typography
@@ -69,7 +69,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
         <div className={styles.formGroup}>
           <Form.Item<IRegister>
             label="First name"
-            name="firstNameEN"
+            name="firstNameEng"
             rules={[{ required: true, message: 'กรุณาระบุชื่อจริง (ภาษาอังกฤษ)' }]}
           >
             <Input />
@@ -77,7 +77,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
 
           <Form.Item<IRegister>
             label="Last name"
-            name="lastNameEN"
+            name="lastNameEng"
             rules={[{ required: true, message: 'กรุณาระบุนามสกุล (ภาษาอังกฤษ)' }]}
           >
             <Input />
@@ -85,7 +85,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
         </div>
         <Form.Item<IRegister>
           label="หมายเลขโทรศัพท์"
-          name="phoneNumber"
+          name="phone"
           rules={[{ required: true, message: 'กรุณาระบุหมายเลขโทรศัพท์' }]}
         >
           <Input />
@@ -93,16 +93,16 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
         <Form.Item<IRegister>
           label="ประเภทผู้ใช้งาน"
           rules={[{ required: true, message: 'กรุณาระบุประเภทผู้ใช้งาน' }]}
-          name="userType"
+          name="accountType"
         >
           <Radio.Group>
-            <Radio value={UserType.student}>นักเรียน/นักศึกษา</Radio>
-            <Radio value={UserType.teacher}>อาจารย์</Radio>
-            <Radio value={UserType.guardian}>ผู้ปกครอง</Radio>
-            <Radio value={UserType.general}>บุคคลทั่วไป</Radio>
+            <Radio value={AccountType.student}>นักเรียน/นักศึกษา</Radio>
+            <Radio value={AccountType.teacher}>อาจารย์</Radio>
+            <Radio value={AccountType.guardian}>ผู้ปกครอง</Radio>
+            <Radio value={AccountType.general}>บุคคลทั่วไป</Radio>
           </Radio.Group>
         </Form.Item>
-        {userType === UserType.student && (
+        {accountType === AccountType.student && (
           <>
             <Form.Item<IRegister>
               name="educationLevel"
@@ -133,10 +133,10 @@ export default RegisterForm
 export interface IRegister {
   firstName: string
   lastName: string
-  firstNameEN: string
-  lastNameEN: string
-  phoneNumber: string
-  userType: UserType
+  firstNameEng: string
+  lastNameEng: string
+  phone: string
+  accountType: AccountType
   educationLevel?: string
   schoolName?: string
 }
