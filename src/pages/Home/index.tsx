@@ -1,11 +1,7 @@
 import { Typography } from 'antd'
 import styles from './index.module.scss'
-import { imageSlide } from 'src/contents/imageSlide'
-import ImageSlide from 'src/components/Home/ImageSlide'
-import DepartmentsWorkshop from 'src/components/Home/Departments'
-import EventActivities from 'src/components/Home/EventActivities'
-import Sponsors from 'src/components/Sponsors'
-import EventSchedules from 'src/components/Home/EventSchedules'
+import Wheel from './wheel/Wheel'
+import { CountDown } from './countdown/Countdown'
 
 const Home: React.FC = (): JSX.Element => {
   const { Title } = Typography
@@ -13,28 +9,19 @@ const Home: React.FC = (): JSX.Element => {
   return (
     <>
       <div className={styles.homePage}>
-        <ImageSlide images={imageSlide} />
-        <div className={styles.content}>
-          <div className={styles.eventSchedules}>
+        <div>
+          <Wheel />
+          <div>
+            <br />
             <Title level={2} style={{ textAlign: 'center' }}>
-              กิจกรรม
+              Coming Soon
             </Title>
-            <EventSchedules />
-          </div>
-          <div className={styles.departmentActivities}>
-            <Title level={2} style={{ textAlign: 'center' }}>
-              กิจกรรมส่วนภาควิชา
+            <Title level={3} style={{ textAlign: 'center' }}>
+              Engineering Openhouse <br /> Carnival at Bangmod
             </Title>
-            <DepartmentsWorkshop />
-          </div>
-          <div className={styles.collegeActivities}>
-            <Title level={2} style={{ textAlign: 'center' }}>
-              กิจกรรมส่วนกลาง
-            </Title>
-            <EventActivities />
+            <CountDown deadline="October, 2, 2023" />
           </div>
         </div>
-        <Sponsors />
       </div>
     </>
   )
