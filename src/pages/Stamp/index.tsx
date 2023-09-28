@@ -19,7 +19,7 @@ const Stamp: React.FC = (): JSX.Element => {
       navigate(PROFILE_PATH, { replace: true })
       navigate(0)
     }
-  }, [qrCodeID])
+  }, [qrCodeID, navigate])
 
   useEffect(() => {
     handleVerifyCode()
