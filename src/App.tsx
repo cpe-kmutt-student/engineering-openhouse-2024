@@ -35,6 +35,9 @@ const App: React.FC = (): JSX.Element => {
       case BASE_PATH:
         return <Navbar />
 
+      case QR_CODE_VERITY:
+        return
+
       default:
         return <BackToOpenhouse />
     }
