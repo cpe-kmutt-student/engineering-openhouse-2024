@@ -1,14 +1,14 @@
 import { Typography } from 'antd'
-import { IDepartmentInfo, IActivity } from 'src/contents/department/departmentInfo'
+import { IActivity } from 'src/contents/department/departmentInfo'
 
 interface Props {
-  department: IDepartmentInfo
+  activities: IActivity[]
 }
 
-const WorkshopDetail: React.FC<Props> = ({ department }: Props): JSX.Element => {
+const WorkshopActivities: React.FC<Props> = ({ activities }: Props): JSX.Element => {
   const { Title, Paragraph } = Typography
 
-  const renderWorkshopDetails = department.activities.map((activity: IActivity, i: number) => {
+  const renderWorkshopDetails = activities.map((activity: IActivity, i: number) => {
     return (
       <div key={i}>
         <Title level={4}>
@@ -29,4 +29,4 @@ const WorkshopDetail: React.FC<Props> = ({ department }: Props): JSX.Element => 
   )
 }
 
-export default WorkshopDetail
+export default WorkshopActivities

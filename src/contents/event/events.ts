@@ -4,7 +4,7 @@ export interface IEventActivity {
   description: string
   thumbnail: string
   image: string
-  lowerDescription: string
+  lowerDescription?: string
   rounds?: IActivityRound[]
 }
 
@@ -30,7 +30,7 @@ export const eventActivities: IEventActivity[] = [
     lowerDescription: 'ผู้ที่เข้าร่วมจะได้รับของที่ระลึกพิเศษ',
     rounds: [
       {
-        title: 'ภาควิชา TME ME PE&MCE CPE',
+        title: 'ภาควิชา CPE PE ME TME',
         schedules: [
           {
             time: '08.55 - 10.40',
@@ -45,34 +45,13 @@ export const eventActivities: IEventActivity[] = [
             amount: 25,
           },
           {
-            time: '14.55 - 15.40',
+            time: '14.55 - 16.40',
             amount: 25,
           },
         ],
       },
       {
         title: 'ภาควิชา CHE CVE ENV',
-        schedules: [
-          {
-            time: '09.05 - 10.25',
-            amount: 25,
-          },
-          {
-            time: '11.05 - 12.25',
-            amount: 25,
-          },
-          {
-            time: '13.05 - 14.25',
-            amount: 25,
-          },
-          {
-            time: '15.05 - 16.25',
-            amount: 25,
-          },
-        ],
-      },
-      {
-        title: 'ภาควิชา EE INC ENE',
         schedules: [
           {
             time: '09.00 - 10.20',
@@ -88,6 +67,27 @@ export const eventActivities: IEventActivity[] = [
           },
           {
             time: '15.00 - 16.20',
+            amount: 25,
+          },
+        ],
+      },
+      {
+        title: 'ภาควิชา EE INC ENE',
+        schedules: [
+          {
+            time: '09.05 - 10.25',
+            amount: 25,
+          },
+          {
+            time: '11.05 - 12.25',
+            amount: 25,
+          },
+          {
+            time: '13.05 - 14.25',
+            amount: 25,
+          },
+          {
+            time: '15.05 - 16.25',
             amount: 25,
           },
         ],

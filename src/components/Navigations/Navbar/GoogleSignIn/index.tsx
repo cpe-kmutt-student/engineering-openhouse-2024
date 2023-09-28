@@ -1,7 +1,12 @@
 import { Button } from 'antd'
+import React from 'react'
 import { axiosInstance } from 'src/utils/axios'
 
-const GoogleSignIn: React.FC = (): JSX.Element => {
+interface Props {
+  style?: React.CSSProperties
+}
+
+const GoogleSignIn: React.FC<Props> = (props: Props): JSX.Element => {
   const handleSignInWithGoogle = async () => {
     const res = await axiosInstance.get('/api/auth/google')
 
@@ -11,8 +16,8 @@ const GoogleSignIn: React.FC = (): JSX.Element => {
   }
 
   return (
-    <Button type="primary" onClick={handleSignInWithGoogle}>
-      Login
+    <Button type="primary" onClick={handleSignInWithGoogle} {...props}>
+      เข้าสู่ระบบ
     </Button>
   )
 }

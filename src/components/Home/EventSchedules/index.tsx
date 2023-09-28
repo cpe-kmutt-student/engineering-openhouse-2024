@@ -19,7 +19,7 @@ const EventSchedules: React.FC = (): JSX.Element => {
           <Title level={4}>{schedule.time}</Title>
         </Space>
         <Space direction="vertical" className={styles.content}>
-          <Title level={4}>{schedule.title}</Title>
+          <Title level={5}>{schedule.title}</Title>
         </Space>
       </div>
     )

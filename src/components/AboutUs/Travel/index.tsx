@@ -19,9 +19,11 @@ const AboutTravel: React.FC = (): JSX.Element => {
         </Title>
         {travel.ways.map((way: ITravelWay, iWay: number) => (
           <div className={styles.way} key={iWay}>
-            <Title level={4}>
-              {(iWay += 1)}. {way.name}
-            </Title>
+            {way.name && (
+              <Title level={4}>
+                {(iWay += 1)}. {way.name}
+              </Title>
+            )}
             {way.description && <Paragraph className={styles.paragraph}>{way.description}</Paragraph>}
             <ul className={styles.step}>
               {way.buses && way.buses.map((bus: string, iBus: number) => <li key={iBus}>{bus}</li>)}
@@ -29,7 +31,7 @@ const AboutTravel: React.FC = (): JSX.Element => {
           </div>
         ))}
         <div className={styles.image}>
-          <Image src={travel.image} alt="image" loading="lazy" />
+          <Image src={travel.image} width={300} alt="image" loading="lazy" />
         </div>
       </div>
     )
