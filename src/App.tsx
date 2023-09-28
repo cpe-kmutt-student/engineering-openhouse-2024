@@ -20,7 +20,7 @@ import AboutUs from './pages/AboutUs'
 import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
 import Profile from './pages/Profile'
-import QRCode from './pages/QRCode'
+import Stamp from './pages/Stamp'
 import EventActivity from './pages/EventActivity'
 import { axiosInstance } from './utils/axios'
 
@@ -72,7 +72,7 @@ const App: React.FC = (): JSX.Element => {
 
             <Route path={REGISTER_PATH} element={<Register />} />
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
-            <Route path={QR_CODE_VERITY} element={<Protected element={<QRCode />} />} />
+            <Route path={QR_CODE_VERITY} element={<Protected element={<Stamp />} />} />
 
             <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
           </Routes>
