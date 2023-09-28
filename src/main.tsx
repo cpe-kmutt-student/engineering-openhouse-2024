@@ -5,6 +5,9 @@ import App from './App.tsx'
 import './index.scss'
 import { ConfigProvider } from 'antd'
 import { theme } from './configs/theme.ts'
+import ReactGA from 'react-ga'
+
+ReactGA.initialize(import.meta.env.APP_GOOGLE_MEASURE_ID)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

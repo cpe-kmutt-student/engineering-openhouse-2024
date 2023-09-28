@@ -23,6 +23,7 @@ import Profile from './pages/Profile'
 import Stamp from './pages/Stamp'
 import EventActivity from './pages/EventActivity'
 import { axiosInstance } from './utils/axios'
+import ReactGA from 'react-ga'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -58,6 +59,8 @@ const App: React.FC = (): JSX.Element => {
   useEffect(() => {
     handleLogin().then(() => setLoading(false))
   }, [handleLogin])
+
+  ReactGA.pageview(window.location.pathname + window.location.search)
 
   if (loading) return <LoadingPage />
 
