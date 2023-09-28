@@ -1,5 +1,5 @@
 import React, { Suspense, useCallback, useEffect, useState } from 'react'
-import { Routes, Route, Navigate, useLocation, useSearchParams } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import {
   ABOUT_PATH,
   WORKSHOP_DEPARTMENT_PATH,
@@ -26,34 +26,37 @@ import { axiosInstance } from './utils/axios'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
+  const [loading, setLoading] = useState<boolean>(true)
 
   const location = useLocation()
-
-  const [searchParams] = useSearchParams()
-  const continuePath = searchParams.get('continue')
 
   const routeNavFilter = (pathname: string) => {
     switch (pathname) {
       case BASE_PATH:
-        return <Navbar continuePath={continuePath} />
+        return <Navbar />
 
       default:
         return <BackToOpenhouse />
     }
   }
 
-  // TODO : handle context
   const handleLogin = useCallback(async (): Promise<void> => {
-    const res = await axiosInstance.get('/api/users')
-    console.log(res)
-    if (res.status === 200) {
-      setAuthContext(res.data.data)
+    try {
+      const res = await axiosInstance.get('/api/users')
+
+      if (res.status === 200) {
+        setAuthContext({ ...res.data.data, isAuthenticated: true })
+      }
+    } catch (err) {
+      setLoading(false)
     }
   }, [])
 
   useEffect(() => {
-    handleLogin()
+    handleLogin().then(() => setLoading(false))
   }, [handleLogin])
+
+  if (loading) return <LoadingPage />
 
   return (
     <AuthContext.Provider value={{ authContext, setAuthContext }}>
@@ -67,7 +70,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
             <Route path={EVENT_PATH} element={<EventActivity />} />
 
-            <Route path={REGISTER_PATH} element={<Protected element={<Register />} />} />
+            <Route path={REGISTER_PATH} element={<Register />} />
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
             <Route path={QR_CODE_VERITY} element={<Protected element={<QRCode />} />} />
 

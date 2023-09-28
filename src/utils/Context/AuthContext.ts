@@ -6,6 +6,17 @@ export interface IAuthContext {
   firstName: string
   lastName: string
   profileUrl: string
+  isAuthenticated: boolean
+}
+
+export interface IAuthUserAPI extends IAuthContext {
+  accountType: string
+  created_at: string
+  educationLevel: string
+  firstNameEng: string
+  lastNameEng: string
+  phone: string
+  schoolName: string
 }
 
 export const initialContextValue: IAuthContext = {
@@ -14,6 +25,7 @@ export const initialContextValue: IAuthContext = {
   firstName: '',
   lastName: '',
   profileUrl: '',
+  isAuthenticated: false,
 }
 
 interface IAuthContextType {

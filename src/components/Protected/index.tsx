@@ -1,24 +1,24 @@
-import { Navigate } from 'react-router-dom'
-import { ReactNode, useContext } from 'react'
+import { Navigate, useLocation } from 'react-router-dom'
+import { useContext, useState } from 'react'
 import { AuthContext } from 'src/utils/Context/AuthContext'
 import { BASE_PATH } from 'src/configs/routes'
+import { LoadingPage } from 'src/pages/Loading'
 
 interface Props {
-  element: ReactNode
+  element: JSX.Element
 }
 
 const Protected: React.FC<Props> = ({ element }: Props) => {
-  const authContext = useContext(AuthContext)
+  const [loading] = useState<boolean>(false)
 
-  const isAuthenticated = !!authContext?.authContext.email
+  const location = useLocation()
+  const auth = useContext(AuthContext)
 
-  const redirectWithContinuePath = (): ReactNode => {
-    const pathname = location.pathname + location.search
+  const isAuthenticated = auth?.authContext.isAuthenticated
 
-    return <Navigate to={`${BASE_PATH}?continue=${encodeURIComponent(pathname)}`} />
-  }
+  if (loading) return <LoadingPage />
 
-  return isAuthenticated ? element : redirectWithContinuePath()
+  return isAuthenticated ? element : <Navigate replace to={BASE_PATH} state={{ from: location }} />
 }
 
 export default Protected

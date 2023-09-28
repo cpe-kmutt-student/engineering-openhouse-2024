@@ -25,3 +25,4 @@ dist-ssr
 
 translation.ts
 src/locales/*.json
+.env
