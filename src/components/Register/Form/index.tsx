@@ -86,7 +86,11 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
         <Form.Item<IRegister>
           label="หมายเลขโทรศัพท์"
           name="phone"
-          rules={[{ required: true, message: 'กรุณาระบุหมายเลขโทรศัพท์' }]}
+          rules={[
+            { required: true, message: 'กรุณาระบุหมายเลขโทรศัพท์' },
+            { min: 10, max: 10, message: 'หมายเลขโทรศัพท์ต้องมีจำนวน 10 หลัก' },
+            { pattern: new RegExp(/^[0-9]+$/), message: 'หมายเลขโทรศัพท์ต้องไม่มีตัวอักษร' },
+          ]}
         >
           <Input />
         </Form.Item>

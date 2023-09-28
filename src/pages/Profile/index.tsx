@@ -1,4 +1,4 @@
-import { Button, Typography } from 'antd'
+import { Button } from 'antd'
 import styles from './index.module.scss'
 import { useContext } from 'react'
 import { AuthContext } from 'src/utils/Context/AuthContext'
@@ -6,10 +6,9 @@ import { LoadingPage } from '../Loading'
 import ProfileInfo from 'src/components/Profile/ProfileInfo'
 import { axiosInstance } from 'src/utils/axios'
 import { useNavigate } from 'react-router-dom'
+import EStamp from 'src/components/Profile/EStamp'
 
 const Profile: React.FC = (): JSX.Element => {
-  const { Title } = Typography
-
   const user = useContext(AuthContext)
   const navigate = useNavigate()
 
@@ -31,9 +30,7 @@ const Profile: React.FC = (): JSX.Element => {
   return (
     <div className={styles.profilePage}>
       <ProfileInfo auth={user.authContext} />
-      <div className={styles.eStamp}>
-        <Title level={3}>E-Stamp</Title>
-      </div>
+      <EStamp />
       <div className={styles.logout}>
         <Button onClick={handleLogout} type="primary">
           ออกจากระบบ
