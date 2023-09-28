@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Navigate, useSearchParams } from 'react-router-dom'
 import { axiosInstance } from 'src/utils/axios'
 import { LoadingPage } from '../Loading'
-import { PROFILE_PATH } from 'src/configs/routes'
+import { BASE_PATH, PROFILE_PATH } from 'src/configs/routes'
 
 const CODE_PARAM = 'code'
 
@@ -22,7 +22,7 @@ const Stamp: React.FC = (): JSX.Element => {
     handleVerifyCode()
   }, [handleVerifyCode])
 
-  return <LoadingPage />
+  return qrCodeID ? <LoadingPage /> : <Navigate to={BASE_PATH} replace />
 }
 
 export default Stamp
