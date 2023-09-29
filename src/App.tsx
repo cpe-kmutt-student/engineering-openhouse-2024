@@ -13,8 +13,6 @@ import {
 import Home from './pages/Home'
 import { LoadingPage } from './pages/Loading'
 import Department from './pages/Department'
-import Navbar from './components/Navigations/Navbar'
-import BackToOpenhouse from './components/Navigations/BackToOpenhouseNav'
 import Register from './pages/Register'
 import AboutUs from './pages/AboutUs'
 import Protected from './components/Protected'
@@ -24,25 +22,13 @@ import Stamp from './pages/Stamp'
 import EventActivity from './pages/EventActivity'
 import { axiosInstance } from './utils/axios'
 import ReactGA from 'react-ga'
+import { routeNavFilter } from './utils/nav'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
   const [loading, setLoading] = useState<boolean>(true)
 
   const location = useLocation()
-
-  const routeNavFilter = (pathname: string) => {
-    switch (pathname) {
-      case BASE_PATH:
-        return <Navbar />
-
-      case QR_CODE_VERITY:
-        return
-
-      default:
-        return <BackToOpenhouse />
-    }
-  }
 
   const handleLogin = useCallback(async (): Promise<void> => {
     try {
