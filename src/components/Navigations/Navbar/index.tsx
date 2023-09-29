@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
     {
       key: 'about',
       label: (
-        <Link to={ABOUT_PATH} replace className={styles.link}>
+        <Link to={ABOUT_PATH} className={styles.link}>
           เกี่ยวกับเรา
         </Link>
       ),
@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
       key: 'profile',
       style: { display: isAuthenticated ? 'block' : 'none' },
       label: (
-        <Link to={PROFILE_PATH} replace className={styles.link}>
+        <Link to={PROFILE_PATH} className={styles.link}>
           โปรไฟล์
         </Link>
       ),
@@ -62,11 +62,11 @@ const Navbar: React.FC = () => {
     <div className={styles.navbar}>
       <div className={styles.links}>
         <Image preview={false} src={Logo} width={45} />
-        <Link to={ABOUT_PATH} replace className={styles.link}>
+        <Link to={ABOUT_PATH} className={styles.link}>
           <Button type="text">เกี่ยวกับเรา</Button>
         </Link>
         {isAuthenticated && (
-          <Link to={PROFILE_PATH} replace className={styles.link}>
+          <Link to={PROFILE_PATH} className={styles.link}>
             <Button type="text">โปรไฟล์</Button>
           </Link>
         )}

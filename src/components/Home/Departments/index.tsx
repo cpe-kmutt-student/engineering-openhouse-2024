@@ -15,7 +15,7 @@ const DepartmentsWorkshop: React.FC = (): JSX.Element => {
 
   const renderActivities = departments.map((department, i: number) => {
     return (
-      <Link to={WORKSHOP_DEPARTMENT_PATH.replace(':departmentInitial', department.link)} key={i} replace>
+      <Link to={WORKSHOP_DEPARTMENT_PATH.replace(':departmentInitial', department.link)} key={i}>
         <div className={styles.card}>
           <img src={department.image} alt="image" loading="lazy" />
           <Text className={styles.text}>
