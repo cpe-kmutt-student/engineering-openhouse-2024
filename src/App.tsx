@@ -9,6 +9,7 @@ import {
   EVENT_PATH,
   REGISTER_PATH,
   QR_CODE_VERITY,
+  SATISFACTION_SURVEY,
 } from './configs/routes'
 import Home from './pages/Home'
 import { LoadingPage } from './pages/Loading'
@@ -23,6 +24,7 @@ import EventActivity from './pages/EventActivity'
 import { axiosInstance } from './utils/axios'
 import ReactGA from 'react-ga'
 import { routeNavFilter } from './utils/nav'
+import SatisfactionSurvey from './pages/SatisfactionSurvey'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -65,6 +67,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path={REGISTER_PATH} element={<Register />} />
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
             <Route path={QR_CODE_VERITY} element={<Protected element={<Stamp />} />} />
+            <Route path={SATISFACTION_SURVEY} element={<Protected element={<SatisfactionSurvey />} />} />
 
             <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
           </Routes>
