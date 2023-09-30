@@ -25,6 +25,7 @@ import { axiosInstance } from './utils/axios'
 import ReactGA from 'react-ga'
 import { routeNavFilter } from './utils/nav'
 import SatisfactionSurvey from './pages/SatisfactionSurvey'
+import ScrollToTop from './components/ScrollToTop'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -54,6 +55,7 @@ const App: React.FC = (): JSX.Element => {
 
   return (
     <AuthContext.Provider value={{ authContext, setAuthContext }}>
+      <ScrollToTop />
       <div className="App">
         <Suspense fallback={<LoadingPage />}>
           {routeNavFilter(location.pathname)}
