@@ -1,14 +1,14 @@
 import { Button, Space, Typography } from 'antd'
 import { IDepartmentInfo } from 'src/contents/department/departmentInfo'
 import styles from './index.module.scss'
-import { Link } from 'react-router-dom'
-import { ABOUT_PATH } from 'src/configs/routes'
 interface Props {
   location: IDepartmentInfo['location']
 }
 
+const OPEN_HOUSE_MAP = 'https://www.google.com/maps/d/edit?mid=1Hxak7Bh9K4PLuiL2tFHwDPeIAsJzZn4&usp=sharing'
+
 const DepartmentLocation: React.FC<Props> = ({ location }: Props): JSX.Element => {
-  const { Title } = Typography
+  const { Title, Link } = Typography
 
   return (
     <div>
@@ -38,7 +38,7 @@ const DepartmentLocation: React.FC<Props> = ({ location }: Props): JSX.Element =
             />
           </div>
         )}
-        <Link to={ABOUT_PATH}>
+        <Link href={OPEN_HOUSE_MAP}>
           <Button type="default" style={{ border: 'none', marginTop: '20px' }}>
             ดูแผนที่ภายในงาน
           </Button>
