@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 import { useRef, useState } from 'react'
 import { IEducationLevel, educationLevel } from 'src/contents/register/educationLevel'
 import { AccountType } from 'src/contents/register/enum'
+import { namePrefix } from 'src/contents/register/prefix'
 
 interface Props {
   schoolData: ISchoolData[]
@@ -23,8 +24,12 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
   const { Option } = Select
   const { Title } = Typography
 
-  const handleSelectChange = (value: string) => {
+  const handleEducationSelectChange = (value: string) => {
     formRef.current?.setFieldsValue({ educationLevel: value })
+  }
+
+  const handlePrefixSelectChange = (value: string) => {
+    formRef.current?.setFieldsValue({ prefix: value })
   }
 
   const searchSchool = (searchText: string) => {
@@ -45,10 +50,23 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
     </Option>
   ))
 
+  const renderNamePrefix = namePrefix.map((prefix: string, i: number) => (
+    <Option value={prefix} key={i}>
+      {prefix}
+    </Option>
+  ))
+
   return (
     <div className={styles.form}>
       <Title>ลงทะเบียน</Title>
       <Form layout="vertical" onFinish={onFinish} ref={formRef} form={form}>
+        <Form.Item<IRegister>
+          name="prefix"
+          label="คำนำหน้าชื่อ"
+          rules={[{ required: true, message: 'กรุณาระบุระดับการศึกษา' }]}
+        >
+          <Select onChange={handlePrefixSelectChange}>{renderNamePrefix}</Select>
+        </Form.Item>
         <div className={styles.formGroup}>
           <Form.Item<IRegister>
             label="ชื่อจริง"
@@ -113,7 +131,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
               label="ระดับการศึกษา"
               rules={[{ required: true, message: 'กรุณาระบุระดับการศึกษา' }]}
             >
-              <Select onChange={handleSelectChange}>{renderEducationLevel}</Select>
+              <Select onChange={handleEducationSelectChange}>{renderEducationLevel}</Select>
             </Form.Item>
             <Form.Item<IRegister>
               label="ชื่อสถานศึกษา"
@@ -135,6 +153,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
 export default RegisterForm
 
 export interface IRegister {
+  prefix: string
   firstName: string
   lastName: string
   firstNameEng: string
