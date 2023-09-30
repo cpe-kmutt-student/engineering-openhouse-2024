@@ -15,8 +15,8 @@ const EventSchedules: React.FC = (): JSX.Element => {
     return (
       <div className={styles.event} key={i}>
         <Space direction="vertical" className={styles.schedule}>
-          <Title level={3}>{convertDateLocaleToThai(schedule.date)}</Title>
-          <Title level={4}>{schedule.time}</Title>
+          <Title level={4}>{convertDateLocaleToThai(schedule.date)}</Title>
+          <Title level={5}>{schedule.time}</Title>
         </Space>
         <Space direction="vertical" className={styles.content}>
           <Title level={5}>{schedule.title}</Title>

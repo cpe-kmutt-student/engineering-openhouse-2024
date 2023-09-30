@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
     },
     {
       key: 'auth',
-      style: { padding: 0 },
+      style: { padding: 0, margin: '10px' },
       label: isAuthenticated ? (
         <Button onClick={handleLogout} type="primary" style={{ width: '100px' }}>
           Logout

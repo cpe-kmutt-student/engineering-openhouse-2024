@@ -8,17 +8,19 @@ export interface IDepartmentInfo {
     initial: DepartmentEnum
   }
   image: string
-  description?: string
-  location: string
-  gmap: string
+  location: {
+    exhibition?: string
+    workshop?: string
+    map?: string
+  }
   activities?: IActivity[]
   workshopSchedule?: IWorkshopSchedule[]
   contact: IContact
 }
 
 export interface IContact {
-  name: string
-  tel: string
+  name?: string
+  tel?: string
   social: IContactSocial[]
 }
 
@@ -29,6 +31,12 @@ export interface IContactSocial {
 
 export interface IActivity {
   title: string
+  description: string
+  subDescription?: ISubActivity[]
+}
+
+export interface ISubActivity {
+  name: string
   description: string
 }
 
@@ -41,38 +49,32 @@ export interface IWorkshopSchedule {
 export const departmentInfo: IDepartmentInfo[] = [
   {
     name: {
-      en: 'Computer Engineering',
-      th: 'ภาควิชาวิศวกรรมคอมพิวเตอร์',
-      initial: DepartmentEnum.CPE,
+      en: 'Civil Engineering',
+      th: 'ภาควิชาวิศวกรรมโยธา',
+      initial: DepartmentEnum.CE,
     },
     image: CPE,
-    description:
-      'Lorem ipsum dolor sit amet consectetur. Pretium senectus viverra amet non eu diam etiam vel nisl. Sed imperdiet purus commodo morbi. Sit odio integer faucibus metus id nibh amet. Porttitor et ipsum amet tristique turpis nam egestas erat vel. Sem iaculis mattis ullamcorper diam egestas iaculis metus lacus aliquam. Sit purus netus iaculis viverra venenatis est eu sed. Magna sed id aenean vel adipiscing eleifend amet at amet. Elementum sed vitae molestie ',
-    location: 'ชั้น 10 อาคารวิศววัฒนะ (S4)',
-    gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31016.214239316923!2d100.4958685!3d13.6561349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a251bb6b0cf1%3A0xf656e94ff13324ad!2sKing%20Mongkut%E2%80%99s%20University%20of%20Technology%20Thonburi%20(KMUTT)!5e0!3m2!1sen!2sth!4v1695146744456!5m2!1sen!2sth',
+    location: {
+      exhibition: 'นิทรรศการวิศวกรรมโยธา: ชั้น 1  อาคารเรียนรวม 5 (S11)',
+      workshop: 'จุดนัดลงทะเบียน workshop: ชั้น 1 อาคารเรียนรวม 5 (S11)',
+    },
     contact: {
-      name: 'คุณอรุณา กรณีณา (พี่สาทิต)',
-      tel: '01 1234 56789',
       social: [
         {
           name: 'Facebook',
-          link: 'https://facebook.com/AtsuiMatsuri',
+          link: 'https://www.facebook.com/kmutt.ce',
         },
         {
           name: 'Instagram',
-          link: 'https://kronos.moe',
-        },
-        {
-          name: 'Website',
-          link: 'https://mirailisc.xyz',
+          link: 'https://instagram.com/cekmutt',
         },
       ],
     },
     activities: [
       {
-        title: 'ซุ้มนิทรรศการ',
+        title: 'นิทรรศการ',
         description:
-          'กิจกรรมที่ผู้เข้าร่วมจะได้รู้จักแต่ละภาควิชาผ่านนิทรรศการ ซึ่งจะมีพี่แต่ละภาคคอยให้ความรู้หรือตอบคำถามต่างๆกับผู้เข้าร่วม โดยตั้งที่บริเวณห้องประจำของแต่ละภาควิชา',
+          'นิทรรศการของภาควิชาวิศวกรรมโยธา ตั้งอยู่ที่ อาคารเรียนรวม 5 (S11) ชั้น 1 บริเวณฝั่งด้านหน้าตึกภาควิชาวิศวกรรมเคมี จะมีการแนะนำรายละเอียดต่าง ๆ เกี่ยวกับวิศวกรรมโยธาเพื่อให้น้อง ๆ ได้เรียนรู้เกี่ยวกับสาขาวิชาต่าง ๆ ในภาควิชาวิศวกรรมโยธาจากคำแนะนำของพี่ ๆ เพื่อให้น้อง ๆ ได้รับความรู้และเป็นแนวทางประกอบการตัดสินใจในการศึกษาต่อในระดับอุดมศึกษา นอกจากนี้น้อง ๆ ยังได้รับการแนะนำเรื่องการสอบเข้าและการเตรียม Portfolio ของภาควิชาวิศวกรรมโยธาจากรุ่นพี่  และ  Workshop เพื่อให้น้อง ๆ ได้เข้าใจเกี่ยวกับวิศวกรรมโยธามากยิ่งขึ้น พร้อมทั้งของที่ระลึกมากมาย และ Folksong จากรุ่นพี่ตลอดกิจกรรมในงาน',
       },
       {
         title: 'Workshop',
@@ -82,13 +84,33 @@ export const departmentInfo: IDepartmentInfo[] = [
     ],
     workshopSchedule: [
       {
-        date: new Date(),
-        time: '12:30 - 14:30',
+        date: '10/14/2023',
+        time: '09.30 – 11.00',
         amount: 30,
       },
       {
-        date: new Date(),
-        time: '12:30 - 14:30',
+        date: '10/14/2023',
+        time: '13.30 – 15.00',
+        amount: 30,
+      },
+      {
+        date: '10/15/2023',
+        time: '09.30 – 11.00',
+        amount: 30,
+      },
+      {
+        date: '10/15/2023',
+        time: '13.30 – 15.00',
+        amount: 30,
+      },
+      {
+        date: '10/16/2023',
+        time: '13.30 – 15.00',
+        amount: 30,
+      },
+      {
+        date: '10/16/2023',
+        time: '15.20 – 16.50',
         amount: 30,
       },
     ],
@@ -100,36 +122,80 @@ export const departmentInfo: IDepartmentInfo[] = [
       initial: DepartmentEnum.ME,
     },
     image: CPE,
-    location: 'ลานเครื่องกล อาคารวิศววัฒนะ (S4)',
-    gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31016.214239316923!2d100.4958685!3d13.6561349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a251bb6b0cf1%3A0xf656e94ff13324ad!2sKing%20Mongkut%E2%80%99s%20University%20of%20Technology%20Thonburi%20(KMUTT)!5e0!3m2!1sen!2sth!4v1695146744456!5m2!1sen!2sth',
+    location: {
+      exhibition:
+        'นิทรรศการวิศวกรรมเครื่องกล: ลานหน้าอาคารภาควิชาวิศวกรรมเครื่องกล และชั้น 1 ภายในอาคารภาควิชาวิศวกรรมเครื่องกล',
+      workshop: 'จุดนัดลงทะเบียน workshop:  ลานหน้าอาคารภาควิชาวิศวกรรมเครื่องกล',
+    },
     contact: {
-      name: 'คุณอรุณา กรณีณา (พี่สาทิต)',
-      tel: '01 1234 56789',
       social: [
         {
           name: 'Facebook',
-          link: 'https://facebook.com/AtsuiMatsuri',
+          link: 'https://www.facebook.com/PEMCEKMUTT/',
         },
         {
           name: 'Instagram',
-          link: 'https://kronos.moe',
-        },
-        {
-          name: 'Website',
-          link: 'https://mirailisc.xyz',
+          link: 'https://instagram.com/pe_mce.kmutt',
         },
       ],
     },
     activities: [
       {
-        title: 'ซุ้มนิทรรศการ',
+        title: 'นิทรรศการ',
         description:
-          'กิจกรรมที่ผู้เข้าร่วมจะได้รู้จักแต่ละภาควิชาผ่านนิทรรศการ ซึ่งจะมีพี่แต่ละภาคคอยให้ความรู้หรือตอบคำถามต่างๆกับผู้เข้าร่วม โดยตั้งที่บริเวณห้องประจำของแต่ละภาควิชา',
+          'นิทรรศการของภาควิชาวิศวกรรมเครื่องกล จะพาน้อง ๆ ไปพบกับผลงานที่น่าตื่นตาตื่นใจ จากรุ่นพี่วิศวกรรมเครื่องกล ไม่ว่าจะเป็น รถ Formula จากชมรม Formula, ต้นรถประหยัดพลังงาน จากชมรม EDR, Cubesat thrust, Drone และอื่น ๆ ที่น้องคาดไม่ถึงว่าวิศวกรรมเครื่องกลก็ทำได้ !  พร้อมทั้งความรู้ความเข้าใจในวิชาชีพที่กว้างขวางบนโลกความเป็นจริง นอกจากนี้ยังมีการนำเสนอข้อมูลของภาควิชาและข้อมูลหลักสูตรที่จะสร้างความประทับใจอย่างแน่นอน แล้วมาพบกันที่ลานหน้าภาควิชาวิศวกรรมเครื่องกล',
       },
       {
         title: 'Workshop',
         description:
-          'ตะลอนทัวร์ไปกับ LAB ต่างๆ ของภาควิชา พร้อมกับฝึกการเขียนทั้งใช้โปรแกรม และ เขียนด้วยมือของชาวเครื่องกล',
+          'Workshop จากภาควิชาวิศวกรรมเครื่องกล ที่จะพาน้อง ๆ ไปพบกับแลปในภาควิชาต่าง ๆ ที่อัดแน่นไปด้วยไปด้วยความเป็นเครื่องกล ทั้งนี้น้อง ๆ จะได้ลองฝึกเขียนแบบบนกระดาษจริง ๆ และทดลองเขียนแบบด้วยโปรแกรม Solidworks',
+      },
+    ],
+    workshopSchedule: [
+      {
+        date: '10/14/2023',
+        time: '11.20 – 12.50',
+        amount: 30,
+      },
+      {
+        date: '10/14/2023',
+        time: '13.30 – 15.00',
+        amount: 30,
+      },
+      {
+        date: '10/14/2023',
+        time: '15.20 – 16.50',
+        amount: 30,
+      },
+      {
+        date: '10/15/2023',
+        time: '11.20 – 12.50',
+        amount: 30,
+      },
+      {
+        date: '10/15/2023',
+        time: '13.30 – 15.00',
+        amount: 30,
+      },
+      {
+        date: '10/15/2023',
+        time: '15.20 – 16.50',
+        amount: 30,
+      },
+      {
+        date: '10/16/2023',
+        time: '11.20 – 12.50',
+        amount: 30,
+      },
+      {
+        date: '10/16/2023',
+        time: '13.30 – 15.00',
+        amount: 30,
+      },
+      {
+        date: '10/16/2023',
+        time: '15.20 – 16.50',
+        amount: 30,
       },
     ],
   },
@@ -137,95 +203,88 @@ export const departmentInfo: IDepartmentInfo[] = [
     name: {
       en: 'Civil Engineering',
       th: 'ภาควิชาวิศวกรรมโยธา',
-      initial: DepartmentEnum.CE,
+      initial: DepartmentEnum.PE,
     },
     image: CPE,
-    location: 'อาคารเรียนรวม 5 ชั้น 1 (S4)',
-    gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31016.214239316923!2d100.4958685!3d13.6561349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a251bb6b0cf1%3A0xf656e94ff13324ad!2sKing%20Mongkut%E2%80%99s%20University%20of%20Technology%20Thonburi%20(KMUTT)!5e0!3m2!1sen!2sth!4v1695146744456!5m2!1sen!2sth',
+    location: {
+      exhibition: 'นิทรรศการภาควิชาวิศวกรรมอุตสาหการ: ชั้น 1 อาคารวิศววัฒนะ (S4) ฝั่งโรงหล่อ',
+      workshop: 'จุดนัดลงทะเบียน workshop:  ชั้น 1 อาคารวิศววัฒนะ (S4) ฝั่งโรงหล่อ',
+    },
     contact: {
-      name: 'คุณอรุณา กรณีณา (พี่สาทิต)',
-      tel: '01 1234 56789',
       social: [
         {
           name: 'Facebook',
-          link: 'https://facebook.com/AtsuiMatsuri',
+          link: 'https://www.facebook.com/kmutt.ce',
         },
         {
           name: 'Instagram',
-          link: 'https://kronos.moe',
-        },
-        {
-          name: 'Website',
-          link: 'https://mirailisc.xyz',
+          link: 'https://instagram.com/cekmutt',
         },
       ],
     },
     activities: [
       {
-        title: 'ซุ้มนิทรรศการ',
+        title: 'นิทรรศการ',
         description:
-          'กิจกรรมที่ผู้เข้าร่วมจะได้รู้จักแต่ละภาควิชาผ่านนิทรรศการ ซึ่งจะมีพี่แต่ละภาคคอยให้ความรู้หรือตอบคำถามต่างๆกับผู้เข้าร่วม โดยตั้งที่บริเวณห้องประจำของแต่ละภาควิชา',
+          'นิทรรศการของภาควิชาวิศวกรรมอุตสาหการ จะพาน้อง ๆ ไปพบกับผลงานของรุ่นพี่จากทั้ง 2 สาขาวิชา คือ วิศวกรรมอุตสาหการ และ วิศวกรรมแมคคาทรอนิกส์ พร้อมทั้งแนะนำหลักสูตรการเรียนการสอนและความแตกต่างจากทั้ง 2 สาขาวิชานี้ นอกจากนั้นพี่ ๆ จะพาน้อง ๆ มามารู้จักการใช้อุปกรณ์และการต่อวงจรอิเล็กทรอนิกส์พื้นฐาน และกิจกรรมต่าง ๆ ที่อยู่ในนิทรรศการของภาควิชาอุตสาหการฯ ไมว่าจะเป็นเกมเพื่อชิงของรางวัลพิเศษจากภาควิชาฯ แล้วพบกัน ณ นิทรรศการภาควิชาวิศวกรรมอุตสาหการ ที่ ชั้น 1 อาคารวิศววัฒนะ (S4) ฝั่งโรงหล่อ',
       },
       {
         title: 'Workshop',
         description:
-          'ตะลุยไปกับ LAB ดิน, คอนกรีต, ทรัพยากรน้ำ, เซอร์เวย์ และ โครงสร้าง ที่จะทำให้ทุกคนได้เข้าสู่โลกของโยธา',
-      },
-    ],
-  },
-  {
-    name: {
-      en: 'Electrical Engineering',
-      th: 'ภาควิชาวิศวกรรมไฟฟ้า',
-      initial: DepartmentEnum.EE,
-    },
-    image: CPE,
-    location: 'ชั้น 10 อาคารวิศววัฒนะ (S4)',
-    gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31016.214239316923!2d100.4958685!3d13.6561349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a251bb6b0cf1%3A0xf656e94ff13324ad!2sKing%20Mongkut%E2%80%99s%20University%20of%20Technology%20Thonburi%20(KMUTT)!5e0!3m2!1sen!2sth!4v1695146744456!5m2!1sen!2sth',
-    contact: {
-      name: 'คุณอรุณา กรณีณา (พี่สาทิต)',
-      tel: '01 1234 56789',
-      social: [
-        {
-          name: 'Facebook',
-          link: 'https://facebook.com/AtsuiMatsuri',
-        },
-        {
-          name: 'Instagram',
-          link: 'https://kronos.moe',
-        },
-        {
-          name: 'Website',
-          link: 'https://mirailisc.xyz',
-        },
-      ],
-    },
-    activities: [
-      {
-        title: 'ซุ้มนิทรรศการ',
-        description:
-          'กิจกรรมที่ผู้เข้าร่วมจะได้รู้จักแต่ละภาควิชาผ่านนิทรรศการ ซึ่งจะมีพี่แต่ละภาคคอยให้ความรู้หรือตอบคำถามต่างๆกับผู้เข้าร่วม โดยตั้งที่บริเวณห้องประจำของแต่ละภาควิชา',
+          'Workshop จากภาควิชาวิศวกรรมอุตสาหการ ที่จะพาน้อง ๆ ไปเรียนรู้สถานที่เรียนจริง ๆ ของพี่ ๆ วิศวกรรมอุตสาหการและวิศวกรรมแมคคาทรอนิกส์ และตะลุยกับช๊อปในภาควิชาฯ ทั้ง 4 ช๊อป คือ',
+        subDescription: [
+          {
+            name: 'ช๊อปหล่อ',
+            description:
+              'น้อง ๆ จะได้รับชมการสาธิตงานหล่อ และการนําตัวอย่างชิ้นงานหล่อมาจัดแสดง เพื่อให้น้อง ๆ เห็นถึงความสําคัญและความจําเป็นของงานหล่อในการผลิตชิ้นส่วนของงานอุตสาหกรรม',
+          },
+          {
+            name: 'ช๊อป Machine',
+            description:
+              'น้อง ๆ จะได้รับชมการสาธิตการใช้เครื่องจักรจากเจ้าหน้าที่ เช่น เครื่องกลึง เครื่องกัด เพื่อให้ได้เห็นภาพความสําคัญของการขัดแต่งรูปและผิวของชิ้นงาน หรือการใช้เครื่องจักรทําการสร้างชิ้นงาน เช่น C-Clamp ค้อน ต่าง ๆ',
+          },
+          {
+            name: 'ช๊อปการเชื่อม',
+            description:
+              'น้อง ๆ จะได้รับชมการสาธิตและมีโอกาสได้ลองปฏิบัติงานเชื่อมจริง ๆ ไม่ว่าจะเป็น SMAW และ GMAW เพื่อให้เข้าใจและเห็นถึงความสําคัญของการเชื่อมในงานประกอบชิ้นส่วน อุตสาหกรรมจริง',
+          },
+          {
+            name: 'ช๊อปแมคคาทรอนิกส์',
+            description:
+              'น้อง ๆ จะได้รับชมการสาธิต หลักการทำงานของระบบ pnuematic และ ระบบอัตโนมัติ ด้วย PLC เพื่อให้เห็นภาพความสำคัญของระบบต่างๆที่นำมาประยุกต์ใช้ในการเป็นวิศวกรรมแมคคาทรอนิกส์ และได้มีโอกาสลองลงมือปฏิบัติทดสอบทั้ง 2 ระบบด้วย',
+          },
+        ],
       },
     ],
     workshopSchedule: [
       {
-        date: '10/15/2023',
-        time: '13:30 - 15:00',
+        date: '10/14/2023',
+        time: '09.30 – 11.00',
+        amount: 30,
+      },
+      {
+        date: '10/14/2023',
+        time: '13.30 – 15.00',
         amount: 30,
       },
       {
         date: '10/15/2023',
-        time: '15:20 - 16:50',
+        time: '09.30 – 11.00',
+        amount: 30,
+      },
+      {
+        date: '10/15/2023',
+        time: '13.30 – 15.00',
         amount: 30,
       },
       {
         date: '10/16/2023',
-        time: '13:30 - 15:00',
+        time: '13.30 – 15.00',
         amount: 30,
       },
       {
         date: '10/16/2023',
-        time: '15:20 - 16:50',
+        time: '15.20 – 16.50',
         amount: 30,
       },
     ],

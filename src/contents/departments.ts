@@ -20,7 +20,7 @@ export const departments: IDepartment[] = [
   },
   {
     name: 'อุตสาหการ',
-    link: DepartmentEnum.PE_MCE,
+    link: DepartmentEnum.PE,
     image: 'https://media.tenor.com/MgNiRu0jum0AAAAC/blue-archive-koharu.gif',
   },
   {

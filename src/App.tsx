@@ -20,7 +20,7 @@ import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
 import Profile from './pages/Profile'
 import Stamp from './pages/Stamp'
-import EventActivity from './pages/EventActivity'
+import Event from './pages/Event'
 import { axiosInstance } from './utils/axios'
 import ReactGA from 'react-ga'
 import { routeNavFilter } from './utils/nav'
@@ -62,7 +62,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path={ABOUT_PATH} element={<AboutUs />} />
 
             <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
-            <Route path={EVENT_PATH} element={<EventActivity />} />
+            <Route path={EVENT_PATH} element={<Event />} />
 
             <Route path={REGISTER_PATH} element={<Register />} />
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />

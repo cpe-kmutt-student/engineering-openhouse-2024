@@ -7,8 +7,7 @@ import Parking from 'src/components/AboutUs/Parking'
 import FrequentlyQuestion from 'src/components/AboutUs/FrequentlyQuestion'
 import Sponsors from 'src/components/Sponsors'
 
-const GOOGLE_MAP_URL =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.106954580387!2d100.4938625114989!3d13.651257399556378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a251bb6b0cf1%3A0xf656e94ff13324ad!2sKing%20Mongkut%E2%80%99s%20University%20of%20Technology%20Thonburi%20(KMUTT)!5e0!3m2!1sen!2sth!4v1695309518475!5m2!1sen!2sth'
+const GOOGLE_MAP_URL = 'https://www.google.com/maps/d/embed?mid=1Hxak7Bh9K4PLuiL2tFHwDPeIAsJzZn4&hl=en&ehbc=2E312F'
 
 const AboutUs: React.FC = (): JSX.Element => {
   const { Title } = Typography
@@ -31,7 +30,7 @@ const AboutUs: React.FC = (): JSX.Element => {
         </div>
         <div>
           <Title level={2} style={{ textAlign: 'center' }}>
-            สภานที่จอดรถ
+            สถานที่จอดรถ
           </Title>
           <Parking />
         </div>

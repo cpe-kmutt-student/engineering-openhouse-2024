@@ -2,16 +2,18 @@ import { Navigate, useParams } from 'react-router-dom'
 import { Typography } from 'antd'
 import { BASE_PATH } from 'src/configs/routes'
 import ImageHeader from 'src/components/ImageHeader'
-import { IEventActivity, eventActivities } from 'src/contents/event/events'
+import { IEventInfo, eventActivities } from 'src/contents/event/events'
 import styles from './inedx.module.scss'
 import EventSchedule from 'src/components/Event/EventSchedule'
+import EventLocation from 'src/components/Event/EventLocation'
+import Contact from 'src/components/Event/EventContact'
 
-const EventActivity: React.FC = (): JSX.Element => {
+const Event: React.FC = (): JSX.Element => {
   const { event } = useParams()
 
   const { Paragraph, Title } = Typography
 
-  const eventInfo = eventActivities.filter((info: IEventActivity) => info.link === event)[0]
+  const eventInfo = eventActivities.filter((info: IEventInfo) => info.link === event)[0]
 
   if (!event || !eventInfo) return <Navigate to={BASE_PATH} />
 
@@ -28,9 +30,11 @@ const EventActivity: React.FC = (): JSX.Element => {
         {eventInfo.rounds && eventInfo.lowerDescription && (
           <EventSchedule rounds={eventInfo.rounds} description={eventInfo.lowerDescription} />
         )}
+        <EventLocation location={eventInfo.location} />
+        <Contact contact={eventInfo.contact} />
       </div>
     </div>
   )
 }
 
-export default EventActivity
+export default Event

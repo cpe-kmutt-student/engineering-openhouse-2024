@@ -2,7 +2,7 @@ export enum DepartmentEnum {
   CPE = 'CPE',
   CE = 'CE',
   ME = 'ME',
-  PE_MCE = 'PE&MCE',
+  PE = 'PE',
   EE = 'EE',
   ENE = 'ENE',
   TME = 'TME',

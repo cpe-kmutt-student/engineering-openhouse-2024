@@ -10,7 +10,17 @@
         }
 
         .image {
-            border-radius: 10px;
+            text-align: center;
+    
+            img {
+                border-radius: 10px;
+            }
+
+            @media screen and (max-width: 375px) {
+                img {
+                    width: 200px;
+                }
+            }
         }
     }
 }

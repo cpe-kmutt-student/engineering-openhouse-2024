@@ -10,7 +10,11 @@ const Parking: React.FC = (): JSX.Element => {
       <Space className={styles.parkingInfo} align="center" direction="vertical" key={i} style={{ width: '100%' }}>
         <Title level={4}>{parking.name}</Title>
         <Paragraph className={styles.paragraph}>{parking.description}</Paragraph>
-        {parking.image && <Image width={300} className={styles.image} src={parking.image} alt="parking" />}
+        {parking.image && (
+          <div className={styles.image}>
+            <Image width={300} src={parking.image} alt="parking" />
+          </div>
+        )}
       </Space>
     )
   })
