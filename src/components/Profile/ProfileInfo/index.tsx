@@ -1,25 +1,43 @@
 import { Image, Space, Typography } from 'antd'
 import styles from './index.module.scss'
-import { IAuthContext } from 'src/utils/Context/AuthContext'
 
 interface Props {
-  auth: IAuthContext
+  user: IUserInfo
 }
 
-const ProfileInfo: React.FC<Props> = ({ auth }: Props): JSX.Element => {
-  const { Title } = Typography
+export interface IUserInfo {
+  firstName: string
+  lastName: string
+  firstNameEng: string
+  lastNameEng: string
+  profileUrl: string
+  email: string
+  phone: string
+  educationLevel: string
+  schoolName: string
+}
+
+const ProfileInfo: React.FC<Props> = ({ user }: Props): JSX.Element => {
+  const { Title, Text } = Typography
 
   return (
     <div className={styles.profile}>
       <div className={styles.avatar}>
-        <Image src={auth.profileUrl} alt="avatar" width={150} height={150} preview={false} />
+        <Image src={user.profileUrl} alt="avatar" width={150} height={150} preview={false} />
       </div>
       <div className={styles.content}>
-        <Space align="center" direction="vertical" style={{ width: '100%' }}>
+        <Space direction="vertical" align="center" style={{ width: '100%' }}>
           <Title level={2}>
-            {auth.firstName} {auth.lastName}
+            {user.firstName} {user.lastName}
           </Title>
-          <Title level={3}>{auth.email}</Title>
+          <Title level={3}>
+            {user.firstNameEng} {user.lastNameEng}
+          </Title>
+          <Text className={styles.schoolName}>{user.schoolName}</Text>
+        </Space>
+        <Space direction="vertical" align="center" style={{ width: '100%', marginTop: '20px' }}>
+          <Text>อีเมล: {user.email}</Text>
+          <Text>เบอร์โทรศัพท์: {user.phone}</Text>
         </Space>
       </div>
     </div>

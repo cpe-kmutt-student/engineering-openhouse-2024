@@ -8,8 +8,9 @@ import {
   PROFILE_PATH,
   EVENT_PATH,
   REGISTER_PATH,
-  QR_CODE_VERITY,
-  SATISFACTION_SURVEY,
+  QR_CODE_VERITY_PATH,
+  SATISFACTION_SURVEY_PATH,
+  STAMP_PATH,
 } from './configs/routes'
 import Home from './pages/Home'
 import { LoadingPage } from './pages/Loading'
@@ -26,6 +27,7 @@ import ReactGA from 'react-ga'
 import { routeNavFilter } from './utils/nav'
 import SatisfactionSurvey from './pages/SatisfactionSurvey'
 import ScrollToTop from './components/ScrollToTop'
+import EStamp from './pages/EStamp'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -67,9 +69,11 @@ const App: React.FC = (): JSX.Element => {
             <Route path={EVENT_PATH} element={<Event />} />
 
             <Route path={REGISTER_PATH} element={<Register />} />
+
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
-            <Route path={QR_CODE_VERITY} element={<Protected element={<Stamp />} />} />
-            <Route path={SATISFACTION_SURVEY} element={<Protected element={<SatisfactionSurvey />} />} />
+            <Route path={QR_CODE_VERITY_PATH} element={<Protected element={<Stamp />} />} />
+            <Route path={SATISFACTION_SURVEY_PATH} element={<Protected element={<SatisfactionSurvey />} />} />
+            <Route path={STAMP_PATH} element={<Protected element={<EStamp />} />} />
 
             <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
           </Routes>
