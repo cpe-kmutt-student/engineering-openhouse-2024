@@ -6,11 +6,11 @@ export interface IEducationLevel {
 export const educationLevel: IEducationLevel[] = [
   {
     value: 'elementary1',
-    label: 'ประถมศึกษา (ป.1-2-3)',
+    label: 'ประถมศึกษาตอนต้น (ป.1-2-3)',
   },
   {
     value: 'elementary2',
-    label: 'ประถมศึกษา (ป.4-5-6)',
+    label: 'ประถมศึกษาตอนปลาย (ป.4-5-6)',
   },
   {
     value: 'middleSchool',
