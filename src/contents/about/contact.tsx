@@ -24,8 +24,8 @@ export const contacts: IContact[] = [
     icon: <PhoneOutlined />,
   },
   {
-    title: 'Lorem@gmail.com',
-    link: 'mailto:lorem@gmail.com',
+    title: 'stdunion.eng@kmutt.ac.th',
+    link: 'mailto:stdunion.eng@kmutt.ac.th',
     icon: <MailOutlined />,
   },
 ]

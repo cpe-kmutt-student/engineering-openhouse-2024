@@ -28,7 +28,9 @@ const WorkshopActivities: React.FC<Props> = ({ activities }: Props): JSX.Element
           {`${(i += 1)}. กิจกรรม : `}
           <span style={{ color: '#F3B34E' }}>{activity.title}</span>
         </Title>
-        <Paragraph style={{ color: '#FFFFFF' }}>{activity.description}</Paragraph>
+        <Paragraph style={{ color: '#FFFFFF' }}>
+          {'\xa0'.repeat(10)} {activity.description}
+        </Paragraph>
         {activity.subDescription && renderWorkshopSubDetails(activity.subDescription)}
       </div>
     )

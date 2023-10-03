@@ -47,7 +47,7 @@ const EventSchedule: React.FC<Props> = ({ rounds, description }: Props): JSX.Ele
       </Title>
       {renderEventRounds}
       <Space direction="vertical" align="center" style={{ width: '100%', marginBlock: '20px' }}>
-        <Text italic strong style={{ color: '#f3b34e' }}>
+        <Text italic strong style={{ color: '#f3b34e', fontSize: '18px' }}>
           {description}
         </Text>
       </Space>

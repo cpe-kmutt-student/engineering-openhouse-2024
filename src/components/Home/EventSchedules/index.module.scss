@@ -38,19 +38,11 @@
         .content {
             overflow: hidden;
 
-            h5,
             .text {
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
-            }
-
-            h5 {
-                color: #ffffff;
-            }
-
-            .text {
-                color: #ffb031;
+                color: #FFFFFF;
             }
         }
     }

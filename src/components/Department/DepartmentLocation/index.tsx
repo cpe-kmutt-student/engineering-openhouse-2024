@@ -7,23 +7,18 @@ interface Props {
 }
 
 const DepartmentLocation: React.FC<Props> = ({ location }: Props): JSX.Element => {
-  const { Title, Link } = Typography
+  const { Title, Link, Text } = Typography
 
   return (
     <div>
       <Title level={3} style={{ textAlign: 'center' }}>
         สถานที่
       </Title>
-      {location.exhibition && (
-        <Title level={5} style={{ textAlign: 'center' }}>
-          {location.exhibition}
-        </Title>
-      )}
-      {location.workshop && (
-        <Title level={5} style={{ textAlign: 'center' }}>
-          {location.workshop}
-        </Title>
-      )}
+      <div className={styles.descriptions}>
+        {location.exhibition && <Text style={{ fontSize: '16px', color: '#FFFFFF' }}>{location.exhibition}</Text>}
+        <br />
+        {location.workshop && <Text style={{ fontSize: '16px', color: '#FFFFFF' }}>{location.workshop}</Text>}
+      </div>
       <Space direction="vertical" align="center" style={{ width: '100%' }}>
         {location.map && (
           <div className={styles.map}>

@@ -8,16 +8,16 @@ interface Props {
 }
 
 const EventLocation: React.FC<Props> = ({ location }: Props): JSX.Element => {
-  const { Title } = Typography
+  const { Title, Text } = Typography
 
   return (
     <div>
       <Title level={3} style={{ textAlign: 'center' }}>
         สถานที่
       </Title>
-      <Title level={4} style={{ textAlign: 'center' }}>
-        {location.text}
-      </Title>
+      <div className={styles.description}>
+        <Text style={{ color: '#FFFFFF', fontSize: '18px' }}>{location.text}</Text>
+      </div>
       <Space direction="vertical" align="center" style={{ width: '100%' }}>
         <div className={styles.map}>
           <iframe

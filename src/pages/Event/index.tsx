@@ -7,13 +7,14 @@ import styles from './inedx.module.scss'
 import EventSchedule from 'src/components/Event/EventSchedule'
 import EventLocation from 'src/components/Event/EventLocation'
 import Contact from 'src/components/Event/EventContact'
+import { useMemo } from 'react'
 
 const Event: React.FC = (): JSX.Element => {
   const { event } = useParams()
 
   const { Paragraph, Title } = Typography
 
-  const eventInfo = eventActivities.filter((info: IEventInfo) => info.link === event)[0]
+  const eventInfo = useMemo(() => eventActivities.filter((info: IEventInfo) => info.link === event)[0], [event])
 
   if (!event || !eventInfo) return <Navigate to={BASE_PATH} />
 
@@ -25,7 +26,9 @@ const Event: React.FC = (): JSX.Element => {
           <Title level={3} style={{ textAlign: 'center' }}>
             รายละเอียด
           </Title>
-          <Paragraph style={{ color: '#FFFFFF' }}>{eventInfo.description}</Paragraph>
+          <Paragraph style={{ color: '#FFFFFF' }}>
+            {'\xa0'.repeat(10)} {eventInfo.description}
+          </Paragraph>
         </div>
         {eventInfo.rounds && eventInfo.lowerDescription && (
           <EventSchedule rounds={eventInfo.rounds} description={eventInfo.lowerDescription} />

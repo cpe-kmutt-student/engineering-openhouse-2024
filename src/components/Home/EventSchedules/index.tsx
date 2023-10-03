@@ -9,7 +9,7 @@ const EVENT_TO_SHOW = 6
 const EventSchedules: React.FC = (): JSX.Element => {
   const [eventsToShow, setEventsToShow] = useState<number>(EVENT_TO_SHOW)
 
-  const { Title } = Typography
+  const { Title, Text } = Typography
 
   const renderEvent = eventSchedules.slice(0, eventsToShow).map((schedule: IEventSchedule, i: number) => {
     return (
@@ -19,7 +19,9 @@ const EventSchedules: React.FC = (): JSX.Element => {
           <Title level={5}>{schedule.time}</Title>
         </Space>
         <Space direction="vertical" className={styles.content}>
-          <Title level={5}>{schedule.title}</Title>
+          <div className={styles.text}>
+            <Text style={{ color: '#FFFFFF' }}>{schedule.title}</Text>
+          </div>
         </Space>
       </div>
     )

@@ -17,7 +17,7 @@ const Contact: React.FC<Props> = ({ contact }: Props): JSX.Element => {
   return (
     <div>
       <Space direction="vertical" style={{ width: '100%', marginTop: '20px' }} align="center">
-        <Title level={3}>Contact</Title>
+        <Title level={3}>ช่องทางการติดต่อ</Title>
         {contact.name && (
           <Text strong style={{ color: '#FFFFFF' }}>
             {contact.name}

@@ -7,11 +7,16 @@ import WorkshopActivities from 'src/components/Department/WorkshopActivities'
 import WorkshopSchedule from 'src/components/Department/WorkshopSchedule'
 import DepartmentLocation from 'src/components/Department/DepartmentLocation'
 import Contact from 'src/components/Department/Contact'
+import { useMemo } from 'react'
+import SubWorkshopSchedule from 'src/components/Department/SubWorkshopSchedule'
 
 const Department: React.FC = (): JSX.Element => {
   const { departmentInitial } = useParams()
 
-  const department = departmentInfo.filter((info: IDepartmentInfo) => info.name.initial === departmentInitial)[0]
+  const department = useMemo(
+    () => departmentInfo.filter((info: IDepartmentInfo) => info.name.initial === departmentInitial)[0],
+    [departmentInitial],
+  )
 
   if (!departmentInitial || !department) return <Navigate to={BASE_PATH} />
 
@@ -21,6 +26,7 @@ const Department: React.FC = (): JSX.Element => {
       <div className={styles.content}>
         {department.activities && <WorkshopActivities activities={department.activities} />}
         {department.workshopSchedule && <WorkshopSchedule schedule={department.workshopSchedule} />}
+        {department.subWorkshopSchedule && <SubWorkshopSchedule subWorkshop={department.subWorkshopSchedule} />}
         <DepartmentLocation location={department.location} />
         <Contact contact={department.contact} />
       </div>

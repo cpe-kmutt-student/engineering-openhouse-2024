@@ -15,6 +15,7 @@ export interface IDepartmentInfo {
   }
   activities?: IActivity[]
   workshopSchedule?: IWorkshopSchedule[]
+  subWorkshopSchedule?: ISubWorkshop[]
   contact: IContact
 }
 
@@ -44,6 +45,11 @@ export interface IWorkshopSchedule {
   date: Date | string
   time: string
   amount: number
+}
+
+export interface ISubWorkshop {
+  title: string
+  schedules: IWorkshopSchedule[]
 }
 
 export const departmentInfo: IDepartmentInfo[] = [
@@ -131,11 +137,11 @@ export const departmentInfo: IDepartmentInfo[] = [
       social: [
         {
           name: 'Facebook',
-          link: 'https://www.facebook.com/PEMCEKMUTT/',
+          link: 'https://www.facebook.com/kmutt.me',
         },
         {
           name: 'Instagram',
-          link: 'https://instagram.com/pe_mce.kmutt',
+          link: 'https://instagram.com/kmutt_me',
         },
       ],
     },
@@ -201,8 +207,8 @@ export const departmentInfo: IDepartmentInfo[] = [
   },
   {
     name: {
-      en: 'Civil Engineering',
-      th: 'ภาควิชาวิศวกรรมโยธา',
+      en: 'Production Engineering',
+      th: 'ภาควิชาวิศวกรรมอุตสาหการ',
       initial: DepartmentEnum.PE,
     },
     image: CPE,
@@ -214,11 +220,11 @@ export const departmentInfo: IDepartmentInfo[] = [
       social: [
         {
           name: 'Facebook',
-          link: 'https://www.facebook.com/kmutt.ce',
+          link: 'https://www.facebook.com/PEMCEKMUTT',
         },
         {
           name: 'Instagram',
-          link: 'https://instagram.com/cekmutt',
+          link: 'https://instagram.com/pe_mce.kmutt',
         },
       ],
     },
@@ -286,6 +292,241 @@ export const departmentInfo: IDepartmentInfo[] = [
         date: '10/16/2023',
         time: '15.20 – 16.50',
         amount: 30,
+      },
+    ],
+  },
+  {
+    name: {
+      en: 'Electrical Engineering',
+      th: 'ภาควิชาวิศวกรรมไฟฟ้า',
+      initial: DepartmentEnum.EE,
+    },
+    image: CPE,
+    location: {
+      exhibition: 'นิทรรศการภาควิชาวิศวกรรมไฟฟ้า:  ชั้น 4 อาคารเรียนรวม 4 (S12) ',
+      workshop: 'จุดนัดลงทะเบียน workshop:  ชั้น 4 อาคารเรียนรวม 4 (S12)',
+    },
+    contact: {
+      social: [
+        {
+          name: 'Facebook',
+          link: 'https://www.facebook.com/ee.kmutt',
+        },
+        {
+          name: 'Instagram',
+          link: 'https://instagram.com/electrical_engineering_kmutt',
+        },
+      ],
+    },
+    activities: [
+      {
+        title: 'นิทรรศการ',
+        description:
+          'นิทรรศการของภาควิชาวิศวกรรมไฟฟ้า จัดขึ้นที่ภาควิชาวิศวกรรมไฟฟ้า ชั้น 4 อาคารเรียนรวม 4 (S12) โดยน้อง ๆ จะได้เรียนรู้กับการเรียนในภาควิชาวิศวกรรมไฟฟ้า และหลักสูตร ทั้ง 2 หลักสูตร คือ วิศวกรรมไฟฟ้า และวิศวกรรมไฟฟ้า (ระบบไฟฟ้า อิเล็กทรอนิกส์กำลัง และพลังงาน) แนวทางการศึกษาต่อในวิศวกรรมไฟฟ้า พร้อมรับชมผลงานจากพี่ ๆ ภาควิชาวิศวกรรมไฟฟ้า',
+      },
+      {
+        title: 'Workshop',
+        description:
+          'Workshop จากภาควิชาวิศวกรรมไฟฟ้า ที่จะพาน้อง ๆ ไปสนุกกับกิจกรรมในรูปแบบ Activity based learning จากพี่ ๆ วิศวกรรมไฟฟ้า โดยแบ่งให้น้อง ๆ ได้เลือกทั้งหมด 4 แลป คือ',
+        subDescription: [
+          {
+            name: 'Measurement Lab',
+            description:
+              'น้อง ๆ จะได้รับชมการสาธิตการใช้งานของเครื่องมือวัดทางไฟฟ้าที่สำคัญต่าง ๆ เช่น Multimeter, Oscilloscope และมีโอกาสให้น้อง ๆ ได้ทดลองใช้เครื่องมือจริงด้วย',
+          },
+          {
+            name: 'Motor Control',
+            description:
+              'น้อง ๆ จะได้รู้จักเกี่ยวกับวงจร Motor Control ที่เป็นส่วนประกอบสำคัญในหลายอุปกรณ์ที่อยู่รอบตัวเราในชีวิตประจำวันทั้งหลัการและอุปกรณ์จริง พร้อมทั้งชมการสาธิตและลองลงมือปฏิบัติต่อวงจร Motor Control อีกด้วย',
+          },
+          {
+            name: 'High Voltage Lab',
+            description:
+              'น้อง ๆ จะได้รับชมการสาธิตการทำการทดลองในงานไฟฟ้าแรงดันสุูง หรือ High Voltage ซึ่งยากจะได้รับชมในชีวิตประจำวัน น้องจะได้เห็นภาพในโลกของไฟฟ้าที่เหนือไปอีกขั้นกับ 5 การทดลอง ได้แก่ 1.แรงดันกระจายหรือ Voltage Distribution, 2.ความถี่ธรรมชาติหรือ Resonance, 3.Surface discharge, 4.การทดลองพิสูจน์ กฎของฟาราเดย์, 5.จําลองการเกิดกระแสฟ้าผ่า',
+          },
+        ],
+      },
+    ],
+    subWorkshopSchedule: [
+      {
+        title: 'Measurement Lab',
+        schedules: [
+          {
+            date: '10/14/2023',
+            time: '09.30 – 11.00',
+            amount: 20,
+          },
+          {
+            date: '10/14/2023',
+            time: '11.20 – 12.50',
+            amount: 20,
+          },
+          {
+            date: '10/14/2023',
+            time: '13.30 – 15.00',
+            amount: 20,
+          },
+          {
+            date: '10/14/2023',
+            time: '15.20 – 16.50',
+            amount: 20,
+          },
+          {
+            date: '10/15/2023',
+            time: '09.30 – 11.00',
+            amount: 20,
+          },
+          {
+            date: '10/15/2023',
+            time: '11.20 – 12.50',
+            amount: 20,
+          },
+          {
+            date: '10/15/2023',
+            time: '13.30 – 15.00',
+            amount: 20,
+          },
+          {
+            date: '10/15/2023',
+            time: '15.20 – 16.50',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
+            time: '09.30 – 11.00',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
+            time: '11.20 – 12.50',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
+            time: '13.30 – 15.00',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
+            time: '15.20 – 16.50',
+            amount: 20,
+          },
+        ],
+      },
+      {
+        title: 'Motor Control',
+        schedules: [
+          {
+            date: '10/14/2023',
+            time: '09.30 – 11.00',
+            amount: 18,
+          },
+          {
+            date: '10/14/2023',
+            time: '11.20 – 12.50',
+            amount: 18,
+          },
+          {
+            date: '10/14/2023',
+            time: '13.30 – 15.00',
+            amount: 18,
+          },
+          {
+            date: '10/14/2023',
+            time: '15.20 – 16.50',
+            amount: 18,
+          },
+          {
+            date: '10/15/2023',
+            time: '09.30 – 11.00',
+            amount: 18,
+          },
+          {
+            date: '10/15/2023',
+            time: '11.20 – 12.50',
+            amount: 18,
+          },
+          {
+            date: '10/15/2023',
+            time: '13.30 – 15.00',
+            amount: 18,
+          },
+          {
+            date: '10/15/2023',
+            time: '15.20 – 16.50',
+            amount: 18,
+          },
+          {
+            date: '10/16/2023',
+            time: '09.30 – 11.00',
+            amount: 18,
+          },
+          {
+            date: '10/16/2023',
+            time: '11.20 – 12.50',
+            amount: 18,
+          },
+          {
+            date: '10/16/2023',
+            time: '13.30 – 15.00',
+            amount: 18,
+          },
+          {
+            date: '10/16/2023',
+            time: '15.20 – 16.50',
+            amount: 18,
+          },
+        ],
+      },
+      {
+        title: 'High Voltage lab',
+        schedules: [
+          {
+            date: '10/15/2023',
+            time: '13.30 – 15.00',
+            amount: 30,
+          },
+          {
+            date: '10/15/2023',
+            time: '15.20 – 16.50',
+            amount: 30,
+          },
+          {
+            date: '10/16/2023',
+            time: '13.30 – 15.00',
+            amount: 30,
+          },
+          {
+            date: '10/16/2023',
+            time: '15.20 – 16.50',
+            amount: 30,
+          },
+        ],
+      },
+      {
+        title: 'Illumination Laboratory (E-LU)',
+        schedules: [
+          {
+            date: '10/16/2023',
+            time: '09.30 – 11.00',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
+            time: '11.20 – 12.50',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
+            time: '13.30 – 15.00',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
+            time: '15.20 – 16.50',
+            amount: 20,
+          },
+        ],
       },
     ],
   },
