@@ -24,6 +24,10 @@
             border-radius: 10px;
             pointer-events: none;
         }
+
+        @media screen and (max-width: 512px) {
+            height: 100%;
+        }
     }
 }
 

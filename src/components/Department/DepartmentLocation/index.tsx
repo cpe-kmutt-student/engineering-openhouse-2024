@@ -16,12 +16,12 @@ const DepartmentLocation: React.FC<Props> = ({ location }: Props): JSX.Element =
         สถานที่
       </Title>
       {location.exhibition && (
-        <Title level={4} style={{ textAlign: 'center' }}>
+        <Title level={5} style={{ textAlign: 'center' }}>
           {location.exhibition}
         </Title>
       )}
       {location.workshop && (
-        <Title level={4} style={{ textAlign: 'center' }}>
+        <Title level={5} style={{ textAlign: 'center' }}>
           {location.workshop}
         </Title>
       )}
