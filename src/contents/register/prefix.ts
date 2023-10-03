@@ -1,1 +1,1 @@
-export const namePrefix: string[] = ['Mr.', 'Mrs.']
+export const namePrefix: string[] = ['เด็กชาย', 'เด็กหญิง', 'นาย', 'นางสาว', 'นาง']
