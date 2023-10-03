@@ -19,7 +19,7 @@ const Home: React.FC = (): JSX.Element => {
             <Title level={3} style={{ textAlign: 'center' }}>
               Engineering Openhouse <br /> Carnival at Bangmod
             </Title>
-            <CountDown deadline="October, 2, 2023" />
+            <CountDown deadline="October, 7, 2023" />
           </div>
         </div>
       </div>
