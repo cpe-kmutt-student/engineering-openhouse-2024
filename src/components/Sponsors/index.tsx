@@ -1,26 +1,33 @@
 import { Image, Space, Typography } from 'antd'
 import styles from './index.module.scss'
-import SmoLogo from 'src/contents/images/SmoLogo.png'
-import KMUTTLogo from 'src/contents/images/KMUTTLogo.png'
 import { useEffect } from 'react'
 import { cacheImage } from 'src/utils/cacheImage'
-import { sponsors } from 'src/contents/sponsors'
+import { ISponsor, SponsorSize, sponsors } from 'src/contents/sponsors'
+
+import SmoLogo from 'src/contents/images/SmoLogo.png'
+import KMUTTLogo from 'src/contents/images/KMUTTLogo.png'
 
 const Sponsors: React.FC = (): JSX.Element => {
   const { Title } = Typography
 
   useEffect(() => {
-    const images = [SmoLogo, KMUTTLogo, ...sponsors]
+    const images = [SmoLogo, KMUTTLogo]
+
     images.map((image: string) => cacheImage(image))
+    sponsors.map(({ image }) => cacheImage(image))
   }, [])
 
-  const renderSponsors = sponsors.map((sponsor: string, i: number) => {
-    return (
-      <div className={styles.box} key={i}>
-        <Image src={sponsor} width={100} alt="smo-logo" preview={false} />
-      </div>
-    )
-  })
+  const renderSponsors = (size: SponsorSize) => {
+    return sponsors
+      .filter((sponsor: ISponsor) => sponsor.size === size)
+      .map((sponsor: ISponsor, i: number) => {
+        return (
+          <div className={styles.box} key={i}>
+            <Image src={sponsor.image} width={size === SponsorSize.Big ? 200 : 100} alt="smo-logo" preview={false} />
+          </div>
+        )
+      })
+  }
 
   return (
     <div className={styles.sponsors}>
@@ -29,7 +36,10 @@ const Sponsors: React.FC = (): JSX.Element => {
         <Image src={KMUTTLogo} alt="smo-logo" preview={false} />
       </Space>
       <Title level={2}>Sponsors</Title>
-      <section className={styles.content}>{renderSponsors}</section>
+      <section className={styles.content}>
+        {renderSponsors(SponsorSize.Big)}
+        {renderSponsors(SponsorSize.Small)}
+      </section>
     </div>
   )
 }

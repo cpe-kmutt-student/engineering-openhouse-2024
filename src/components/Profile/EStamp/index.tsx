@@ -4,6 +4,7 @@ import { stampImages, IStampImage, StampEnum } from 'src/contents/stamps'
 import { DepartmentEnum } from 'src/contents/department/enum'
 import { useEffect } from 'react'
 import { cacheImage } from 'src/utils/cacheImage'
+import { checkStampWithDepartment, checkStampWithoutDepartment } from 'src/utils/stamp'
 
 interface Props {
   stamps: IStamp[]
@@ -26,16 +27,6 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
 
   console.log(stamps)
 
-  const checkStamp = (stampImage: IStampImage, event: string, stampAPI: IStamp[]): string => {
-    if (stampAPI.length === 0) return stampImage.stampDisable
-
-    return stampAPI.filter(
-      (item: IStamp) => item.department_name === stampImage.department && item.event_detail.includes(event),
-    )[0]
-      ? stampImage.stampEnable
-      : stampImage.stampDisable
-  }
-
   const renderStamp = (event: StampEnum) => {
     return stampImages
       .filter((stamp: IStampImage) => stamp.detail === StampEnum[event])
@@ -45,7 +36,11 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
             className={styles.image}
             preview={false}
             key={i}
-            src={checkStamp(stamp, event, stampsMockup)}
+            src={
+              stamp.department
+                ? checkStampWithDepartment(stamp, event, stampsMockup)
+                : checkStampWithoutDepartment(stamp, event, stampsMockup)
+            }
             alt="stamp"
           />
         )
@@ -68,6 +63,14 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
       <div className={styles.stamps}>
         <Title level={3}>Workshop</Title>
         <div className={styles.stampImages}>{renderStamp(StampEnum.Workshop)}</div>
+      </div>
+      <div className={styles.stamps}>
+        <Title level={3}>ทัวร์</Title>
+        <div className={styles.stampImages}>{renderStamp(StampEnum.Tour)}</div>
+      </div>
+      <div className={styles.stamps}>
+        <Title level={3}>ส่วนกลาง</Title>
+        <div className={styles.stampImages}>{renderStamp(StampEnum.Center)}</div>
       </div>
     </div>
   )

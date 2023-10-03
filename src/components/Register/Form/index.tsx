@@ -4,15 +4,18 @@ import { useRef, useState } from 'react'
 import { IEducationLevel, educationLevel } from 'src/contents/register/educationLevel'
 import { AccountType } from 'src/contents/register/enum'
 import { namePrefix } from 'src/contents/register/prefix'
+import { IUserInfo } from 'src/components/Profile/ProfileInfo'
 
 interface Props {
   schoolData: ISchoolData[]
-  onFinish: (value: IRegister) => void
+  onFinish: (value: RegisterFormType) => void
 }
 
 interface ISchoolData {
   school_name: string
 }
+
+export type RegisterFormType = Omit<IUserInfo, 'email' | 'profileUrl'>
 
 const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Element => {
   const [options, setOptions] = useState<{ value: string }[]>([])
@@ -60,7 +63,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
     <div className={styles.form}>
       <Title>ลงทะเบียน</Title>
       <Form layout="vertical" onFinish={onFinish} ref={formRef} form={form}>
-        <Form.Item<IRegister>
+        <Form.Item<RegisterFormType>
           name="prefix"
           label="คำนำหน้าชื่อ"
           rules={[{ required: true, message: 'กรุณาระบุระดับการศึกษา' }]}
@@ -68,7 +71,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
           <Select onChange={handlePrefixSelectChange}>{renderNamePrefix}</Select>
         </Form.Item>
         <div className={styles.formGroup}>
-          <Form.Item<IRegister>
+          <Form.Item<RegisterFormType>
             label="ชื่อจริง"
             name="firstName"
             rules={[{ required: true, message: 'กรุณาระบุชื่อจริง' }]}
@@ -76,7 +79,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
             <Input />
           </Form.Item>
 
-          <Form.Item<IRegister>
+          <Form.Item<RegisterFormType>
             label="นามสกุล"
             name="lastName"
             rules={[{ required: true, message: 'กรุณาระบุนามสกุล' }]}
@@ -85,7 +88,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
           </Form.Item>
         </div>
         <div className={styles.formGroup}>
-          <Form.Item<IRegister>
+          <Form.Item<RegisterFormType>
             label="First name"
             name="firstNameEng"
             rules={[{ required: true, message: 'กรุณาระบุชื่อจริง (ภาษาอังกฤษ)' }]}
@@ -93,7 +96,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
             <Input />
           </Form.Item>
 
-          <Form.Item<IRegister>
+          <Form.Item<RegisterFormType>
             label="Last name"
             name="lastNameEng"
             rules={[{ required: true, message: 'กรุณาระบุนามสกุล (ภาษาอังกฤษ)' }]}
@@ -101,7 +104,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
             <Input />
           </Form.Item>
         </div>
-        <Form.Item<IRegister>
+        <Form.Item<RegisterFormType>
           label="หมายเลขโทรศัพท์"
           name="phone"
           rules={[
@@ -112,7 +115,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
         >
           <Input />
         </Form.Item>
-        <Form.Item<IRegister>
+        <Form.Item<RegisterFormType>
           label="ประเภทผู้ใช้งาน"
           rules={[{ required: true, message: 'กรุณาระบุประเภทผู้ใช้งาน' }]}
           name="accountType"
@@ -126,14 +129,14 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
         </Form.Item>
         {accountType === AccountType.student && (
           <>
-            <Form.Item<IRegister>
+            <Form.Item<RegisterFormType>
               name="educationLevel"
               label="ระดับการศึกษา"
               rules={[{ required: true, message: 'กรุณาระบุระดับการศึกษา' }]}
             >
               <Select onChange={handleEducationSelectChange}>{renderEducationLevel}</Select>
             </Form.Item>
-            <Form.Item<IRegister>
+            <Form.Item<RegisterFormType>
               label="ชื่อสถานศึกษา"
               name="schoolName"
               rules={[{ required: true, message: 'กรุณาระบุชื่อสถานศึกษา' }]}
@@ -151,15 +154,3 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
 }
 
 export default RegisterForm
-
-export interface IRegister {
-  prefix: string
-  firstName: string
-  lastName: string
-  firstNameEng: string
-  lastNameEng: string
-  phone: string
-  accountType: AccountType
-  educationLevel?: string
-  schoolName?: string
-}

@@ -1,4 +1,28 @@
-export const sponsors: string[] = [
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Blue_Archive_logo_JP.png/640px-Blue_Archive_logo_JP.png',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Blue_Archive_logo_JP.png/640px-Blue_Archive_logo_JP.png',
+import SponsorBig1 from './images/Sponsor_Big_1.png'
+import SponsorBig2 from './images/Sponsor_Big_2.png'
+import SponsorBig3 from './images/Sponsor_Big_3.png'
+
+export interface ISponsor {
+  image: string
+  size: SponsorSize
+}
+
+export enum SponsorSize {
+  Small = 'small',
+  Big = 'big',
+}
+
+export const sponsors: ISponsor[] = [
+  {
+    image: SponsorBig1,
+    size: SponsorSize.Big,
+  },
+  {
+    image: SponsorBig2,
+    size: SponsorSize.Big,
+  },
+  {
+    image: SponsorBig3,
+    size: SponsorSize.Big,
+  },
 ]

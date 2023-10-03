@@ -1,0 +1,30 @@
+.editProfile {
+    margin-top: 20px;
+    padding: 50px;
+    background: rgba(95, 55, 51, 0.5);
+    border-radius: 10px;
+
+    h3,
+    label {
+        color: #ffffff !important;
+    }
+
+    .formGroup {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .submitBtn {
+        text-align: right;
+    }
+
+    @media screen and (max-width: 500px) {
+        padding: 10px;
+
+        .formGroup {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+    }
+}

@@ -1,18 +1,27 @@
 .eStampPage {
     margin: 0 auto;
-    width: 1024px;
+    width: 720px;
 
-    h3 {
-        color: #FFFFFF;
+    h3,
+    .paragraph {
+        color: #ffffff;
         text-align: center;
     }
 
-    @media screen and (max-width: 1070px) {
-        width: 720px;
+    .alert {
+        width: 512px;
+        margin: 0 auto;
     }
 
     @media screen and (max-width: 768px) {
         width: 100%;
         padding-inline: 25px;
+    }
+
+    @media screen and (max-width: 570px) {
+        .alert {
+            margin: auto;
+            width: auto;
+        }
     }
 }

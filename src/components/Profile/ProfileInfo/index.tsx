@@ -1,20 +1,23 @@
 import { Image, Space, Typography } from 'antd'
 import styles from './index.module.scss'
+import { AccountType } from 'src/contents/register/enum'
 
 interface Props {
   user: IUserInfo
 }
 
 export interface IUserInfo {
+  prefix: string
   firstName: string
   lastName: string
   firstNameEng: string
   lastNameEng: string
-  profileUrl: string
-  email: string
   phone: string
-  educationLevel: string
-  schoolName: string
+  accountType: AccountType
+  educationLevel?: string
+  schoolName?: string
+  email: string
+  profileUrl: string
 }
 
 const ProfileInfo: React.FC<Props> = ({ user }: Props): JSX.Element => {
@@ -33,7 +36,7 @@ const ProfileInfo: React.FC<Props> = ({ user }: Props): JSX.Element => {
           <Title level={3}>
             {user.firstNameEng} {user.lastNameEng}
           </Title>
-          <Text className={styles.schoolName}>{user.schoolName}</Text>
+          {user.accountType === AccountType.student && <Text className={styles.schoolName}>{user.schoolName}</Text>}
         </Space>
         <Space direction="vertical" align="center" style={{ width: '100%', marginTop: '20px' }}>
           <Text>อีเมล: {user.email}</Text>
