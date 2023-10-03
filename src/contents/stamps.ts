@@ -1,6 +1,6 @@
 import { DepartmentEnum } from './department/enum'
-import CPEStampDisable from './images/Stamp_CPE_disabled.png'
-import CPEStampEnable from './images/Stamp_CPE_enabled.png'
+import CPEStampDisable from './images/stamps/Stamp_CPE_disabled.png'
+import CPEStampEnable from './images/stamps/Stamp_CPE_enabled.png'
 
 export interface IStampImage {
   department?: DepartmentEnum

@@ -1,9 +1,26 @@
 .homePage {
     background: url("../../contents/images/landing-background.svg") no-repeat;
     background-size: cover;
+    .imageSlideDesktop {
+        display: block;
+    }
+
+    .imageSlideMobile {
+        display: none;
+    }
 
     @media screen and (max-width: 768px) {
         background: none;
+    }
+
+    @media screen and (max-width: 512px) {
+        .imageSlideDesktop {
+            display: none;
+        }
+
+        .imageSlideMobile {
+            display: block;
+        }
     }
 
     h1,
