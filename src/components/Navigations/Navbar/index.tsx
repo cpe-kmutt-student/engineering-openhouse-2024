@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
       ),
     },
     {
-      key: 'about',
+      key: 'map',
       label: (
         <ExternalLink href={OPEN_HOUSE_MAP} className={styles.link}>
           แผนผังกิจกรรม
