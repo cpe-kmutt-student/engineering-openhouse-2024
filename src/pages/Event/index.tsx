@@ -20,21 +20,21 @@ const Event: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.eventPage}>
-      <ImageHeader title={eventInfo.title} image={eventInfo.image} />
+      {eventInfo.image && <ImageHeader title={eventInfo.title} image={eventInfo.image} />}
       <div className={styles.content}>
         <div className={styles.description}>
           <Title level={3} style={{ textAlign: 'center' }}>
             รายละเอียด
           </Title>
-          <Paragraph style={{ color: '#FFFFFF' }}>
+          <Paragraph style={{ color: '#FFFFFF', textJustify: 'auto', textAlign: 'justify' }}>
             {'\xa0'.repeat(10)} {eventInfo.description}
           </Paragraph>
         </div>
         {eventInfo.rounds && eventInfo.lowerDescription && (
           <EventSchedule rounds={eventInfo.rounds} description={eventInfo.lowerDescription} />
         )}
-        <EventLocation location={eventInfo.location} />
-        <Contact contact={eventInfo.contact} />
+        {eventInfo.location && <EventLocation location={eventInfo.location} />}
+        {eventInfo.contact && <Contact contact={eventInfo.contact} />}
       </div>
     </div>
   )

@@ -15,7 +15,9 @@ const WorkshopActivities: React.FC<Props> = ({ activities }: Props): JSX.Element
           <Title level={4} style={{ color: '#F3B34E' }}>
             {subDetail.name}
           </Title>
-          <Paragraph style={{ color: '#FFFFFF' }}>{subDetail.description}</Paragraph>
+          <Paragraph style={{ color: '#FFFFFF', textJustify: 'auto', textAlign: 'justify' }}>
+            {subDetail.description}
+          </Paragraph>
         </Space>
       )
     })
@@ -28,7 +30,7 @@ const WorkshopActivities: React.FC<Props> = ({ activities }: Props): JSX.Element
           {`${(i += 1)}. กิจกรรม : `}
           <span style={{ color: '#F3B34E' }}>{activity.title}</span>
         </Title>
-        <Paragraph style={{ color: '#FFFFFF' }}>
+        <Paragraph style={{ color: '#FFFFFF', textJustify: 'auto', textAlign: 'justify' }}>
           {'\xa0'.repeat(10)} {activity.description}
         </Paragraph>
         {activity.subDescription && renderWorkshopSubDetails(activity.subDescription)}

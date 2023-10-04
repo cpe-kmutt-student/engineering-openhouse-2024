@@ -16,12 +16,12 @@ const EventLocation: React.FC<Props> = ({ location }: Props): JSX.Element => {
         สถานที่
       </Title>
       <div className={styles.description}>
-        <Text style={{ color: '#FFFFFF', fontSize: '18px' }}>{location.text}</Text>
+        <Text style={{ color: '#FFFFFF', fontSize: '18px' }}>{location?.text}</Text>
       </div>
       <Space direction="vertical" align="center" style={{ width: '100%' }}>
         <div className={styles.map}>
           <iframe
-            src={location.map}
+            src={location?.map}
             style={{ border: 0 }}
             allowFullScreen={false}
             className={styles.googleMap}

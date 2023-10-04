@@ -13,10 +13,10 @@ const Contact: React.FC<Props> = ({ contact }: Props): JSX.Element => {
       <Space direction="vertical" style={{ width: '100%', marginTop: '20px' }} align="center">
         <Title level={3}>ช่องทางการติดต่อ</Title>
         <Text strong style={{ color: '#FFFFFF' }}>
-          {contact.name}
+          {contact?.name}
         </Text>
         <Text strong style={{ color: '#FFFFFF' }}>
-          โทร {contact.tel}
+          โทร {contact?.tel}
         </Text>
       </Space>
     </div>
