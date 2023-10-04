@@ -1,4 +1,4 @@
-import { Collapse, CollapseProps, Image, Typography } from 'antd'
+import { Collapse, CollapseProps, Image } from 'antd'
 import styles from './index.module.scss'
 import { stampImages, IStampImage, StampEnum } from 'src/contents/stamps'
 import { DepartmentEnum } from 'src/contents/department/enum'
