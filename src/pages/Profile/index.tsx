@@ -1,28 +1,29 @@
-import { Button } from 'antd'
+import { Button, Modal, Result } from 'antd'
 import styles from './index.module.scss'
 import { useCallback, useEffect, useState } from 'react'
 import { LoadingPage } from '../Loading'
 import ProfileInfo, { IUserInfo } from 'src/components/Profile/ProfileInfo'
 import { axiosInstance } from 'src/utils/axios'
 import { useNavigate } from 'react-router-dom'
-import { REGISTER_PATH } from 'src/configs/routes'
+import { REGISTER_PATH, STAMP_PATH } from 'src/configs/routes'
 import { AccountType } from 'src/contents/register/enum'
 import EditProfile, { EditProfileForm } from 'src/components/Profile/EditProfile'
 
 const Profile: React.FC = (): JSX.Element => {
   const [user, setUser] = useState<IUserInfo>({
-    prefix: 'นาย',
-    firstName: 'ภูบดินทร์',
-    lastName: 'พูลหน่าย',
-    firstNameEng: 'Phubordin',
-    lastNameEng: 'Poolnai',
-    email: 'mirailisclm@gmail.com',
-    phone: '0987654321',
-    educationLevel: 'มหาลัย',
-    schoolName: 'KMUTT',
-    accountType: AccountType.student,
-    profileUrl: 'https://avatars.githubusercontent.com/u/45442561?v=4',
+    prefix: '',
+    firstName: '',
+    lastName: '',
+    firstNameEng: '',
+    lastNameEng: '',
+    email: '',
+    phone: '',
+    educationLevel: '',
+    schoolName: '',
+    accountType: AccountType.general,
+    profileUrl: '',
   })
+
   const [loading, setLoading] = useState<boolean>(true)
   const [isEdit, setEdit] = useState<boolean>(false)
 
@@ -55,10 +56,29 @@ const Profile: React.FC = (): JSX.Element => {
     }
   }
 
+  const modalStampSuccess = useCallback(() => {
+    return Modal.success({
+      icon: null,
+      centered: true,
+      content: (
+        <Result
+          status="success"
+          title="Successfully Purchased Cloud Server ECS!"
+          subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
+        />
+      ),
+      onOk: () => navigate(STAMP_PATH),
+      okButtonProps: {
+        className: styles.buttonModal,
+      },
+    })
+  }, [navigate])
+
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
     setLoading(false)
-  }, [getUserInfo])
+    modalStampSuccess()
+  }, [getUserInfo, modalStampSuccess])
 
   if (loading) return <LoadingPage />
 

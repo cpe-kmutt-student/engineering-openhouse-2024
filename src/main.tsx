@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
@@ -10,11 +9,9 @@ import ReactGA from 'react-ga'
 ReactGA.initialize(import.meta.env.APP_GOOGLE_MEASURE_ID)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ConfigProvider theme={theme}>
-        <App />
-      </ConfigProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <ConfigProvider theme={theme}>
+      <App />
+    </ConfigProvider>
+  </BrowserRouter>,
 )

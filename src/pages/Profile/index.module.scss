@@ -31,3 +31,20 @@
         padding-inline: 25px;
     }
 }
+
+.buttonModal {
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+    width: 70%;
+    background: #ffb031;
+    transition: all 300ms;
+
+    &:hover {
+        background: #ffa10b !important;
+    }
+
+    &:active {
+        background: #946821 !important;
+    }
+}
