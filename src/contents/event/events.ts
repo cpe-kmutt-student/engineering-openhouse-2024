@@ -1,16 +1,17 @@
 export interface IEventInfo {
   title: string
-  link: string
-  description: string
+  link?: string
+  linkable: boolean
+  description?: string
   thumbnail: string
-  image: string
+  image?: string
   lowerDescription?: string
   rounds?: IActivityRound[]
-  location: {
+  location?: {
     text: string
     map: string
   }
-  contact: {
+  contact?: {
     name: string
     tel: string
   }
@@ -28,8 +29,9 @@ export interface IActivitySchedule {
 
 export const eventActivities: IEventInfo[] = [
   {
-    title: 'กิจกรรมพาน้องทัวร์',
+    title: 'กิจกรรมพี่พาน้องทัวร์',
     link: 'starter-tour',
+    linkable: true,
     description:
       'สำหรับน้อง ๆ คนไหนที่มางานเทศกาล Enginerring Open House ที่ มจธ. แล้ว น้อง ๆ รู้สึกว่าไม่รู้จะเดินชมภาควิชาไหนกันก่อนแน่  วันนี้พี่ ๆ ขอแนะนำกิจกรรมที่จะอาสาพาน้องชมรมภาควิชาต่าง ๆ ที่น่าสนใจ พร้อมชมบรรยกาศสิ่งแวดล้อม สิ่งอำนวยความสะดวกของคณะและของแต่ละภาควิชา พร้อมใกล้ชิดกับพี่ของภาควิชาต่าง ๆ ด้วย ! สำหรับน้อง ๆ ที่ลงทะเบียนและเข้าร่วมกิจกรรมพี่พาน้องทัวร์ มีโอกาสได้รับของที่ระลึกเฉพาะผู้เข้าร่วมกิจกรรมพี่พาน้องทัวร์เท่านั้นด้วยน้า',
     thumbnail:
@@ -109,5 +111,11 @@ export const eventActivities: IEventInfo[] = [
         ],
       },
     ],
+  },
+  {
+    title: 'Inno-X',
+    linkable: false,
+    thumbnail:
+      'https://campus.campus-star.com/app/uploads/2020/10/%E0%B8%AD%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%9E%E0%B8%AB%E0%B8%B8%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3-LX-1_resize.jpg',
   },
 ]

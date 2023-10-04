@@ -1,4 +1,4 @@
-import { Image, Typography } from 'antd'
+import { Collapse, CollapseProps, Image, Typography } from 'antd'
 import styles from './index.module.scss'
 import { stampImages, IStampImage, StampEnum } from 'src/contents/stamps'
 import { DepartmentEnum } from 'src/contents/department/enum'
@@ -23,8 +23,6 @@ const stampsMockup: IStamp[] = [
 ]
 
 const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
-  const { Title } = Typography
-
   console.log(stamps)
 
   const renderStamp = (event: StampEnum) => {
@@ -47,6 +45,57 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
       })
   }
 
+  const items: CollapseProps['items'] = [
+    {
+      key: '1',
+      label: 'นิทรรศการ',
+      style: {
+        border: 0,
+      },
+      children: (
+        <div className={styles.stamps}>
+          <div className={styles.stampImages}>{renderStamp(StampEnum.Openhouse)}</div>
+        </div>
+      ),
+    },
+    {
+      key: '2',
+      label: 'Workshop',
+      style: {
+        border: 0,
+      },
+      children: (
+        <div className={styles.stamps}>
+          <div className={styles.stampImages}>{renderStamp(StampEnum.Workshop)}</div>
+        </div>
+      ),
+    },
+    {
+      key: '3',
+      label: 'พี่พาน้องทัวร์',
+      style: {
+        border: 0,
+      },
+      children: (
+        <div className={styles.stamps}>
+          <div className={styles.stampImages}>{renderStamp(StampEnum.Tour)}</div>
+        </div>
+      ),
+    },
+    {
+      key: '4',
+      label: 'ส่วนกลาง',
+      style: {
+        border: 0,
+      },
+      children: (
+        <div className={styles.stamps}>
+          <div className={styles.stampImages}>{renderStamp(StampEnum.Center)}</div>
+        </div>
+      ),
+    },
+  ]
+
   useEffect(() => {
     stampImages.map((stamp: IStampImage) => {
       cacheImage(stamp.stampDisable)
@@ -56,8 +105,9 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
 
   return (
     <div className={styles.eStamp}>
-      <div className={styles.stamps}>
-        <Title level={3}>ซุ้มกิจกรรม</Title>
+      <Collapse bordered={false} items={items} defaultActiveKey={['1']} style={{ marginBottom: '20px' }} />
+      {/* <div className={styles.stamps}>
+        <Title level={3}>นิทรรศการ</Title>
         <div className={styles.stampImages}>{renderStamp(StampEnum.Openhouse)}</div>
       </div>
       <div className={styles.stamps}>
@@ -65,13 +115,13 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
         <div className={styles.stampImages}>{renderStamp(StampEnum.Workshop)}</div>
       </div>
       <div className={styles.stamps}>
-        <Title level={3}>ทัวร์</Title>
+        <Title level={3}>พี่พาน้องทัวร์</Title>
         <div className={styles.stampImages}>{renderStamp(StampEnum.Tour)}</div>
       </div>
       <div className={styles.stamps}>
         <Title level={3}>ส่วนกลาง</Title>
         <div className={styles.stampImages}>{renderStamp(StampEnum.Center)}</div>
-      </div>
+      </div> */}
     </div>
   )
 }

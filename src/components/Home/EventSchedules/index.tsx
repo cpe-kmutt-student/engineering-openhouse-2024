@@ -1,4 +1,4 @@
-import { Button, Space, Typography } from 'antd'
+import { Button, Divider, Space, Typography } from 'antd'
 import { IEventSchedule, eventSchedules } from 'src/contents/eventSchedules'
 import styles from './index.module.scss'
 import { useState } from 'react'
@@ -18,6 +18,7 @@ const EventSchedules: React.FC = (): JSX.Element => {
           <Title level={4}>{convertDateLocaleToThai(schedule.date)}</Title>
           <Title level={5}>{schedule.time}</Title>
         </Space>
+        <Divider type="vertical" className={styles.divider} style={{ backgroundColor: 'rgba(138, 61, 54, 0.5)' }} />
         <Space direction="vertical" className={styles.content}>
           <div className={styles.text}>
             <Text style={{ color: '#FFFFFF' }}>{schedule.title}</Text>

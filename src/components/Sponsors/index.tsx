@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { cacheImage } from 'src/utils/cacheImage'
 import { ISponsor, SponsorSize, sponsors } from 'src/contents/sponsors'
 
-import SmoLogo from 'src/contents/images/SmoLogo.png'
+import SmoLogo from 'src/contents/images/SmoLogo.svg'
 import KMUTTLogo from 'src/contents/images/KMUTTLogo.png'
 
 const Sponsors: React.FC = (): JSX.Element => {
@@ -37,8 +37,8 @@ const Sponsors: React.FC = (): JSX.Element => {
       </Space>
       <Title level={2}>Sponsors</Title>
       <section className={styles.content}>
-        {renderSponsors(SponsorSize.Big)}
-        {renderSponsors(SponsorSize.Small)}
+        <div className={styles.big}>{renderSponsors(SponsorSize.Big)}</div>
+        <div className={styles.small}>{renderSponsors(SponsorSize.Small)}</div>
       </section>
     </div>
   )

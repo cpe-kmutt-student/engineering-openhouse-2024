@@ -1,6 +1,6 @@
 import { Image, Space, Typography } from 'antd'
 import styles from './index.module.scss'
-import SmoLogo from 'src/contents/images/SmoLogo.png'
+import SmoLogo from 'src/contents/images/SmoLogo.svg'
 import AboutContact from 'src/components/AboutUs/Contact'
 import AboutTravel from 'src/components/AboutUs/Travel'
 import Parking from 'src/components/AboutUs/Parking'

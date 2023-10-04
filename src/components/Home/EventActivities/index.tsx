@@ -8,7 +8,7 @@ const EventActivities: React.FC = (): JSX.Element => {
   const { Text } = Typography
 
   const renderEvents = eventActivities.map((event: IEventInfo, i: number) => {
-    return (
+    return event.linkable && event.link ? (
       <Link to={EVENT_PATH.replace(':event', event.link)} key={i}>
         <div className={styles.eventActivity}>
           <img src={event.thumbnail} alt="image" loading="lazy" />
@@ -17,6 +17,13 @@ const EventActivities: React.FC = (): JSX.Element => {
           </Text>
         </div>
       </Link>
+    ) : (
+      <div className={styles.eventActivity} key={i}>
+        <img src={event.thumbnail} alt="image" loading="lazy" />
+        <Text className={styles.text} style={{ textAlign: 'center' }}>
+          {event.title}
+        </Text>
+      </div>
     )
   })
 
