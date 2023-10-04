@@ -60,13 +60,7 @@ const Profile: React.FC = (): JSX.Element => {
     return Modal.success({
       icon: null,
       centered: true,
-      content: (
-        <Result
-          status="success"
-          title="Successfully Purchased Cloud Server ECS!"
-          subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
-        />
-      ),
+      content: <Result status="success" title="ได้รับแล้ว เย่" />,
       onOk: () => navigate(STAMP_PATH),
       okButtonProps: {
         className: styles.buttonModal,
@@ -76,7 +70,8 @@ const Profile: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
-    setLoading(false)
+
+    // TODO: trigger when got the stamp
     modalStampSuccess()
   }, [getUserInfo, modalStampSuccess])
 
