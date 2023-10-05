@@ -9,7 +9,15 @@ interface Props {
   onFinish: (value: EditProfileForm) => void
 }
 
-type ExcludeUserInfoType = 'accountType' | 'educationLevel' | 'schoolName' | 'email' | 'profileUrl'
+type ExcludeUserInfoType =
+  | 'accountType'
+  | 'educationLevel'
+  | 'schoolName'
+  | 'email'
+  | 'profileUrl'
+  | 'schoolProvince'
+  | 'currentProvince'
+  | 'isGuidanceTeacher'
 
 export type EditProfileForm = Omit<IUserInfo, ExcludeUserInfoType>
 

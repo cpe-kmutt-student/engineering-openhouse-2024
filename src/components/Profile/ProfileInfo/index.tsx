@@ -14,10 +14,13 @@ export interface IUserInfo {
   lastNameEng: string
   phone: string
   accountType: AccountType
-  educationLevel?: string
-  schoolName?: string
   email: string
   profileUrl: string
+  currentProvince: string
+  educationLevel?: string
+  schoolName?: string
+  schoolProvince?: string
+  isGuidanceTeacher?: boolean
 }
 
 const ProfileInfo: React.FC<Props> = ({ user }: Props): JSX.Element => {
@@ -36,7 +39,11 @@ const ProfileInfo: React.FC<Props> = ({ user }: Props): JSX.Element => {
           <Title level={3}>
             {user.firstNameEng} {user.lastNameEng}
           </Title>
-          {user.accountType === AccountType.student && <Text className={styles.schoolName}>{user.schoolName}</Text>}
+          <Text className={styles.schoolName}>
+            {user.accountType === AccountType.student || user.accountType === AccountType.teacher
+              ? user.schoolName
+              : user.currentProvince}
+          </Text>
         </Space>
         <Space direction="vertical" align="center" style={{ width: '100%', marginTop: '20px' }}>
           <Text>อีเมล: {user.email}</Text>

@@ -17,8 +17,16 @@ export const educationLevel: IEducationLevel[] = [
     label: 'มัธยมศึกษาตอนต้น (ม.1-2-3)',
   },
   {
-    value: 'highSchool',
-    label: 'มัธยมศึกษาตอนปลาย (ม.4-5-6)',
+    value: 'highSchool4',
+    label: 'มัธยมศึกษาปีที่ 4 (ม.4)',
+  },
+  {
+    value: 'highSchool5',
+    label: 'มัธยมศึกษาปีที่ 5 (ม.5)',
+  },
+  {
+    value: 'highSchool6',
+    label: 'มัธยมศึกษาปีที่ 6 (ม.6)',
   },
   {
     value: 'vocational',

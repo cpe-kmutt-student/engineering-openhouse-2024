@@ -18,10 +18,9 @@ const Profile: React.FC = (): JSX.Element => {
     lastNameEng: '',
     email: '',
     phone: '',
-    educationLevel: '',
-    schoolName: '',
     accountType: AccountType.general,
     profileUrl: '',
+    currentProvince: '',
   })
 
   const [loading, setLoading] = useState<boolean>(true)
@@ -54,10 +53,10 @@ const Profile: React.FC = (): JSX.Element => {
     const newValues: IUserInfo = {
       ...values,
       accountType: user.accountType,
-      educationLevel: user.educationLevel,
       schoolName: user.schoolName,
       email: user.email,
       profileUrl: user.profileUrl,
+      currentProvince: user.currentProvince,
     }
 
     const res = await axiosInstance.post('/api/users', newValues)
@@ -81,7 +80,6 @@ const Profile: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
-    setLoading(false)
 
     if (location.state && location.state.isSuccess) {
       modalStampSuccess()

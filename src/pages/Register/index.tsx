@@ -1,6 +1,5 @@
 import styles from './index.module.scss'
 import RegisterForm, { RegisterFormType } from 'src/components/Register/Form'
-import schoolData from 'src/contents/thailand_school_name.json'
 import { axiosInstance } from 'src/utils/axios'
 
 const Register: React.FC = (): JSX.Element => {
@@ -14,7 +13,7 @@ const Register: React.FC = (): JSX.Element => {
   return (
     <div className={styles.registerPage}>
       <div className={styles.content}>
-        <RegisterForm onFinish={onFinish} schoolData={schoolData} />
+        <RegisterForm onFinish={onFinish} />
       </div>
     </div>
   )

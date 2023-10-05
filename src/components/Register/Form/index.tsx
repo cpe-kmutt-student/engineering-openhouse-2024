@@ -1,24 +1,21 @@
-import { AutoComplete, Button, Form, FormInstance, Input, Radio, Select, Typography } from 'antd'
+import { AutoComplete, Button, Checkbox, Form, FormInstance, Input, Radio, Select, Typography } from 'antd'
 import styles from './index.module.scss'
 import { useRef, useState } from 'react'
 import { IEducationLevel, educationLevel } from 'src/contents/register/educationLevel'
 import { AccountType } from 'src/contents/register/enum'
 import { namePrefix } from 'src/contents/register/prefix'
 import { IUserInfo } from 'src/components/Profile/ProfileInfo'
+import { searchProvince, searchSchool } from 'src/utils/search'
 
 interface Props {
-  schoolData: ISchoolData[]
   onFinish: (value: RegisterFormType) => void
-}
-
-interface ISchoolData {
-  school_name: string
 }
 
 export type RegisterFormType = Omit<IUserInfo, 'email' | 'profileUrl'>
 
-const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Element => {
-  const [options, setOptions] = useState<{ value: string }[]>([])
+const RegisterForm: React.FC<Props> = ({ onFinish }: Props): JSX.Element => {
+  const [schoolOptions, setSchoolOptions] = useState<{ value: string }[]>([])
+  const [provinceOptions, setProvinceOptions] = useState<{ value: string }[]>([])
 
   const formRef = useRef<FormInstance>(null)
   const [form] = Form.useForm()
@@ -35,18 +32,6 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
     formRef.current?.setFieldsValue({ prefix: value })
   }
 
-  const searchSchool = (searchText: string) => {
-    const searchValue = schoolData
-      .filter((el: ISchoolData) => el.school_name.includes(searchText))
-      .map((el: ISchoolData) => {
-        return {
-          value: el.school_name,
-        }
-      })
-
-    return searchText ? searchValue.slice(0, 10) : []
-  }
-
   const renderEducationLevel = educationLevel.map((item: IEducationLevel, i: number) => (
     <Option value={item.value} key={i}>
       {item.label}
@@ -58,6 +43,62 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
       {prefix}
     </Option>
   ))
+
+  const accountTypeFilter = () => {
+    switch (accountType) {
+      case AccountType.student:
+        return (
+          <>
+            <Form.Item<RegisterFormType>
+              name="educationLevel"
+              label="ระดับการศึกษา"
+              rules={[{ required: true, message: 'กรุณาระบุระดับการศึกษา' }]}
+            >
+              <Select onChange={handleEducationSelectChange}>{renderEducationLevel}</Select>
+            </Form.Item>
+            <Form.Item<RegisterFormType>
+              label="ชื่อสถานศึกษา"
+              name="schoolName"
+              rules={[{ required: true, message: 'กรุณาระบุชื่อสถานศึกษา' }]}
+            >
+              <AutoComplete options={schoolOptions} onSearch={(text) => setSchoolOptions(searchSchool(text))} />
+            </Form.Item>
+            <Form.Item<RegisterFormType>
+              label="จังหวัดสถานศึกษา"
+              name="schoolProvince"
+              rules={[{ required: true, message: 'กรุณาระบุจังหวัดสถานศึกษา' }]}
+            >
+              <AutoComplete options={provinceOptions} onSearch={(text) => setProvinceOptions(searchProvince(text))} />
+            </Form.Item>
+          </>
+        )
+
+      case AccountType.teacher:
+        return (
+          <>
+            <Form.Item<RegisterFormType> name="isGuidanceTeacher" valuePropName="checked">
+              <Checkbox>ฉันเป็นครูแนะแนว</Checkbox>
+            </Form.Item>
+            <Form.Item<RegisterFormType>
+              label="ชื่อสังกัดสถานศึกษา"
+              name="schoolName"
+              rules={[{ required: true, message: 'กรุณาระบุชื่อสถานศึกษา' }]}
+            >
+              <AutoComplete options={schoolOptions} onSearch={(text) => setSchoolOptions(searchSchool(text))} />
+            </Form.Item>
+            <Form.Item<RegisterFormType>
+              label="จังหวัดสังกัดสถานศึกษา"
+              name="schoolProvince"
+              rules={[{ required: true, message: 'กรุณาระบุจังหวัดสถานศึกษา' }]}
+            >
+              <AutoComplete options={provinceOptions} onSearch={(text) => setProvinceOptions(searchProvince(text))} />
+            </Form.Item>
+          </>
+        )
+
+      default:
+    }
+  }
 
   return (
     <div className={styles.form}>
@@ -116,6 +157,13 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
           <Input />
         </Form.Item>
         <Form.Item<RegisterFormType>
+          label="จังหวัดที่อาศัยปัจจุบัน"
+          name="currentProvince"
+          rules={[{ required: true, message: 'กรุณาระบุจังหวัด' }]}
+        >
+          <AutoComplete options={provinceOptions} onSearch={(text) => setProvinceOptions(searchProvince(text))} />
+        </Form.Item>
+        <Form.Item<RegisterFormType>
           label="ประเภทผู้ใช้งาน"
           rules={[{ required: true, message: 'กรุณาระบุประเภทผู้ใช้งาน' }]}
           name="accountType"
@@ -127,24 +175,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish, schoolData }: Props): JSX.Ele
             <Radio value={AccountType.general}>บุคคลทั่วไป</Radio>
           </Radio.Group>
         </Form.Item>
-        {accountType === AccountType.student && (
-          <>
-            <Form.Item<RegisterFormType>
-              name="educationLevel"
-              label="ระดับการศึกษา"
-              rules={[{ required: true, message: 'กรุณาระบุระดับการศึกษา' }]}
-            >
-              <Select onChange={handleEducationSelectChange}>{renderEducationLevel}</Select>
-            </Form.Item>
-            <Form.Item<RegisterFormType>
-              label="ชื่อสถานศึกษา"
-              name="schoolName"
-              rules={[{ required: true, message: 'กรุณาระบุชื่อสถานศึกษา' }]}
-            >
-              <AutoComplete options={options} onSearch={(text) => setOptions(searchSchool(text))} />
-            </Form.Item>
-          </>
-        )}
+        {accountTypeFilter()}
         <Button type="primary" htmlType="submit">
           ลงทะเบียน
         </Button>
