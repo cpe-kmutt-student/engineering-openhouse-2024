@@ -27,6 +27,14 @@ const EventSchedule: React.FC<Props> = ({ rounds, description }: Props): JSX.Ele
         <Title level={4} style={{ textAlign: 'center' }}>
           {round.title}
         </Title>
+        <div className={styles.titleList}>
+          {round.list &&
+            round.list.map((text: string, i: number) => (
+              <Text key={i} style={{ color: '#f3b34e', fontSize: '16px' }}>
+                {text}
+              </Text>
+            ))}
+        </div>
         <table className={styles.table}>
           <thead>
             <tr>
