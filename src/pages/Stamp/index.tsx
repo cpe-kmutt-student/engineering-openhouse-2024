@@ -12,13 +12,12 @@ const Stamp: React.FC = (): JSX.Element => {
 
   const navigate = useNavigate()
 
-  const handleVerifyCode = useCallback(() => {
-    // const res = await axiosInstance.get(`/api/users/take/${qrCodeID}`)
+  const handleVerifyCode = useCallback(async () => {
+    const res = await axiosInstance.get(`/api/users/take/${qrCodeID}`)
 
-    // if (res.status === 200) {
-    //   navigate(PROFILE_PATH, { replace: true, state: { isSuccess: true } })
-    // }
-    navigate(PROFILE_PATH, { replace: true, state: { isSuccess: true } })
+    if (res.status === 200) {
+      navigate(PROFILE_PATH, { replace: true, state: { isSuccess: true } })
+    }
   }, [qrCodeID, navigate])
 
   useEffect(() => {
