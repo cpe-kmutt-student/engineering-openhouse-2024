@@ -5,6 +5,11 @@ import './index.scss'
 import { ConfigProvider } from 'antd'
 import { theme } from './configs/theme.ts'
 import ReactGA from 'react-ga'
+import { registerSW } from 'virtual:pwa-register'
+
+if ('serviceWorker' in navigator) {
+  registerSW()
+}
 
 ReactGA.initialize(import.meta.env.APP_GOOGLE_MEASURE_ID)
 

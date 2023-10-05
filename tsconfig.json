@@ -6,6 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "baseUrl": ".",
+    "types": ["vite-plugin-pwa/client"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",

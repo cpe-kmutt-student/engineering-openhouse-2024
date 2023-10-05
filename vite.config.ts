@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => {
       eslint(),
       VitePWA({
         registerType: 'autoUpdate',
+        includeAssets: ['favicon.ico', 'logo.svg'],
         manifest: {
           name: 'Engineering Carnival 2023',
           short_name: 'Engineering Carnival 2023',
@@ -38,7 +39,7 @@ export default defineConfig(({ mode }) => {
         workbox: {
           cleanupOutdatedCaches: true,
           sourcemap: true,
-          globPatterns: ['**/*.{js,ts,css,html,ico,png,svg,webmanifest}'],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
         },
         devOptions: {
           enabled: true,
