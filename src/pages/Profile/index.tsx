@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { LoadingPage } from '../Loading'
 import ProfileInfo, { IUserInfo } from 'src/components/Profile/ProfileInfo'
 import { axiosInstance } from 'src/utils/axios'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { REGISTER_PATH, STAMP_PATH } from 'src/configs/routes'
 import { AccountType } from 'src/contents/register/enum'
 import EditProfile, { EditProfileForm } from 'src/components/Profile/EditProfile'
@@ -28,6 +28,7 @@ const Profile: React.FC = (): JSX.Element => {
   const [isEdit, setEdit] = useState<boolean>(false)
 
   const navigate = useNavigate()
+  const location = useLocation()
 
   const handleLogout = async () => {
     const res = await axiosInstance.post('/api/auth/logout')
@@ -45,12 +46,21 @@ const Profile: React.FC = (): JSX.Element => {
     }
 
     if (res.status === 204) {
-      navigate(REGISTER_PATH)
+      navigate(REGISTER_PATH, { replace: true })
     }
   }, [navigate])
 
   const onFinish = async (values: EditProfileForm) => {
-    const res = await axiosInstance.patch('/api/users', values)
+    const newValues: IUserInfo = {
+      ...values,
+      accountType: user.accountType,
+      educationLevel: user.educationLevel,
+      schoolName: user.schoolName,
+      email: user.email,
+      profileUrl: user.profileUrl,
+    }
+
+    const res = await axiosInstance.patch('/api/users', newValues)
     if (res.status === 200) {
       navigate(0)
     }
@@ -70,10 +80,12 @@ const Profile: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
+    setLoading(false)
 
-    // TODO: trigger when got the stamp
-    modalStampSuccess()
-  }, [getUserInfo, modalStampSuccess])
+    if (location.state && location.state.isSuccess) {
+      modalStampSuccess()
+    }
+  }, [getUserInfo, modalStampSuccess, location])
 
   if (loading) return <LoadingPage />
 

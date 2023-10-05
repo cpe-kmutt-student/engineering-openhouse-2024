@@ -4,6 +4,7 @@ import { axiosInstance } from 'src/utils/axios'
 
 interface Props {
   style?: React.CSSProperties
+  text?: string
 }
 
 const GoogleSignIn: React.FC<Props> = (props: Props): JSX.Element => {
@@ -17,7 +18,7 @@ const GoogleSignIn: React.FC<Props> = (props: Props): JSX.Element => {
 
   return (
     <Button type="primary" onClick={handleSignInWithGoogle} {...props}>
-      เข้าสู่ระบบ
+      {props.text || 'เข้าสู่ระบบ'}
     </Button>
   )
 }

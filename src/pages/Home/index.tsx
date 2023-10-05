@@ -6,6 +6,7 @@ import DepartmentsWorkshop from 'src/components/Home/Departments'
 import EventActivities from 'src/components/Home/EventActivities'
 import Sponsors from 'src/components/Sponsors'
 import EventSchedules from 'src/components/Home/EventSchedules'
+import GoogleSignIn from 'src/components/Navigations/Navbar/GoogleSignIn'
 
 const Home: React.FC = (): JSX.Element => {
   const { Title } = Typography
@@ -18,6 +19,9 @@ const Home: React.FC = (): JSX.Element => {
         </div>
         <div className={styles.imageSlideMobile}>
           <ImageSlide images={imageSlideMobile} />
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <GoogleSignIn text="ลงทะเบียน" />
         </div>
         <div className={styles.content}>
           <div className={styles.eventSchedules}>

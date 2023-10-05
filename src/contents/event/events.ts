@@ -1,3 +1,5 @@
+import LXThumbnail from '../images/center/LX-Thumbnail.jpeg'
+import INNOXThumbnail from '../images/center/InnoX-Thumbnail.jpg'
 export interface IEventInfo {
   title: string
   link?: string
@@ -19,6 +21,7 @@ export interface IEventInfo {
 
 export interface IActivityRound {
   title: string
+  list?: string[]
   schedules: IActivitySchedule[]
 }
 
@@ -34,8 +37,7 @@ export const eventActivities: IEventInfo[] = [
     linkable: true,
     description:
       'สำหรับน้อง ๆ คนไหนที่มางานเทศกาล Enginerring Open House ที่ มจธ. แล้ว น้อง ๆ รู้สึกว่าไม่รู้จะเดินชมภาควิชาไหนกันก่อนแน่  วันนี้พี่ ๆ ขอแนะนำกิจกรรมที่จะอาสาพาน้องชมรมภาควิชาต่าง ๆ ที่น่าสนใจ พร้อมชมบรรยกาศสิ่งแวดล้อม สิ่งอำนวยความสะดวกของคณะและของแต่ละภาควิชา พร้อมใกล้ชิดกับพี่ของภาควิชาต่าง ๆ ด้วย ! สำหรับน้อง ๆ ที่ลงทะเบียนและเข้าร่วมกิจกรรมพี่พาน้องทัวร์ มีโอกาสได้รับของที่ระลึกเฉพาะผู้เข้าร่วมกิจกรรมพี่พาน้องทัวร์เท่านั้นด้วยน้า',
-    thumbnail:
-      'https://campus.campus-star.com/app/uploads/2020/10/%E0%B8%AD%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%9E%E0%B8%AB%E0%B8%B8%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3-LX-1_resize.jpg',
+    thumbnail: LXThumbnail,
     image: 'https://c4.wallpaperflare.com/wallpaper/389/457/251/blue-archive-anime-girls-hd-wallpaper-preview.jpg',
     lowerDescription: '*เปิดลงทะเบียนล่วงหน้าเท่านั้น*',
     contact: {
@@ -48,7 +50,8 @@ export const eventActivities: IEventInfo[] = [
     },
     rounds: [
       {
-        title: 'ภาควิชา CPE PE ME TME',
+        title: 'ภาควิชา',
+        list: ['วิศวกรรมคอมพิวเตอร์', 'วิศวกรรมอุตสาหการ', 'วิศวกรรมเครื่องกล', 'วิศวกรรมเครื่องมือและวัสดุ'],
         schedules: [
           {
             time: '08.55 - 10.40',
@@ -69,7 +72,8 @@ export const eventActivities: IEventInfo[] = [
         ],
       },
       {
-        title: 'ภาควิชา CHE CVE ENV',
+        title: 'ภาควิชา',
+        list: ['วิศวกรรมเคมี', 'วิศวกรรมโยธา', 'วิศวกรรมสิ่งแวดล้อม'],
         schedules: [
           {
             time: '09.00 - 10.20',
@@ -90,7 +94,8 @@ export const eventActivities: IEventInfo[] = [
         ],
       },
       {
-        title: 'ภาควิชา EE INC ENE',
+        title: 'ภาควิชา',
+        list: ['วิศวกรรมไฟฟ้า', 'วิศวกรรมเครื่องมือและระบบควบคุม', 'วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม'],
         schedules: [
           {
             time: '09.05 - 10.25',
@@ -113,9 +118,8 @@ export const eventActivities: IEventInfo[] = [
     ],
   },
   {
-    title: 'Inno-X',
+    title: 'INNO-X',
     linkable: false,
-    thumbnail:
-      'https://campus.campus-star.com/app/uploads/2020/10/%E0%B8%AD%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%9E%E0%B8%AB%E0%B8%B8%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3-LX-1_resize.jpg',
+    thumbnail: INNOXThumbnail,
   },
 ]

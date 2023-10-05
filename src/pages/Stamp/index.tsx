@@ -16,8 +16,7 @@ const Stamp: React.FC = (): JSX.Element => {
     const res = await axiosInstance.get(`/api/users/take/${qrCodeID}`)
 
     if (res.status === 200) {
-      navigate(PROFILE_PATH, { replace: true })
-      navigate(0)
+      navigate(PROFILE_PATH, { replace: true, state: { isSuccess: true } })
     }
   }, [qrCodeID, navigate])
 
