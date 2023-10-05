@@ -60,7 +60,8 @@ const Profile: React.FC = (): JSX.Element => {
       profileUrl: user.profileUrl,
     }
 
-    const res = await axiosInstance.patch('/api/users', newValues)
+    const res = await axiosInstance.post('/api/users', newValues)
+
     if (res.status === 200) {
       navigate(0)
     }
