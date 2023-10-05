@@ -78,13 +78,28 @@ const Profile: React.FC = (): JSX.Element => {
     })
   }, [navigate])
 
+  const modalStampError = useCallback(() => {
+    return Modal.error({
+      icon: null,
+      centered: true,
+      content: <Result status="error" title="เกิดข้อผิดพลาด ไม่สามารถรับ E-Stamp ได้" />,
+      okButtonProps: {
+        className: styles.buttonModal,
+      },
+    })
+  }, [])
+
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
 
-    if (location.state && location.state.isSuccess) {
+    if (location.state && location.state.requestStatus === 'Success') {
       modalStampSuccess()
     }
-  }, [getUserInfo, modalStampSuccess, location])
+
+    if (location.state && location.state.requestStatus === 'Error') {
+      modalStampError()
+    }
+  }, [getUserInfo, modalStampSuccess, location, modalStampError])
 
   if (loading) return <LoadingPage />
 
