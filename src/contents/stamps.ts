@@ -1,156 +1,155 @@
 import { DepartmentEnum } from './department/enum'
-import CPEStampDisable from './images/stamps/Stamp_CPE_disabled.png'
-import CPEStampEnable from './images/stamps/Stamp_CPE_enabled.png'
+import WorkshopCPE from './images/stamps/CPE-LABCom.png'
+import WorkshopCE from './images/stamps/CE-LABCom.png'
+import WorkshopME from './images/stamps/ME-LABCom.png'
+import WorkshopPE from './images/stamps/PE-LABCom.png'
+import WorkshopEE from './images/stamps/EE-LABCom.png'
+import WorkshopENE from './images/stamps/ENE-LABCom.png'
+import WorkshopTME from './images/stamps/TME-LABCom.png'
+import WorkshopENV from './images/stamps/ENV-LABCom.png'
+import WorkshopCHE from './images/stamps/CHE-LABCom.png'
+import WorkshopINC from './images/stamps/INC-LABCom.png'
+
+import ExpoCPE from './images/stamps/CPE-V2-EXPOCom.png'
+import ExpoCE from './images/stamps/CE-EXPOCom.png'
+import ExpoME from './images/stamps/ME-V2-EXPOCom.png'
+import ExpoPE from './images/stamps/PE-V2-EXPOCom.png'
+import ExpoEE from './images/stamps/EE-EXPOCom.png'
+import ExpoENE from './images/stamps/ENE-EXPOCom.png'
+import ExpoTME from './images/stamps/TME-EXPOCom.png'
+import ExpoENV from './images/stamps/ENV-EXPOCom.png'
+import ExpoCHE from './images/stamps/CHE-EXPOCom.png'
+import ExpoINC from './images/stamps/INC-EXPOCom.png'
+import ExpoRC from './images/stamps/RC-EXPOCom.png'
+
+import Regis from './images/stamps/RegisCom.png'
+import Tour from './images/stamps/PaTour-Com.png'
 
 export interface IStampImage {
   department?: DepartmentEnum
-  detail: StampEnum
-  stampDisable: string
-  stampEnable: string
+  event: StampEnum
+  image: string
 }
 
 export enum StampEnum {
-  Openhouse = 'Openhouse',
-  Workshop = 'Workshop',
-  Center = 'Center',
-  Tour = 'Tour',
+  carnival = 'carnival',
+  central = 'central',
+  tour = 'tour',
+  workshop = 'workshop',
 }
 
 export const stampImages: IStampImage[] = [
   {
     department: DepartmentEnum.CPE,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoCPE,
   },
   {
     department: DepartmentEnum.CE,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoCE,
   },
   {
     department: DepartmentEnum.ME,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoME,
   },
   {
     department: DepartmentEnum.PE,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoPE,
   },
   {
     department: DepartmentEnum.EE,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoEE,
   },
   {
     department: DepartmentEnum.ENE,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoENE,
   },
   {
     department: DepartmentEnum.TME,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoTME,
   },
   {
     department: DepartmentEnum.ENV,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoENV,
   },
   {
     department: DepartmentEnum.CHE,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoCHE,
   },
   {
     department: DepartmentEnum.INC,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoINC,
   },
   {
     department: DepartmentEnum.RC,
-    detail: StampEnum.Openhouse,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.carnival,
+    image: ExpoRC,
   },
   {
     department: DepartmentEnum.CPE,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopCPE,
   },
   {
     department: DepartmentEnum.CE,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopCE,
   },
   {
     department: DepartmentEnum.ME,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopME,
   },
   {
     department: DepartmentEnum.PE,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopPE,
   },
   {
     department: DepartmentEnum.EE,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopEE,
   },
   {
     department: DepartmentEnum.ENE,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopENE,
   },
   {
     department: DepartmentEnum.TME,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopTME,
   },
   {
     department: DepartmentEnum.ENV,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopENV,
   },
   {
     department: DepartmentEnum.CHE,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopCHE,
   },
   {
     department: DepartmentEnum.INC,
-    detail: StampEnum.Workshop,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.workshop,
+    image: WorkshopINC,
   },
   {
-    detail: StampEnum.Tour,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.tour,
+    image: Tour,
   },
   {
-    detail: StampEnum.Center,
-    stampDisable: CPEStampDisable,
-    stampEnable: CPEStampEnable,
+    event: StampEnum.central,
+    image: Regis,
   },
 ]

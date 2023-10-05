@@ -1,20 +1,27 @@
 import { IStamp } from 'src/components/Profile/EStamp'
-import { IStampImage } from 'src/contents/stamps'
+import { IStampImage, StampEnum, stampImages } from 'src/contents/stamps'
 
-export const checkStampWithDepartment = (stampImage: IStampImage, event: string, stampAPI: IStamp[]): string => {
-  if (stampAPI.length === 0) return stampImage.stampDisable
-
-  return stampAPI.filter(
-    (item: IStamp) => item.department_name === stampImage.department && item.event_detail.includes(event),
-  )[0]
-    ? stampImage.stampEnable
-    : stampImage.stampDisable
+interface IFilteredStampImage {
+  style: React.CSSProperties
+  stampImage: string
 }
 
-export const checkStampWithoutDepartment = (stampImage: IStampImage, event: string, stampAPI: IStamp[]): string => {
-  if (stampAPI.length === 0) return stampImage.stampDisable
+export const filterStampVariant = (stamp: IStamp, event: StampEnum): IFilteredStampImage => {
+  if (event === StampEnum.workshop || event === StampEnum.carnival) {
+    const filterImage = stampImages.filter(
+      (image: IStampImage) => image.event === StampEnum[event] && image.department === stamp.department,
+    )[0]
 
-  return stampAPI.filter((item: IStamp) => item.event_detail.includes(event))[0]
-    ? stampImage.stampEnable
-    : stampImage.stampDisable
+    return {
+      style: stamp.status ? { opacity: 1 } : { opacity: 0.1 },
+      stampImage: filterImage.image,
+    }
+  } else {
+    const filterImage = stampImages.filter((image: IStampImage) => image.event === StampEnum[event])[0]
+
+    return {
+      style: stamp.status ? { opacity: 1 } : { opacity: 0.1 },
+      stampImage: filterImage.image,
+    }
+  }
 }

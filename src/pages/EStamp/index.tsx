@@ -1,12 +1,17 @@
 import styles from './index.module.scss'
 import { useCallback, useEffect, useState } from 'react'
 import { LoadingPage } from '../Loading'
-import EStampComponent, { IStamp } from 'src/components/Profile/EStamp'
+import EStampComponent, { IStampEvent } from 'src/components/Profile/EStamp'
 import { Alert, Typography } from 'antd'
 import { axiosInstance } from 'src/utils/axios'
 
 const EStamp: React.FC = (): JSX.Element => {
-  const [stamps, setStamps] = useState<IStamp[]>([])
+  const [stamps, setStamps] = useState<IStampEvent>({
+    carnival: [],
+    central: [],
+    tour: [],
+    workshop: [],
+  })
   const [loading, setLoading] = useState<boolean>(true)
 
   const { Title } = Typography
