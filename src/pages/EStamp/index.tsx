@@ -20,7 +20,7 @@ const EStamp: React.FC = (): JSX.Element => {
     const res = await axiosInstance.get('/api/users/stamp')
 
     if (res.status === 200) {
-      setStamps(res.data)
+      setStamps(res.data.data)
     }
   }, [])
 
