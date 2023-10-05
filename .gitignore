@@ -26,3 +26,6 @@ dist-ssr
 translation.ts
 src/locales/*.json
 .env
+
+# PWA
+dev-dist/
