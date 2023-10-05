@@ -7,8 +7,12 @@ import EventActivities from 'src/components/Home/EventActivities'
 import Sponsors from 'src/components/Sponsors'
 import EventSchedules from 'src/components/Home/EventSchedules'
 import GoogleSignIn from 'src/components/Navigations/Navbar/GoogleSignIn'
+import { useContext } from 'react'
+import { AuthContext } from 'src/utils/Context/AuthContext'
 
 const Home: React.FC = (): JSX.Element => {
+  const auth = useContext(AuthContext)
+
   const { Title } = Typography
 
   return (
@@ -20,9 +24,11 @@ const Home: React.FC = (): JSX.Element => {
         <div className={styles.imageSlideMobile}>
           <ImageSlide images={imageSlideMobile} />
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <GoogleSignIn text="ลงทะเบียน" />
-        </div>
+        {!auth?.authContext.isAuthenticated && (
+          <div style={{ textAlign: 'center' }}>
+            <GoogleSignIn text="ลงทะเบียน" />
+          </div>
+        )}
         <div className={styles.content}>
           <div className={styles.eventSchedules}>
             <Title level={2} style={{ textAlign: 'center' }}>
