@@ -12,17 +12,21 @@ const EventActivities: React.FC = (): JSX.Element => {
       <Link to={EVENT_PATH.replace(':event', event.link)} key={i}>
         <div className={styles.eventActivity}>
           <img src={event.thumbnail} alt="image" loading="lazy" />
-          <Text className={styles.text} style={{ textAlign: 'center' }}>
-            {event.title}
-          </Text>
+          <div className={styles.title}>
+            <Text className={styles.text} style={{ textAlign: 'center' }}>
+              {event.title}
+            </Text>
+          </div>
         </div>
       </Link>
     ) : (
       <div className={styles.eventActivity} key={i}>
         <img src={event.thumbnail} alt="image" loading="lazy" />
-        <Text className={styles.text} style={{ textAlign: 'center' }}>
-          {event.title}
-        </Text>
+        <div className={styles.title}>
+          <Text className={styles.text} style={{ textAlign: 'center' }}>
+            {event.title}
+          </Text>
+        </div>
       </div>
     )
   })

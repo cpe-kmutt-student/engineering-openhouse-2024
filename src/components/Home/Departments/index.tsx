@@ -20,6 +20,7 @@ const DepartmentsWorkshop: React.FC = (): JSX.Element => {
           <img src={department.image} alt="image" loading="lazy" />
           <Text className={styles.text}>
             {department.link !== 'RC' && 'วิศวกรรม'}
+            <br />
             <span style={{ color: '#F3B34E' }}>{department.name}</span>
             <br />({department.link})
           </Text>
