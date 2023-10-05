@@ -19,7 +19,7 @@ export const contacts: IContact[] = [
     icon: <InstagramOutlined />,
   },
   {
-    title: '000-0000000',
+    title: '0 2470 9011',
     link: 'tel:+660987654321',
     icon: <PhoneOutlined />,
   },

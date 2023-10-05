@@ -26,8 +26,8 @@ const Event: React.FC = (): JSX.Element => {
           <Title level={3} style={{ textAlign: 'center' }}>
             รายละเอียด
           </Title>
-          <Paragraph style={{ color: '#FFFFFF', textJustify: 'auto', textAlign: 'justify' }}>
-            {'\xa0'.repeat(10)} {eventInfo.description}
+          <Paragraph style={{ color: '#FFFFFF', textIndent: '3em', textJustify: 'auto', textAlign: 'justify' }}>
+            {eventInfo.description}
           </Paragraph>
         </div>
         {eventInfo.rounds && eventInfo.lowerDescription && (

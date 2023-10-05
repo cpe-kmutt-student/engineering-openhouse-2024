@@ -23,7 +23,7 @@ const Sponsors: React.FC = (): JSX.Element => {
       .map((sponsor: ISponsor, i: number) => {
         return (
           <div className={styles.box} key={i}>
-            <Image src={sponsor.image} width={size === SponsorSize.Big ? 200 : 100} alt="smo-logo" preview={false} />
+            <Image src={sponsor.image} width={100} alt="smo-logo" preview={false} />
           </div>
         )
       })
