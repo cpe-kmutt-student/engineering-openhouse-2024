@@ -52,6 +52,10 @@
             grid-template-columns: repeat(5, 1fr);
             gap: 10px;
 
+            .box img {
+                border-radius: 10px;
+            }
+
             @media screen and (max-width: 768px) {
                 grid-template-rows: unset;
                 grid-template-columns: repeat(2, 1fr);
