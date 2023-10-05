@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "CPE KMUTT Student Union",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint src --ext js,jsx,ts,tsx --config .eslintrc.cjs",
     "preview": "vite preview"
   },
