@@ -1,30 +1,24 @@
-import { Button } from 'antd'
 import { IEventSchedule, eventSchedules } from 'src/contents/eventSchedules'
 import styles from './index.module.scss'
-import { useState } from 'react'
 import EventSchedulesModal from './Modal'
+import { useMemo } from 'react'
 
 const EVENT_TO_SHOW = 6
 
-const EventSchedules: React.FC = (): JSX.Element => {
-  const [eventsToShow, setEventsToShow] = useState<number>(EVENT_TO_SHOW)
+interface Props {
+  showAll: boolean
+}
 
-  const renderEvent = eventSchedules.slice(0, eventsToShow).map((schedule: IEventSchedule, i: number) => {
-    return <EventSchedulesModal schedule={schedule} key={i} />
-  })
+const EventSchedules: React.FC<Props> = ({ showAll }: Props): JSX.Element => {
+  const renderEvent = useMemo(() => {
+    return eventSchedules
+      .slice(0, showAll ? eventSchedules.length : EVENT_TO_SHOW)
+      .map((schedule: IEventSchedule, i: number) => {
+        return <EventSchedulesModal schedule={schedule} key={i} />
+      })
+  }, [showAll])
 
-  return (
-    <>
-      <div className={styles.events}>{renderEvent}</div>
-      {eventSchedules.length !== EVENT_TO_SHOW && (
-        <div className={styles.button}>
-          <Button type="default" onClick={() => setEventsToShow(eventSchedules.length)}>
-            ดูทั้งหมด
-          </Button>
-        </div>
-      )}
-    </>
-  )
+  return <div className={styles.events}>{renderEvent}</div>
 }
 
 export default EventSchedules

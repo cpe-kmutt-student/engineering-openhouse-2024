@@ -1,0 +1,17 @@
+.events {
+    width: 1024px;
+    margin: 0 auto;
+
+    h2 {
+        color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 1070px) {
+        width: 768px;
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
+        padding-inline: 25px;
+    }
+}

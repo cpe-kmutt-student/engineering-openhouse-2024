@@ -1,5 +1,6 @@
 export const BASE_PATH = '/'
 export const ABOUT_PATH = '/about'
+export const EVENTS_PATH = '/events'
 
 export const PROFILE_PATH = '/profile'
 export const QR_CODE_VERITY_PATH = PROFILE_PATH + '/stamp'

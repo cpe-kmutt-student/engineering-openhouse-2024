@@ -1,4 +1,5 @@
 import { DepartmentEnum } from './department/enum'
+import Thumbnail from './images/DepartmentThumbnail.png'
 
 export interface IDepartment {
   name: string
@@ -10,60 +11,56 @@ export const departments: IDepartment[] = [
   {
     name: 'โยธา',
     link: DepartmentEnum.CE,
-    image: 'https://media.tenor.com/MgNiRu0jum0AAAAC/blue-archive-koharu.gif',
+    image: Thumbnail,
   },
   {
     name: 'เครื่องกล',
     link: DepartmentEnum.ME,
-    image:
-      'https://preview.redd.it/running-away-from-hanako-sensei-and-koharu-by-v0-88le7ci071eb1.jpg?width=500&format=pjpg&auto=webp&s=1eb79d2f9263b58e0ba6e5ef7667a1a94cb4cbaa',
+    image: Thumbnail,
   },
   {
     name: 'อุตสาหการ',
     link: DepartmentEnum.PE,
-    image: 'https://media.tenor.com/MgNiRu0jum0AAAAC/blue-archive-koharu.gif',
+    image: Thumbnail,
   },
   {
     name: 'ไฟฟ้า',
     link: DepartmentEnum.EE,
-    image:
-      'https://preview.redd.it/running-away-from-hanako-sensei-and-koharu-by-v0-88le7ci071eb1.jpg?width=500&format=pjpg&auto=webp&s=1eb79d2f9263b58e0ba6e5ef7667a1a94cb4cbaa',
+    image: Thumbnail,
   },
   {
     name: 'อิเล็กทรอนิกส์และโทรคมนาคม',
     link: DepartmentEnum.ENE,
-    image: 'https://media.tenor.com/MgNiRu0jum0AAAAC/blue-archive-koharu.gif',
+    image: Thumbnail,
   },
   {
     name: 'เครื่องมือและวัสดุ',
     link: DepartmentEnum.TME,
-    image:
-      'https://preview.redd.it/running-away-from-hanako-sensei-and-koharu-by-v0-88le7ci071eb1.jpg?width=500&format=pjpg&auto=webp&s=1eb79d2f9263b58e0ba6e5ef7667a1a94cb4cbaa',
+    image: Thumbnail,
   },
   {
     name: 'สิ่งแวดล้อม',
     link: DepartmentEnum.ENV,
-    image: 'https://media.tenor.com/MgNiRu0jum0AAAAC/blue-archive-koharu.gif',
+    image: Thumbnail,
   },
   {
     name: 'คอมพิวเตอร์',
     link: DepartmentEnum.CPE,
-    image: 'https://media.tenor.com/MgNiRu0jum0AAAAC/blue-archive-koharu.gif',
+    image: Thumbnail,
   },
   {
     name: 'เครื่องมือและระบบควบคุม',
     link: DepartmentEnum.INC,
-    image:
-      'https://preview.redd.it/running-away-from-hanako-sensei-and-koharu-by-v0-88le7ci071eb1.jpg?width=500&format=pjpg&auto=webp&s=1eb79d2f9263b58e0ba6e5ef7667a1a94cb4cbaa',
+    image: Thumbnail,
   },
   {
     name: 'เคมี',
     link: DepartmentEnum.CHE,
-    image: 'https://media.tenor.com/MgNiRu0jum0AAAAC/blue-archive-koharu.gif',
+    image: Thumbnail,
   },
   {
     name: 'พื้นที่การศึกษาราชบุรี',
     link: DepartmentEnum.RC,
-    image: 'https://pbs.twimg.com/media/F0NaLpqaIAAhv7n.jpg:large',
+    image: Thumbnail,
   },
 ]

@@ -11,6 +11,7 @@ import {
   QR_CODE_VERITY_PATH,
   SATISFACTION_SURVEY_PATH,
   STAMP_PATH,
+  EVENTS_PATH,
 } from './configs/routes'
 import Home from './pages/Home'
 import { LoadingPage } from './pages/Loading'
@@ -28,6 +29,7 @@ import { routeNavFilter } from './utils/nav'
 import SatisfactionSurvey from './pages/SatisfactionSurvey'
 import ScrollToTop from './components/ScrollToTop'
 import EStamp from './pages/EStamp'
+import Events from './pages/Events'
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -64,6 +66,7 @@ const App: React.FC = (): JSX.Element => {
           <Routes>
             <Route path={BASE_PATH} element={<Home />} />
             <Route path={ABOUT_PATH} element={<AboutUs />} />
+            <Route path={EVENTS_PATH} element={<Events />} />
 
             <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
             <Route path={EVENT_PATH} element={<Event />} />
