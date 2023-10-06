@@ -1,6 +1,6 @@
-import { Button, Modal, Result } from 'antd'
+import { Button, Input, Modal, Result } from 'antd'
 import styles from './index.module.scss'
-import { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { LoadingPage } from '../Loading'
 import ProfileInfo, { IUserInfo } from 'src/components/Profile/ProfileInfo'
 import { axiosInstance } from 'src/utils/axios'
@@ -12,21 +12,23 @@ import ProfileNav from 'src/components/Profile/ProfileNav'
 
 const Profile: React.FC = (): JSX.Element => {
   const [user, setUser] = useState<IUserInfo>({
-    prefix: '',
-    firstName: '',
-    lastName: '',
-    firstNameEng: '',
-    lastNameEng: '',
+    prefix: 'นาย',
+    firstName: 'ภูบดินทร์',
+    lastName: 'พูลหน่าย',
+    firstNameEng: 'Phubordin',
+    lastNameEng: 'Poolnai',
     email: '',
     phone: '',
     is_advisor: false,
     accountType: AccountType.general,
-    profileUrl: '',
+    profileUrl: 'https://avatars.githubusercontent.com/u/45442561?v=4',
     currentProvince: '',
   })
 
   const [loading, setLoading] = useState<boolean>(true)
   const [isEdit, setEdit] = useState<boolean>(false)
+  const [isModalOpen, setModalOpen] = useState<boolean>(false)
+  const [eStampValue, setEStampValue] = useState<string>('')
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -51,7 +53,7 @@ const Profile: React.FC = (): JSX.Element => {
     }
   }, [navigate])
 
-  const onFinish = async (values: EditProfileForm) => {
+  const onEditUser = async (values: EditProfileForm) => {
     const newValues: IUserInfo = {
       ...values,
       accountType: user.accountType,
@@ -66,6 +68,21 @@ const Profile: React.FC = (): JSX.Element => {
 
     if (res.status === 200) {
       navigate(0)
+    }
+  }
+
+  const handleStampShortCode = async () => {
+    try {
+      // TODO : Request E-Stamp ShortCode
+      const res = await axiosInstance.get(`/api/users/take/${eStampValue}`)
+      setModalOpen(false)
+
+      if (res.status === 200) {
+        modalStampSuccess()
+      }
+    } catch (err) {
+      setModalOpen(false)
+      modalStampError()
     }
   }
 
@@ -94,7 +111,9 @@ const Profile: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
+  }, [getUserInfo])
 
+  useEffect(() => {
     if (location.state && location.state.requestStatus === 'Success') {
       modalStampSuccess()
     }
@@ -102,7 +121,7 @@ const Profile: React.FC = (): JSX.Element => {
     if (location.state && location.state.requestStatus === 'Error') {
       modalStampError()
     }
-  }, [getUserInfo, modalStampSuccess, location, modalStampError])
+  }, [modalStampSuccess, location, modalStampError])
 
   if (loading) return <LoadingPage />
 
@@ -110,8 +129,11 @@ const Profile: React.FC = (): JSX.Element => {
     <div className={styles.profilePage}>
       <ProfileNav />
       <ProfileInfo user={user} />
-      {isEdit && <EditProfile onFinish={onFinish} userInfo={user} />}
+      {isEdit && <EditProfile onFinish={onEditUser} userInfo={user} />}
       <div className={styles.actionButtons}>
+        <Button onClick={() => setModalOpen(true)} type="text">
+          กรอกรหัส E-Stamp
+        </Button>
         <Button onClick={() => setEdit(!isEdit)} type="text">
           แก้ไขข้อมูล
         </Button>
@@ -119,6 +141,23 @@ const Profile: React.FC = (): JSX.Element => {
           ออกจากระบบ
         </Button>
       </div>
+      <Modal
+        title="กรอกรหัส E-Stamp"
+        open={isModalOpen}
+        onOk={handleStampShortCode}
+        onCancel={() => setModalOpen(false)}
+        cancelText="ยกเลิก"
+        okText="ยืนยัน"
+        centered
+        cancelButtonProps={{ type: 'text', style: { color: '#000000' } }}
+        closeIcon={false}
+      >
+        <Input
+          maxLength={5}
+          type="text"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEStampValue(e.target.value)}
+        />
+      </Modal>
     </div>
   )
 }
