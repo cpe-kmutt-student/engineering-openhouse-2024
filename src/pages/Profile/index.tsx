@@ -24,6 +24,7 @@ const Profile: React.FC = (): JSX.Element => {
     accountType: AccountType.general,
     profileUrl: '',
     currentProvince: '',
+    schoolProvince: '',
   })
 
   const [loading, setLoading] = useState<boolean>(true)
@@ -63,6 +64,7 @@ const Profile: React.FC = (): JSX.Element => {
       profileUrl: user.profileUrl,
       is_advisor: user.is_advisor,
       currentProvince: user.currentProvince,
+      schoolProvince: user.schoolProvince,
     }
 
     const res = await axiosInstance.post('/api/users', newValues)
