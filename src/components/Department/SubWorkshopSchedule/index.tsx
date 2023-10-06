@@ -93,7 +93,7 @@ const SubWorkshopSchedule: React.FC<Props> = ({ subWorkshop }: Props): JSX.Eleme
       <Title level={3} style={{ textAlign: 'center' }}>
         ตารางเวิร์คช็อป
       </Title>
-      <Collapse size="large" bordered={false} items={collapseItems} defaultActiveKey={['1']} />
+      <Collapse size="large" bordered={false} items={collapseItems} defaultActiveKey={[0]} />
       <Space direction="vertical" align="center" style={{ width: '100%', marginBlock: '20px' }}>
         <Text italic strong style={{ color: '#f3b34e', fontSize: '18px' }}>
           *ลงทะเบียนหน้างานเท่านั้น*

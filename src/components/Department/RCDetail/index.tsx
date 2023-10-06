@@ -53,7 +53,7 @@ const RCDetail: React.FC<Props> = ({ rc }: Props): JSX.Element => {
 
   return (
     <div className={styles.rcDetail}>
-      <Collapse size="large" bordered={false} items={items} defaultActiveKey={['1']} style={{ marginBottom: '20px' }} />
+      <Collapse size="large" bordered={false} items={items} defaultActiveKey={[0]} style={{ marginBottom: '20px' }} />
     </div>
   )
 }
