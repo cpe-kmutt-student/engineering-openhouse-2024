@@ -37,7 +37,7 @@ const EventSchedulesModal: React.FC<Props> = ({ schedule }: Props): JSX.Element 
         onOk={() => setIsModalOpen(false)}
         centered
         closeIcon={false}
-        okText={'รับทราบ'}
+        okText="ปิด"
         cancelButtonProps={{ style: { display: 'none' } }}
       >
         <Paragraph>{schedule.description}</Paragraph>
