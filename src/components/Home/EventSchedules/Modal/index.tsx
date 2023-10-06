@@ -1,6 +1,6 @@
 import { Divider, Modal, Space, Typography } from 'antd'
 import styles from './index.module.scss'
-import { convertDateLocaleToThai } from 'src/utils/date'
+import { convertDateLocaleToThai, convertLongDateLocaleToThai } from 'src/utils/date'
 import { IEventSchedule } from 'src/contents/eventSchedules'
 import { useState } from 'react'
 interface Props {
@@ -41,6 +41,11 @@ const EventSchedulesModal: React.FC<Props> = ({ schedule }: Props): JSX.Element 
         cancelButtonProps={{ style: { display: 'none' } }}
       >
         <Paragraph>{schedule.description}</Paragraph>
+        <Space direction="vertical">
+          <Text strong>วันที่: {convertLongDateLocaleToThai(schedule.date)}</Text>
+          <Text strong>เวลา: {schedule.time}</Text>
+          <Text strong>สถานที่: {schedule.location}</Text>
+        </Space>
       </Modal>
     </>
   )
