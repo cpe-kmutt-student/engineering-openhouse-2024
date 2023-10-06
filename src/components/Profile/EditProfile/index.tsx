@@ -17,7 +17,7 @@ type ExcludeUserInfoType =
   | 'profileUrl'
   | 'schoolProvince'
   | 'currentProvince'
-  | 'isGuidanceTeacher'
+  | 'is_advisor'
 
 export type EditProfileForm = Omit<IUserInfo, ExcludeUserInfoType>
 

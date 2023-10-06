@@ -17,10 +17,10 @@ export interface IUserInfo {
   email: string
   profileUrl: string
   currentProvince: string
+  is_advisor: boolean
   educationLevel?: string
   schoolName?: string
   schoolProvince?: string
-  isGuidanceTeacher?: boolean
 }
 
 const ProfileInfo: React.FC<Props> = ({ user }: Props): JSX.Element => {

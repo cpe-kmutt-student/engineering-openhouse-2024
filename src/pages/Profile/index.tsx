@@ -18,6 +18,7 @@ const Profile: React.FC = (): JSX.Element => {
     lastNameEng: '',
     email: '',
     phone: '',
+    is_advisor: false,
     accountType: AccountType.general,
     profileUrl: '',
     currentProvince: '',
@@ -56,6 +57,7 @@ const Profile: React.FC = (): JSX.Element => {
       schoolName: user.schoolName,
       email: user.email,
       profileUrl: user.profileUrl,
+      is_advisor: user.is_advisor,
       currentProvince: user.currentProvince,
     }
 

@@ -4,7 +4,12 @@ import { axiosInstance } from 'src/utils/axios'
 
 const Register: React.FC = (): JSX.Element => {
   const onFinish = async (values: RegisterFormType) => {
-    const res = await axiosInstance.post('/api/users', values)
+    const newValue: RegisterFormType = {
+      ...values,
+      is_advisor: values.is_advisor || false,
+    }
+
+    const res = await axiosInstance.post('/api/users', newValue)
     if (res.status === 200) {
       window.location.href = '/profile'
     }

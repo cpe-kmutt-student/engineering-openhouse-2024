@@ -76,7 +76,7 @@ const RegisterForm: React.FC<Props> = ({ onFinish }: Props): JSX.Element => {
       case AccountType.teacher:
         return (
           <>
-            <Form.Item<RegisterFormType> name="isGuidanceTeacher" valuePropName="checked">
+            <Form.Item<RegisterFormType> name="is_advisor" valuePropName="checked">
               <Checkbox>ฉันเป็นครูแนะแนว</Checkbox>
             </Form.Item>
             <Form.Item<RegisterFormType>
