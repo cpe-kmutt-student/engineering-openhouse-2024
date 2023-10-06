@@ -9,6 +9,7 @@ import { REGISTER_PATH, STAMP_PATH } from 'src/configs/routes'
 import { AccountType } from 'src/contents/register/enum'
 import EditProfile, { EditProfileForm } from 'src/components/Profile/EditProfile'
 import ProfileNav from 'src/components/Profile/ProfileNav'
+import { DownloadOutlined, EditOutlined } from '@ant-design/icons'
 
 const Profile: React.FC = (): JSX.Element => {
   const [user, setUser] = useState<IUserInfo>({
@@ -136,7 +137,10 @@ const Profile: React.FC = (): JSX.Element => {
         <Button onClick={() => setModalOpen(true)} type="text">
           กรอกรหัส E-Stamp
         </Button>
-        <Button onClick={() => setEdit(true)} type="text">
+        <Button type="text" icon={<DownloadOutlined />}>
+          ดาวน์โหลดเกียรติบัตร
+        </Button>
+        <Button onClick={() => setEdit(true)} type="text" icon={<EditOutlined />}>
           แก้ไขข้อมูล
         </Button>
         <Button onClick={handleLogout} type="primary">
