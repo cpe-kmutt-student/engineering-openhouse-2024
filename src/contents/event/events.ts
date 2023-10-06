@@ -1,5 +1,6 @@
 import LXThumbnail from '../images/center/LX-Thumbnail.jpeg'
 import INNOXThumbnail from '../images/center/InnoX-Thumbnail.jpg'
+import INNOX from '../images/center/InnoX.jpg'
 export interface IEventInfo {
   title: string
   link?: string
@@ -16,6 +17,10 @@ export interface IEventInfo {
   contact?: {
     name: string
     tel: string
+  }
+  social?: {
+    title: string
+    link: string
   }
 }
 
@@ -119,8 +124,35 @@ export const eventActivities: IEventInfo[] = [
   },
   {
     title: 'INNO-X',
-    linkable: false,
+    link: 'INNO-X',
+    linkable: true,
     thumbnail: INNOXThumbnail,
+    image: INNOX,
+    description:
+      'สำหรับน้อง ๆ คนไหนที่มางานเทศกาล Engineering Open House ที่ มจธ. แล้ว น้อง ๆ รู้สึกว่าไม่รู้จะเดินชมภาควิชาไหนกันก่อนแน่  วันนี้พี่ ๆ ขอแนะนำกิจกรรมที่จะอาสาพาน้องชมรมภาควิชาต่าง ๆ ที่น่าสนใจ พร้อมชมบรรยกาศสิ่งแวดล้อม สิ่งอำนวยความสะดวกของคณะและของแต่ละภาควิชา พร้อมใกล้ชิดกับพี่ของภาควิชาต่าง ๆ ด้วย ! สำหรับน้อง ๆ ที่ลงทะเบียนและเข้าร่วมกิจกรรมพี่พาน้องทัวร์ มีโอกาสได้รับของที่ระลึกเฉพาะผู้เข้าร่วมกิจกรรมพี่พาน้องทัวร์เท่านั้นด้วยน้า',
+    social: {
+      title: 'Innovation Exchange KMUTT',
+      link: 'https://www.facebook.com/people/Innovation-Exchange-KMUTT/100064519611257/',
+    },
+    location: {
+      text: 'INNOVATION EXCHANGE ชั้น 1 อาคารวิศววัฒนะ (S4)',
+      map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3877.127566137747!2d100.4928696!3d13.6500032!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a252227bbaa7%3A0x3070526fef2a5038!2z4Lit4Liy4LiE4Liy4Lij4Lin4Li04Lio4Lin4Lin4Lix4LiS4LiZ4LiwIEtod2FlbmcgQmFuZyBNb3QsIEtoZXQgVGh1bmcgS2hydSwgS3J1bmcgVGhlcCBNYWhhIE5ha2hvbiAxMDE0MA!5e0!3m2!1sen!2sth!4v1696080363244!5m2!1sen!2sth',
+    },
+    rounds: [
+      {
+        title: 'รอบ',
+        schedules: [
+          {
+            time: '11.20 – 12.50',
+            amount: 20,
+          },
+          {
+            time: '13.30 – 15.00',
+            amount: 20,
+          },
+        ],
+      },
+    ],
   },
   {
     title: 'กิจกรรมส่วนกลาง',

@@ -1,5 +1,5 @@
 import { Navigate, useParams } from 'react-router-dom'
-import { Typography } from 'antd'
+import { Space, Typography } from 'antd'
 import { BASE_PATH } from 'src/configs/routes'
 import ImageHeader from 'src/components/ImageHeader'
 import { IEventInfo, eventActivities } from 'src/contents/event/events'
@@ -12,7 +12,7 @@ import { useMemo } from 'react'
 const Event: React.FC = (): JSX.Element => {
   const { event } = useParams()
 
-  const { Paragraph, Title } = Typography
+  const { Paragraph, Title, Link } = Typography
 
   const eventInfo = useMemo(() => eventActivities.filter((info: IEventInfo) => info.link === event)[0], [event])
 
@@ -30,11 +30,19 @@ const Event: React.FC = (): JSX.Element => {
             {eventInfo.description}
           </Paragraph>
         </div>
-        {eventInfo.rounds && eventInfo.lowerDescription && (
-          <EventSchedule rounds={eventInfo.rounds} description={eventInfo.lowerDescription} />
-        )}
+        {eventInfo.rounds && <EventSchedule rounds={eventInfo.rounds} description={eventInfo.lowerDescription} />}
         {eventInfo.location && <EventLocation location={eventInfo.location} />}
         {eventInfo.contact && <Contact contact={eventInfo.contact} />}
+        {eventInfo.social && (
+          <div>
+            <Space direction="vertical" style={{ width: '100%', marginTop: '20px' }} align="center">
+              <Title level={3}>ช่องทางการติดต่อ</Title>
+              <Link href={eventInfo.social?.link} style={{ color: '#FFFFFF' }}>
+                {eventInfo.social?.title}
+              </Link>
+            </Space>
+          </div>
+        )}
       </div>
     </div>
   )
