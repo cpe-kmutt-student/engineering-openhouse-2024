@@ -1,6 +1,7 @@
 import BackToOpenhouse from 'src/components/Navigations/BackToOpenhouseNav'
 import Navbar from 'src/components/Navigations/Navbar'
-import { BASE_PATH, QR_CODE_VERITY_PATH } from 'src/configs/routes'
+import NavbarLogout from 'src/components/Navigations/NavbarLogout'
+import { BASE_PATH, QR_CODE_VERITY_PATH, REGISTER_PATH } from 'src/configs/routes'
 
 export const routeNavFilter = (pathname: string) => {
   switch (pathname) {
@@ -9,6 +10,9 @@ export const routeNavFilter = (pathname: string) => {
 
     case QR_CODE_VERITY_PATH:
       return
+
+    case REGISTER_PATH:
+      return <NavbarLogout />
 
     default:
       return <BackToOpenhouse />
