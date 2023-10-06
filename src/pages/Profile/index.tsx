@@ -74,7 +74,7 @@ const Profile: React.FC = (): JSX.Element => {
   const handleStampShortCode = async () => {
     try {
       // TODO : Request E-Stamp ShortCode
-      const res = await axiosInstance.get(`/api/users/take/${eStampValue}`)
+      const res = await axiosInstance.get(`/api/users/take/shortcode/${eStampValue}`)
       setModalOpen(false)
 
       if (res.status === 200) {
