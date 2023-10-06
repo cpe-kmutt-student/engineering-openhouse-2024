@@ -12,8 +12,13 @@ const NavbarLogout: React.FC = (): JSX.Element => {
   const navigate = useNavigate()
 
   const handleLogout = async () => {
-    const res = await axiosInstance.post('/api/auth/logout')
-    if (res.status === 200) {
+    try {
+      const res = await axiosInstance.post('/api/auth/logout')
+      if (res.status === 200) {
+        navigate(BASE_PATH, { replace: true })
+        navigate(0)
+      }
+    } catch (error) {
       navigate(BASE_PATH, { replace: true })
       navigate(0)
     }
