@@ -1,5 +1,5 @@
 import { Collapse, CollapseProps, Space, Typography } from 'antd'
-import { ISubWorkshop, IWorkshopSchedule } from 'src/contents/department/departmentInfo'
+import { ISubWorkshop, IWorkshopSchedule } from 'src/contents/department/types'
 import { convertLongDateLocaleToThai } from 'src/utils/date'
 import styles from './index.module.scss'
 import React from 'react'

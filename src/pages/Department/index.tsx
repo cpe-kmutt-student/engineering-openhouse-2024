@@ -9,6 +9,7 @@ import DepartmentLocation from 'src/components/Department/DepartmentLocation'
 import Contact from 'src/components/Department/Contact'
 import { useMemo } from 'react'
 import SubWorkshopSchedule from 'src/components/Department/SubWorkshopSchedule'
+import RCDetail from 'src/components/Department/RCDetail'
 
 const Department: React.FC = (): JSX.Element => {
   const { departmentInitial } = useParams()
@@ -27,6 +28,7 @@ const Department: React.FC = (): JSX.Element => {
         {department.activities && <WorkshopActivities activities={department.activities} />}
         {department.workshopSchedule && <WorkshopSchedule schedule={department.workshopSchedule} />}
         {department.subWorkshopSchedule && <SubWorkshopSchedule subWorkshop={department.subWorkshopSchedule} />}
+        {department.rc && <RCDetail rc={department.rc} />}
         <DepartmentLocation location={department.location} />
         <Contact contact={department.contact} />
       </div>
