@@ -24,7 +24,7 @@ const EventSchedulesModal: React.FC<Props> = ({ schedule }: Props): JSX.Element 
           <div className={styles.text}>
             <Text style={{ color: '#FFFFFF' }}>{schedule.title}</Text>
           </div>
-          {schedule.description && (
+          {(schedule.description || schedule.location) && (
             <Text className={styles.popUpText} onClick={() => setIsModalOpen(true)}>
               อ่านเพิ่มเติม
             </Text>
@@ -40,7 +40,7 @@ const EventSchedulesModal: React.FC<Props> = ({ schedule }: Props): JSX.Element 
         okText="ปิด"
         cancelButtonProps={{ style: { display: 'none' } }}
       >
-        <Paragraph>{schedule.description}</Paragraph>
+        {schedule.description && <Paragraph>{schedule.description}</Paragraph>}
         <Space direction="vertical">
           <Text strong>วันที่: {convertLongDateLocaleToThai(schedule.date)}</Text>
           <Text strong>เวลา: {schedule.time}</Text>
