@@ -3,54 +3,9 @@
     grid-template-columns: repeat(2, 50%);
     gap: 10px;
 
-    .event {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        padding: 20px;
-        border-radius: 10px;
-        background: rgba(95, 55, 51, 0.5);
-        backdrop-filter: blur(10px);
-
-        .schedule {
-            text-align: center;
-
-            h4,
-            h5 {
-                color: #ffb031;
-                margin: 0;
-                white-space: nowrap;
-            }
-        }
-
-        .divider {
-            height: 60px;
-        }
-
-        .content {
-            overflow: hidden;
-
-            .text {
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-                color: #ffffff;
-            }
-        }
-    }
-
     @media screen and (max-width: 800px) {
         display: flex;
         flex-direction: column;
-    }
-
-    @media screen and (max-width: 768px) {
-        .event {
-            display: grid;
-            grid-template-columns: 100px 10px 1fr;
-            gap: 10px;
-            padding: 10px;
-        }
     }
 }
 
