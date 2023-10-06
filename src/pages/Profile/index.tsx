@@ -94,7 +94,6 @@ const Profile: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
-    setLoading(false)
 
     if (location.state && location.state.requestStatus === 'Success') {
       modalStampSuccess()
