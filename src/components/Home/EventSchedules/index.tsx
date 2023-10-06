@@ -29,17 +29,16 @@ const EventSchedules: React.FC = (): JSX.Element => {
   })
 
   return (
-    <div className={styles.events}>
-      {renderEvent}
-      {eventsToShow === EVENT_TO_SHOW ||
-        (eventSchedules.length !== EVENT_TO_SHOW && (
-          <div className={styles.button}>
-            <Button type="default" onClick={() => setEventsToShow(eventSchedules.length)}>
-              ดูทั้งหมด
-            </Button>
-          </div>
-        ))}
-    </div>
+    <>
+      <div className={styles.events}>{renderEvent}</div>
+      {eventSchedules.length !== EVENT_TO_SHOW && (
+        <div className={styles.button}>
+          <Button type="default" onClick={() => setEventsToShow(eventSchedules.length)}>
+            ดูทั้งหมด
+          </Button>
+        </div>
+      )}
+    </>
   )
 }
 
