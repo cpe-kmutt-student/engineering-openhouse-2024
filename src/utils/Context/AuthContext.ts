@@ -9,7 +9,7 @@ export interface IAuthContext {
 export const initialContextValue: IAuthContext = {
   id: '',
   email: '',
-  isAuthenticated: false,
+  isAuthenticated: true,
 }
 
 interface IAuthContextType {

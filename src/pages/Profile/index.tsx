@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { REGISTER_PATH, STAMP_PATH } from 'src/configs/routes'
 import { AccountType } from 'src/contents/register/enum'
 import EditProfile, { EditProfileForm } from 'src/components/Profile/EditProfile'
+import ProfileNav from 'src/components/Profile/ProfileNav'
 
 const Profile: React.FC = (): JSX.Element => {
   const [user, setUser] = useState<IUserInfo>({
@@ -93,6 +94,7 @@ const Profile: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
+    setLoading(false)
 
     if (location.state && location.state.requestStatus === 'Success') {
       modalStampSuccess()
@@ -107,6 +109,7 @@ const Profile: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.profilePage}>
+      <ProfileNav />
       <ProfileInfo user={user} />
       {isEdit && <EditProfile onFinish={onFinish} userInfo={user} />}
       <div className={styles.actionButtons}>

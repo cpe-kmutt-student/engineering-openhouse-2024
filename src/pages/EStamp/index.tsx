@@ -4,6 +4,7 @@ import { LoadingPage } from '../Loading'
 import EStampComponent, { IStampEvent } from 'src/components/Profile/EStamp'
 import { Alert, Typography } from 'antd'
 import { axiosInstance } from 'src/utils/axios'
+import ProfileNav from 'src/components/Profile/ProfileNav'
 
 const EStamp: React.FC = (): JSX.Element => {
   const [stamps, setStamps] = useState<IStampEvent>({
@@ -26,12 +27,14 @@ const EStamp: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getEStamp().then(() => setLoading(false))
+    setLoading(false)
   }, [getEStamp])
 
   if (loading) return <LoadingPage />
 
   return (
     <div className={styles.eStampPage}>
+      <ProfileNav />
       <Title level={3}>E-Stamp</Title>
       <EStampComponent stamps={stamps} />
       <Alert
