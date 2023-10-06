@@ -16,7 +16,11 @@
     }
 
     .submitBtn {
-        text-align: right;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
     }
 
     @media screen and (max-width: 500px) {
