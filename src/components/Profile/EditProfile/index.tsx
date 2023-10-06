@@ -6,6 +6,7 @@ import { namePrefix } from 'src/contents/register/prefix'
 
 interface Props {
   userInfo: IUserInfo
+  setEdit: (value: boolean) => void
   onFinish: (value: EditProfileForm) => void
 }
 
@@ -21,7 +22,7 @@ type ExcludeUserInfoType =
 
 export type EditProfileForm = Omit<IUserInfo, ExcludeUserInfoType>
 
-const EditProfile: React.FC<Props> = ({ userInfo, onFinish }: Props): JSX.Element => {
+const EditProfile: React.FC<Props> = ({ userInfo, onFinish, setEdit }: Props): JSX.Element => {
   const { Title } = Typography
   const { Option } = Select
 
@@ -37,6 +38,16 @@ const EditProfile: React.FC<Props> = ({ userInfo, onFinish }: Props): JSX.Elemen
       {prefix}
     </Option>
   ))
+
+  const handleReset = () => {
+    setEdit(false)
+    form.setFieldValue('prefix', userInfo.prefix)
+    form.setFieldValue('firstName', userInfo.firstName)
+    form.setFieldValue('lastName', userInfo.lastName)
+    form.setFieldValue('firstNameEng', userInfo.firstNameEng)
+    form.setFieldValue('lastNameEng', userInfo.lastNameEng)
+    form.setFieldValue('phone', userInfo.phone)
+  }
 
   useEffect(() => {
     form.setFieldValue('prefix', userInfo.prefix)
@@ -106,6 +117,9 @@ const EditProfile: React.FC<Props> = ({ userInfo, onFinish }: Props): JSX.Elemen
           <Input />
         </Form.Item>
         <div className={styles.submitBtn}>
+          <Button type="text" onClick={() => handleReset()}>
+            ยกเลิก
+          </Button>
           <Button type="primary" htmlType="submit">
             บันทึก
           </Button>

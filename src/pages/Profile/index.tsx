@@ -1,4 +1,4 @@
-import { Button, Input, Modal, Result } from 'antd'
+import { Button, Form, Input, Modal, Result } from 'antd'
 import styles from './index.module.scss'
 import React, { useCallback, useEffect, useState } from 'react'
 import { LoadingPage } from '../Loading'
@@ -12,23 +12,23 @@ import ProfileNav from 'src/components/Profile/ProfileNav'
 
 const Profile: React.FC = (): JSX.Element => {
   const [user, setUser] = useState<IUserInfo>({
-    prefix: 'นาย',
-    firstName: 'ภูบดินทร์',
-    lastName: 'พูลหน่าย',
-    firstNameEng: 'Phubordin',
-    lastNameEng: 'Poolnai',
+    prefix: '',
+    firstName: '',
+    lastName: '',
+    firstNameEng: '',
+    lastNameEng: '',
     email: '',
     phone: '',
     is_advisor: false,
     accountType: AccountType.general,
-    profileUrl: 'https://avatars.githubusercontent.com/u/45442561?v=4',
+    profileUrl: '',
     currentProvince: '',
   })
 
   const [loading, setLoading] = useState<boolean>(true)
   const [isEdit, setEdit] = useState<boolean>(false)
   const [isModalOpen, setModalOpen] = useState<boolean>(false)
-  const [eStampValue, setEStampValue] = useState<string>('')
+  const [isFormSubmitting, setSubmit] = useState<boolean>(false)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -71,18 +71,20 @@ const Profile: React.FC = (): JSX.Element => {
     }
   }
 
-  const handleStampShortCode = async () => {
-    try {
-      // TODO : Request E-Stamp ShortCode
-      const res = await axiosInstance.get(`/api/users/shortcode/${eStampValue}`)
-      setModalOpen(false)
+  const handleStampShortCode = async ({ input }: { input: string }) => {
+    setSubmit(true)
 
+    try {
+      const res = await axiosInstance.get(`/api/users/shortcode/${input}`)
       if (res.status === 200) {
+        setModalOpen(false)
         modalStampSuccess()
+        setSubmit(false)
       }
     } catch (err) {
       setModalOpen(false)
       modalStampError()
+      setSubmit(false)
     }
   }
 
@@ -129,34 +131,38 @@ const Profile: React.FC = (): JSX.Element => {
     <div className={styles.profilePage}>
       <ProfileNav />
       <ProfileInfo user={user} />
-      {isEdit && <EditProfile onFinish={onEditUser} userInfo={user} />}
+      {isEdit && <EditProfile onFinish={onEditUser} userInfo={user} setEdit={setEdit} />}
       <div className={styles.actionButtons}>
         <Button onClick={() => setModalOpen(true)} type="text">
           กรอกรหัส E-Stamp
         </Button>
-        <Button onClick={() => setEdit(!isEdit)} type="text">
+        <Button onClick={() => setEdit(true)} type="text">
           แก้ไขข้อมูล
         </Button>
         <Button onClick={handleLogout} type="primary">
           ออกจากระบบ
         </Button>
       </div>
-      <Modal
-        title="กรอกรหัส E-Stamp"
-        open={isModalOpen}
-        onOk={handleStampShortCode}
-        onCancel={() => setModalOpen(false)}
-        cancelText="ยกเลิก"
-        okText="ยืนยัน"
-        centered
-        cancelButtonProps={{ type: 'text', style: { color: '#000000' } }}
-        closeIcon={false}
-      >
-        <Input
-          maxLength={5}
-          type="text"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEStampValue(e.target.value)}
-        />
+      <Modal title="กรอกรหัส E-Stamp" open={isModalOpen} centered closeIcon={false} footer={null}>
+        <Form onFinish={handleStampShortCode}>
+          <Form.Item
+            name="input"
+            rules={[
+              { required: true, message: 'กรุณาใส่รหัส E-Stamp', max: 5 },
+              { min: 5, max: 5, message: 'โค้ด E-Stamp ต้องมีจำนวน 5 หลัก' },
+            ]}
+          >
+            <Input maxLength={5} />
+          </Form.Item>
+          <div className={styles.modalFormButton}>
+            <Button type="text" onClick={() => setModalOpen(false)} style={{ color: '#000000' }}>
+              ยกเลิก
+            </Button>
+            <Button type="primary" htmlType="submit" loading={isFormSubmitting}>
+              ยืนยัน
+            </Button>
+          </div>
+        </Form>
       </Modal>
     </div>
   )
