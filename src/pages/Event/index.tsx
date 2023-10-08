@@ -1,5 +1,5 @@
 import { Navigate, useParams } from 'react-router-dom'
-import { Space, Typography } from 'antd'
+import { Image, Space, Typography } from 'antd'
 import { BASE_PATH } from 'src/configs/routes'
 import ImageHeader from 'src/components/ImageHeader'
 import { IEventInfo, eventActivities } from 'src/contents/event/events'
@@ -40,6 +40,29 @@ const Event: React.FC = (): JSX.Element => {
             </Paragraph>
           </div>
         )}
+        {eventInfo.description2Image && <Image src={eventInfo.description2Image} preview={false} loading="lazy" />}
+        {eventInfo.description3 && (
+          <div className={styles.description}>
+            <Title level={3} style={{ textAlign: 'center' }}>
+              {eventInfo.description3.title}
+            </Title>
+            <Paragraph style={{ color: '#FFFFFF', textIndent: '3em', textJustify: 'auto', textAlign: 'justify' }}>
+              {eventInfo.description3.desc}
+            </Paragraph>
+          </div>
+        )}
+        {eventInfo.description3Image && <Image src={eventInfo.description3Image} preview={false} loading="lazy" />}
+        {eventInfo.description4 && (
+          <div className={styles.description}>
+            <Title level={3} style={{ textAlign: 'center' }}>
+              {eventInfo.description4.title}
+            </Title>
+            <Paragraph style={{ color: '#FFFFFF', textIndent: '3em', textJustify: 'auto', textAlign: 'justify' }}>
+              {eventInfo.description4.desc}
+            </Paragraph>
+          </div>
+        )}
+        {eventInfo.description4Image && <Image src={eventInfo.description4Image} preview={false} loading="lazy" />}
         {eventInfo.rounds && <EventSchedule rounds={eventInfo.rounds} description={eventInfo.lowerDescription} />}
         {eventInfo.location && <EventLocation location={eventInfo.location} />}
         {eventInfo.contact && <Contact contact={eventInfo.contact} />}

@@ -1,6 +1,9 @@
 import LXThumbnail from '../images/center/LX-Thumbnail.jpeg'
 import INNOXThumbnail from '../images/center/InnoX-Thumbnail.jpg'
 import INNOX from '../images/center/InnoX.jpg'
+import Methane from '../images/center/Methane.jpg'
+import SeriousBacon from '../images/center/Serious-Bacon.jpg'
+import ConCertRule from '../images/center/Concert-Rule.jpg'
 export interface IEventInfo {
   title: string
   link?: string
@@ -10,6 +13,17 @@ export interface IEventInfo {
     title: string
     desc: string
   }
+  description2Image?: string
+  description3?: {
+    title: string
+    desc: string
+  }
+  description3Image?: string
+  description4?: {
+    title: string
+    desc: string
+  }
+  description4Image?: string
   thumbnail: string
   image?: string
   lowerDescription?: string
@@ -173,7 +187,30 @@ export const eventActivities: IEventInfo[] = [
   },
   {
     title: 'กิจกรรมส่วนกลาง',
-    linkable: false,
+    link: 'central',
+    linkable: true,
+    image: LXThumbnail,
     thumbnail: LXThumbnail,
+    description:
+      'เร็ว ๆ นี้! อย่าพลาดกับคอนเสิร์ตที่น่าตื่นเต้นที่จะมาถึงในเร็ว ๆ นี้! ร่วมรับชมและประทับใจกับการแสดงสุดพิเศษที่เตรียมมาให้กับคุณ อย่าลืมรัดเข็มขัดและเตรียมพบกับศิลปินที่คุณรักในวันที่ 16 ตุลาคม 2566 เวลา16.00-18.30 น. ที่ อาคารพระจอมเกล้าราชานุสรณ์ 190 ปี (โรงยิม) มาชมคอนเสิร์ตที่จะทำให้คุณมีประสบการณ์ที่ไม่ลืมทั้งดนตรีที่น่าตื่นเต้นและบรรยากาศที่น่าทึ่ง! รอคอยพบคุณที่คอนเสิร์ตนี้!',
+    description2: {
+      title: 'Methane',
+      desc: 'Methane เตรียมตัวระเบิดความมันส์ไปกับคอนเสิร์ตของวง methane ที่จะมามอบประสบการณ์ความมันส์สุดเข้มข้นให้คุณ กับเพลงฮิตมากมายที่คุณจะร้องตามได้อย่างแน่นอน ห้ามพลาด!',
+    },
+    description2Image: Methane,
+    description3: {
+      title: 'Serious Bacon',
+      desc: ' Serious Bacon โคตรซีเรียส คอนเสิร์ต! เตรียมตัวระเบิดความสนุกไปกับเพลงฮิตมากมายจากวงดนตรีขวัญใจมหาชน กับโชว์พิเศษที่ไม่เหมือนใคร ห้ามพลาดเด็ดขาด!',
+    },
+    description3Image: SeriousBacon,
+    description4: {
+      title: 'เงื่อนไขการรับชม',
+      desc: '',
+    },
+    description4Image: ConCertRule,
+    location: {
+      text: 'อาคารพระจอมเกล้าราชานุสรณ์ 190 ปี (โรงยิม)',
+      map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3877.127566137747!2d100.4928696!3d13.6500032!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a252227bbaa7%3A0x3070526fef2a5038!2z4Lit4Liy4LiE4Liy4Lij4Lin4Li04Lio4Lin4Lin4Lix4LiS4LiZ4LiwIEtod2FlbmcgQmFuZyBNb3QsIEtoZXQgVGh1bmcgS2hydSwgS3J1bmcgVGhlcCBNYWhhIE5ha2hvbiAxMDE0MA!5e0!3m2!1sen!2sth!4v1696080363244!5m2!1sen!2sth',
+    },
   },
 ]
