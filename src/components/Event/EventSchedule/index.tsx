@@ -1,7 +1,6 @@
 import { Space, Typography } from 'antd'
 import styles from './index.module.scss'
 import { IActivityRound, IActivitySchedule } from 'src/contents/event/events'
-import { convertShortDateLocaleToThai } from 'src/utils/date'
 
 interface Props {
   rounds: IActivityRound[]
@@ -15,7 +14,6 @@ const EventSchedule: React.FC<Props> = ({ rounds, description }: Props): JSX.Ele
     return schedules.map((schedule: IActivitySchedule, i: number) => {
       return (
         <tr key={i}>
-          {schedule.date && <td>{convertShortDateLocaleToThai(schedule.date)}</td>}
           <td>{schedule.time}</td>
           <td>{schedule.amount}</td>
         </tr>
@@ -40,7 +38,6 @@ const EventSchedule: React.FC<Props> = ({ rounds, description }: Props): JSX.Ele
         <table className={styles.table}>
           <thead>
             <tr>
-              {round.schedules[0].date && <th>วันที่</th>}
               <th>เวลา</th>
               <th>จำนวนรับ</th>
             </tr>
@@ -55,6 +52,9 @@ const EventSchedule: React.FC<Props> = ({ rounds, description }: Props): JSX.Ele
     <div>
       <Title level={3} style={{ textAlign: 'center' }}>
         ตารางกิจกรรม
+      </Title>
+      <Title level={4} style={{ textAlign: 'center' }}>
+        วันที่ 14-16 ตุลาคม 2566
       </Title>
       {renderEventRounds}
       <Space direction="vertical" align="center" style={{ width: '100%', marginBlock: '20px' }}>
