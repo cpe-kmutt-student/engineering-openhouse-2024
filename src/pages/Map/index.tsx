@@ -16,7 +16,7 @@ const Map: React.FC = (): JSX.Element => {
   return (
     <div className={styles.map}>
       <Title level={2}>แผนที่งาน</Title>
-      <Image src={MapImage} alt="map" loading="lazy" />
+      <Image src={MapImage} alt="map" loading="lazy" preview={false} />
       <div style={{ textAlign: 'center', marginBottom: '20px', marginTop: '20px' }}>
         <Link href={OPEN_HOUSE_MAP}>
           <Button type="primary">Google Map</Button>
