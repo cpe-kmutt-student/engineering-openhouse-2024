@@ -1,4 +1,11 @@
 .parking {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
     .parkingInfo {
         background: rgba(95, 55, 51, 0.5);
         padding: 20px;
@@ -11,7 +18,7 @@
 
         .image {
             text-align: center;
-    
+
             img {
                 border-radius: 10px;
             }

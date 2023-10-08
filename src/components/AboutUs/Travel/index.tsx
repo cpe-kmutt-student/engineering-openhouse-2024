@@ -14,22 +14,24 @@ const AboutTravel: React.FC = (): JSX.Element => {
   const renderTravel = travels.map((travel: ITravel, i: number) => {
     return (
       <div className={styles.travel} key={i}>
-        <Title level={3}>
-          โดย <span style={{ color: '#F3B34E' }}>{travel.title}</span>
-        </Title>
-        {travel.ways.map((way: ITravelWay, iWay: number) => (
-          <div className={styles.way} key={iWay}>
-            {way.name && (
-              <Title level={4}>
-                {(iWay += 1)}. {way.name}
-              </Title>
-            )}
-            {way.description && <Paragraph className={styles.paragraph}>{way.description}</Paragraph>}
-            <ul className={styles.step}>
-              {way.buses && way.buses.map((bus: string, iBus: number) => <li key={iBus}>{bus}</li>)}
-            </ul>
-          </div>
-        ))}
+        <div className={styles.content}>
+          <Title level={3}>
+            โดย <span style={{ color: '#F3B34E' }}>{travel.title}</span>
+          </Title>
+          {travel.ways.map((way: ITravelWay, iWay: number) => (
+            <div className={styles.way} key={iWay}>
+              {way.name && (
+                <Title level={4}>
+                  {(iWay += 1)}. {way.name}
+                </Title>
+              )}
+              {way.description && <Paragraph className={styles.paragraph}>{way.description}</Paragraph>}
+              <ul className={styles.step}>
+                {way.buses && way.buses.map((bus: string, iBus: number) => <li key={iBus}>{bus}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
         <div className={styles.image}>
           <Image src={travel.image} width={300} alt="image" loading="lazy" />
         </div>
