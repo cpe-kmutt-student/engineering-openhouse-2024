@@ -8,7 +8,7 @@ import ReactGA from 'react-ga'
 import { registerSW } from 'virtual:pwa-register'
 
 if ('serviceWorker' in navigator) {
-  registerSW()
+  registerSW({ immediate: true })
 }
 
 ReactGA.initialize(import.meta.env.APP_GOOGLE_MEASURE_ID)
