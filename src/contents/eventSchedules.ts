@@ -69,6 +69,7 @@ export const eventSchedules: IEventSchedule[] = [
   },
   {
     title: 'Talk show',
+    location: 'บริเวณ ใต้อาคารเรียนรวม 4 (เวทีกลาง)',
     date: '10/16/2023',
     time: '10.30-11.00',
   },
