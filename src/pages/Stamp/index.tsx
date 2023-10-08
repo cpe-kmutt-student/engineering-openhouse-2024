@@ -28,7 +28,7 @@ const Stamp: React.FC = (): JSX.Element => {
     handleVerifyCode()
   }, [handleVerifyCode])
 
-  return qrCodeID ? <LoadingPage /> : <Navigate to={BASE_PATH} replace />
+  return qrCodeID ? <LoadingPage /> : <Navigate to={BASE_PATH} replace state={{ requestStatus: 'Error' }} />
 }
 
 export default Stamp

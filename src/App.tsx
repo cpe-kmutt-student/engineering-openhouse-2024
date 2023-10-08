@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useEffect, useState } from 'react'
+import React, { Suspense, lazy, useCallback, useEffect, useState } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import {
   ABOUT_PATH,
@@ -12,24 +12,27 @@ import {
   SATISFACTION_SURVEY_PATH,
   STAMP_PATH,
   EVENTS_PATH,
+  MAP_PATH,
 } from './configs/routes'
-import Home from './pages/Home'
-import { LoadingPage } from './pages/Loading'
-import Department from './pages/Department'
-import Register from './pages/Register'
-import AboutUs from './pages/AboutUs'
 import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
-import Profile from './pages/Profile'
-import Stamp from './pages/Stamp'
-import Event from './pages/Event'
 import { axiosInstance } from './utils/axios'
 import ReactGA from 'react-ga'
-import { routeNavFilter } from './utils/nav'
-import SatisfactionSurvey from './pages/SatisfactionSurvey'
 import ScrollToTop from './components/ScrollToTop'
-import EStamp from './pages/EStamp'
-import Events from './pages/Events'
+import { routeNavFilter } from './utils/nav'
+import { LoadingPage } from './pages/Loading'
+
+const Home = lazy(() => import('./pages/Home'))
+const Department = lazy(() => import('./pages/Department'))
+const Register = lazy(() => import('./pages/Register'))
+const AboutUs = lazy(() => import('./pages/AboutUs'))
+const Profile = lazy(() => import('./pages/Profile'))
+const Stamp = lazy(() => import('./pages/Stamp'))
+const Event = lazy(() => import('./pages/Event'))
+const SatisfactionSurvey = lazy(() => import('./pages/SatisfactionSurvey'))
+const EStamp = lazy(() => import('./pages/EStamp'))
+const Events = lazy(() => import('./pages/Events'))
+const Map = lazy(() => import('./pages/Map'))
 
 const App: React.FC = (): JSX.Element => {
   const [authContext, setAuthContext] = useState<IAuthContext>(initialContextValue)
@@ -67,6 +70,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path={BASE_PATH} element={<Home />} />
             <Route path={ABOUT_PATH} element={<AboutUs />} />
             <Route path={EVENTS_PATH} element={<Events />} />
+            <Route path={MAP_PATH} element={<Map />} />
 
             <Route path={WORKSHOP_DEPARTMENT_PATH} element={<Department />} />
             <Route path={EVENT_PATH} element={<Event />} />

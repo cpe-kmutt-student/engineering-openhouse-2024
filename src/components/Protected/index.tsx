@@ -1,4 +1,4 @@
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { AuthContext } from 'src/utils/Context/AuthContext'
 import { BASE_PATH } from 'src/configs/routes'
@@ -11,14 +11,13 @@ interface Props {
 const Protected: React.FC<Props> = ({ element }: Props) => {
   const [loading] = useState<boolean>(false)
 
-  const location = useLocation()
   const auth = useContext(AuthContext)
 
   const isAuthenticated = auth?.authContext.isAuthenticated
 
   if (loading) return <LoadingPage />
 
-  return isAuthenticated ? element : <Navigate replace to={BASE_PATH} state={{ from: location }} />
+  return isAuthenticated ? element : <Navigate replace to={BASE_PATH} state={{ requestStatus: 'Error' }} />
 }
 
 export default Protected

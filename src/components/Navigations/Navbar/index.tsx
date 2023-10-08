@@ -1,11 +1,11 @@
 import styles from './index.module.scss'
 import GoogleSignIn from './GoogleSignIn'
-import { Button, Dropdown, Image, MenuProps, Typography } from 'antd'
+import { Button, Dropdown, Image, MenuProps } from 'antd'
 import Logo from 'src/contents/images/logo.svg'
 import { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { cacheImage } from 'src/utils/cacheImage'
-import { ABOUT_PATH, OPEN_HOUSE_MAP, PROFILE_PATH } from 'src/configs/routes'
+import { ABOUT_PATH, MAP_PATH, PROFILE_PATH } from 'src/configs/routes'
 import { AuthContext } from 'src/utils/Context/AuthContext'
 import { axiosInstance } from 'src/utils/axios'
 import { MenuOutlined } from '@ant-design/icons'
@@ -13,7 +13,6 @@ import { MenuOutlined } from '@ant-design/icons'
 const Navbar: React.FC = () => {
   const auth = useContext(AuthContext)
   const navigate = useNavigate()
-  const { Link: ExternalLink } = Typography
 
   const isAuthenticated = auth?.authContext.isAuthenticated
 
@@ -36,9 +35,9 @@ const Navbar: React.FC = () => {
     {
       key: 'map',
       label: (
-        <ExternalLink href={OPEN_HOUSE_MAP} className={styles.link}>
+        <Link to={MAP_PATH} className={styles.link}>
           แผนผังกิจกรรม
-        </ExternalLink>
+        </Link>
       ),
     },
     {
@@ -74,9 +73,9 @@ const Navbar: React.FC = () => {
         <Link to={ABOUT_PATH} className={styles.link}>
           <Button type="text">เกี่ยวกับเรา</Button>
         </Link>
-        <ExternalLink href={OPEN_HOUSE_MAP} className={styles.link}>
+        <Link to={MAP_PATH} className={styles.link}>
           <Button type="text">แผนผังกิจกรรม</Button>
-        </ExternalLink>
+        </Link>
         {isAuthenticated && (
           <Link to={PROFILE_PATH} className={styles.link}>
             <Button type="text">โปรไฟล์</Button>

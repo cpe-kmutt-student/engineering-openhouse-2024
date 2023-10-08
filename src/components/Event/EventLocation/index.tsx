@@ -1,7 +1,7 @@
 import { Button, Space, Typography } from 'antd'
 import styles from './index.module.scss'
 import { Link } from 'react-router-dom'
-import { ABOUT_PATH } from 'src/configs/routes'
+import { MAP_PATH } from 'src/configs/routes'
 import { IEventInfo } from 'src/contents/event/events'
 interface Props {
   location: IEventInfo['location']
@@ -29,7 +29,7 @@ const EventLocation: React.FC<Props> = ({ location }: Props): JSX.Element => {
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
-        <Link to={ABOUT_PATH}>
+        <Link to={MAP_PATH}>
           <Button type="default" style={{ border: 'none' }}>
             ดูแผนที่ภายในงาน
           </Button>

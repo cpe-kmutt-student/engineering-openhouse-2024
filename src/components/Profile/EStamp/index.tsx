@@ -34,6 +34,8 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
       label: 'นิทรรศการ',
       style: {
         border: 0,
+        fontWeight: 'bold',
+        fontSize: '16px',
       },
       children: (
         <div className={styles.stamps}>
@@ -46,6 +48,8 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
       label: 'Workshop',
       style: {
         border: 0,
+        fontWeight: 'bold',
+        fontSize: '16px',
       },
       children: (
         <div className={styles.stamps}>
@@ -58,6 +62,8 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
       label: 'พี่พาน้องทัวร์',
       style: {
         border: 0,
+        fontWeight: 'bold',
+        fontSize: '16px',
       },
       children: (
         <div className={styles.stamps}>
@@ -70,6 +76,8 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
       label: 'ส่วนกลาง',
       style: {
         border: 0,
+        fontWeight: 'bold',
+        fontSize: '16px',
       },
       children: (
         <div className={styles.stamps}>

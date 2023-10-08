@@ -33,8 +33,9 @@
 }
 
 .buttonModal {
-    display: grid;
+    display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
     width: 70%;
     background: #ffb031;
