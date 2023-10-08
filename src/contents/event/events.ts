@@ -6,6 +6,10 @@ export interface IEventInfo {
   link?: string
   linkable: boolean
   description?: string
+  description2?: {
+    title: string
+    desc: string
+  }
   thumbnail: string
   image?: string
   lowerDescription?: string
@@ -31,6 +35,7 @@ export interface IActivityRound {
 }
 
 export interface IActivitySchedule {
+  date?: string
   time: string
   amount: number
 }
@@ -129,7 +134,11 @@ export const eventActivities: IEventInfo[] = [
     thumbnail: INNOXThumbnail,
     image: INNOX,
     description:
-      'สำหรับน้อง ๆ คนไหนที่มางานเทศกาล Engineering Open House ที่ มจธ. แล้ว น้อง ๆ รู้สึกว่าไม่รู้จะเดินชมภาควิชาไหนกันก่อนแน่  วันนี้พี่ ๆ ขอแนะนำกิจกรรมที่จะอาสาพาน้องชมรมภาควิชาต่าง ๆ ที่น่าสนใจ พร้อมชมบรรยกาศสิ่งแวดล้อม สิ่งอำนวยความสะดวกของคณะและของแต่ละภาควิชา พร้อมใกล้ชิดกับพี่ของภาควิชาต่าง ๆ ด้วย ! สำหรับน้อง ๆ ที่ลงทะเบียนและเข้าร่วมกิจกรรมพี่พาน้องทัวร์ มีโอกาสได้รับของที่ระลึกเฉพาะผู้เข้าร่วมกิจกรรมพี่พาน้องทัวร์เท่านั้นด้วยน้า',
+      'Innovation Exchange (Inno-X) เป็นสถานที่ที่เปิดขึ้นมาเพื่อให้บริการพื้นที่การเรียนรู้ ฝึกปฎิบัติ ทำต้นแบบชิ้นงาน งานประดิษฐ์ งานโครงงาน สนับสนุนงานวิจัย ตลอดจนการฝึกอบรม เผยแพร่ การใช้เครื่องมือ เทคโนโลยีและนวัตกรรมสมัยใหม่ เพื่อสนับสนุนการเรียนตามหลักสูตรและการพัฒนาตนเองของทั้งนักศึกษาและบุคลากรของ มจธ.',
+    description2: {
+      title: 'Workshop',
+      desc: 'ขอเชิญชวนน้องมาฝึกอบรมทักษะ การใช้งานเครื่อง 3D Printer และเครื่อง Laser Cut เพื่อเป็นแนวทางในการสร้างนวัตกรรมของน้อง ๆ ต่อไป  เรียนรู้การใช้งานเครื่องและการใช้โปรแกรมเพื่อสร้างชิ้นงาน ทั้ง 2 ชนิดอย่างถูกต้อง และการปฏิบัติ สาธิตกระบวนการทำงานของเครื่อง 3D Printer และ การใช้งานเครื่อง Laser Cut พร้อมทั้งนี้ น้อง ๆ ก็จะมีโอกาสได้ลงมือปฏิบัติด้วยตนเอง เพื่อสร้างชิ้นงานพวงกุญแจ เป็นของที่ระลึก !!',
+    },
     social: {
       title: 'Innovation Exchange KMUTT',
       link: 'https://www.facebook.com/people/Innovation-Exchange-KMUTT/100064519611257/',
@@ -143,10 +152,32 @@ export const eventActivities: IEventInfo[] = [
         title: 'รอบ',
         schedules: [
           {
+            date: '10/14/2023',
             time: '11.20 – 12.50',
             amount: 20,
           },
           {
+            date: '10/14/2023',
+            time: '13.30 – 15.00',
+            amount: 20,
+          },
+          {
+            date: '10/15/2023',
+            time: '11.20 – 12.50',
+            amount: 20,
+          },
+          {
+            date: '10/15/2023',
+            time: '13.30 – 15.00',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
+            time: '11.20 – 12.50',
+            amount: 20,
+          },
+          {
+            date: '10/16/2023',
             time: '13.30 – 15.00',
             amount: 20,
           },

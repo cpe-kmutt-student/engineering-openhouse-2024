@@ -30,6 +30,16 @@ const Event: React.FC = (): JSX.Element => {
             {eventInfo.description}
           </Paragraph>
         </div>
+        {eventInfo.description2 && (
+          <div className={styles.description}>
+            <Title level={3} style={{ textAlign: 'center' }}>
+              {eventInfo.description2.title}
+            </Title>
+            <Paragraph style={{ color: '#FFFFFF', textIndent: '3em', textJustify: 'auto', textAlign: 'justify' }}>
+              {eventInfo.description2.desc}
+            </Paragraph>
+          </div>
+        )}
         {eventInfo.rounds && <EventSchedule rounds={eventInfo.rounds} description={eventInfo.lowerDescription} />}
         {eventInfo.location && <EventLocation location={eventInfo.location} />}
         {eventInfo.contact && <Contact contact={eventInfo.contact} />}
