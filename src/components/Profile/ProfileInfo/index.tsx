@@ -21,6 +21,9 @@ export interface IUserInfo {
   educationLevel?: string
   schoolName?: string
   schoolProvince?: string
+  reward_1?: boolean
+  reward_2?: boolean
+  form_submit?: boolean
 }
 
 const ProfileInfo: React.FC<Props> = ({ user }: Props): JSX.Element => {

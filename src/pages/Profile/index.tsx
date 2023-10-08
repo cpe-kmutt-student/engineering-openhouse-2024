@@ -25,6 +25,7 @@ const Profile: React.FC = (): JSX.Element => {
     profileUrl: '',
     currentProvince: '',
     schoolProvince: '',
+    form_submit: false,
   })
 
   const [loading, setLoading] = useState<boolean>(true)
@@ -142,9 +143,11 @@ const Profile: React.FC = (): JSX.Element => {
         <Button type="text" icon={<DownloadOutlined />}>
           ดาวน์โหลดเกียรติบัตร
         </Button>
-        <Button onClick={() => setEdit(true)} type="text" icon={<EditOutlined />}>
-          แก้ไขข้อมูล
-        </Button>
+        {user.form_submit === false ? (
+          <Button onClick={() => setEdit(true)} type="text" icon={<EditOutlined />}>
+            แก้ไขข้อมูล
+          </Button>
+        ) : null}
         <Button onClick={handleLogout} type="primary">
           ออกจากระบบ
         </Button>
