@@ -3,7 +3,7 @@
 ## ⚙️ Setup
 Install dependencies
 ```sh
-pnpm i
+pnpm install
 ```
 
 Build vite (for production)
