@@ -9,7 +9,7 @@ import { REGISTER_PATH, STAMP_PATH } from 'src/configs/routes'
 import { AccountType } from 'src/contents/register/enum'
 import EditProfile, { EditProfileForm } from 'src/components/Profile/EditProfile'
 import ProfileNav from 'src/components/Profile/ProfileNav'
-import { EditOutlined } from '@ant-design/icons'
+import { DownloadOutlined, EditOutlined } from '@ant-design/icons'
 
 const Profile: React.FC = (): JSX.Element => {
   const [user, setUser] = useState<IUserInfo>({
@@ -32,6 +32,7 @@ const Profile: React.FC = (): JSX.Element => {
   const [isEdit, setEdit] = useState<boolean>(false)
   const [isModalOpen, setModalOpen] = useState<boolean>(false)
   const [isFormSubmitting, setSubmit] = useState<boolean>(false)
+  const [isDownloadCer, setDownloadCer] = useState<boolean>(false)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -115,17 +116,30 @@ const Profile: React.FC = (): JSX.Element => {
     })
   }, [])
 
-  // const handleCertificate = async () => {
-  //   // TODO : Certificate handler
-  //   const res = await axiosInstance.post('/api/users/<API>')
+  const getCertificate = async () => {
+    // TODO : Certificate handler
+    const res = await axiosInstance.get('/api/users/cert')
 
-  //   if (res.status === 200) {
-  //     window.location.href = res.data.data
-  //   }
-  // }
+    if (res.status === 200) {
+      setDownloadCer(res.data.data.cert)
+    }
+  }
+
+  const handleCertificate = async () => {
+    // TODO : Certificate handler
+    if (isDownloadCer && !user.form_submit) {
+      const res = await axiosInstance.post('/api/users/cert')
+
+      if (res.status === 200) {
+        // TODO : Go to form
+        console.log(res)
+      }
+    }
+  }
 
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
+    getCertificate()
     setLoading(false)
   }, [getUserInfo])
 
@@ -150,9 +164,9 @@ const Profile: React.FC = (): JSX.Element => {
         <Button onClick={() => setModalOpen(true)} type="text">
           กรอกรหัส E-Stamp
         </Button>
-        {/* <Button type="text" icon={<DownloadOutlined />} onClick={handleCertificate}>
+        <Button type="text" icon={<DownloadOutlined />} onClick={handleCertificate}>
           ดาวน์โหลดเกียรติบัตร
-        </Button> */}
+        </Button>
         {!user.form_submit && (
           <Button onClick={() => setEdit(true)} type="text" icon={<EditOutlined />}>
             แก้ไขข้อมูล
