@@ -14,7 +14,7 @@ pnpm build
 ## Start
 ### 🛠️ Development
 ```sh
-pnpm dev
+pnpm run dev
 ```
 
 ### 🏭 Production
