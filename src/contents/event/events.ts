@@ -205,7 +205,7 @@ export const eventActivities: IEventInfo[] = [
     description3Image: SeriousBacon,
     description4: {
       title: 'เงื่อนไขการรับชม',
-      desc: '',
+      desc: ' ',
     },
     description4Image: ConCertRule,
     location: {
