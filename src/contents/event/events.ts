@@ -210,7 +210,7 @@ export const eventActivities: IEventInfo[] = [
     description4Image: ConCertRule,
     location: {
       text: 'อาคารพระจอมเกล้าราชานุสรณ์ 190 ปี (โรงยิม)',
-      map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3877.127566137747!2d100.4928696!3d13.6500032!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a252227bbaa7%3A0x3070526fef2a5038!2z4Lit4Liy4LiE4Liy4Lij4Lin4Li04Lio4Lin4Lin4Lix4LiS4LiZ4LiwIEtod2FlbmcgQmFuZyBNb3QsIEtoZXQgVGh1bmcgS2hydSwgS3J1bmcgVGhlcCBNYWhhIE5ha2hvbiAxMDE0MA!5e0!3m2!1sen!2sth!4v1696080363244!5m2!1sen!2sth',
+      map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2305.3398286950164!2d100.4919224004423!3d13.65143743116155!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a25160d46eab%3A0xd4f685d06fceb9a9!2sKing%20Mongkut%E2%80%99s%20Food%20Center!5e0!3m2!1sen!2sth!4v1696830814646!5m2!1sen!2sth',
     },
   },
 ]
