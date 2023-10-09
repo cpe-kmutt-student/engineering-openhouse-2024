@@ -7,6 +7,7 @@ export const PROFILE_PATH = '/profile'
 export const QR_CODE_VERITY_PATH = PROFILE_PATH + '/stamp'
 export const STAMP_PATH = PROFILE_PATH + '/stamps'
 export const SATISFACTION_SURVEY_PATH = PROFILE_PATH + '/survey'
+export const CERTIFICATE_FORM_PATH = PROFILE_PATH + '/certificate'
 
 export const WORKSHOP_DEPARTMENT_PATH = '/workshops/:departmentInitial'
 export const EVENT_PATH = '/events/:event'

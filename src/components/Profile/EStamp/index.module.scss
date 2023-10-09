@@ -40,6 +40,32 @@
     }
   }
 
+  .badgeGroup {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    background: rgba(95, 55, 51, 0.5);
+    border-radius: 10px;
+    gap: 50px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    .badge {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @media screen and (max-width: 430px) {
+      flex-direction: column;
+      gap: 30px;
+      padding: 20px 0;
+    }
+  }
+
   @media screen and (max-width: 570px) {
     margin: auto;
     width: auto;

@@ -5,6 +5,9 @@ import EStampComponent, { IStampEvent } from 'src/components/Profile/EStamp'
 import { Alert, Typography } from 'antd'
 import { axiosInstance } from 'src/utils/axios'
 import ProfileNav from 'src/components/Profile/ProfileNav'
+import { isTodayOpenHouse } from 'src/utils/date'
+import { Navigate } from 'react-router-dom'
+import { BASE_PATH } from 'src/configs/routes'
 
 const EStamp: React.FC = (): JSX.Element => {
   const [stamps, setStamps] = useState<IStampEvent>({
@@ -12,6 +15,10 @@ const EStamp: React.FC = (): JSX.Element => {
     central: [],
     tour: [],
     workshop: [],
+    reward: {
+      reward_1: true,
+      reward_2: false,
+    },
   })
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -31,11 +38,13 @@ const EStamp: React.FC = (): JSX.Element => {
 
   if (loading) return <LoadingPage />
 
+  if (!isTodayOpenHouse()) return <Navigate to={BASE_PATH} replace />
+
   return (
     <div className={styles.eStampPage}>
       <ProfileNav />
       <Title level={3}>E-Stamp</Title>
-      <EStampComponent stamps={stamps} />
+      <EStampComponent stamps={stamps} rewards={stamps.reward} />
       <Alert
         message="เงื่อนไขการรับ E-stamp"
         description="การได้รับ E-stamp นั้น จะต้องทำการแสกน QR-code ของกิจกรรม

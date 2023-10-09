@@ -115,6 +115,15 @@ const Profile: React.FC = (): JSX.Element => {
     })
   }, [])
 
+  const handleCertificate = async () => {
+    // TODO : Certificate handler
+    const res = await axiosInstance.post('/api/users/<API>')
+
+    if (res.status === 200) {
+      window.location.href = res.data.data
+    }
+  }
+
   useEffect(() => {
     getUserInfo().then(() => setLoading(false))
   }, [getUserInfo])
@@ -140,14 +149,14 @@ const Profile: React.FC = (): JSX.Element => {
         <Button onClick={() => setModalOpen(true)} type="text">
           กรอกรหัส E-Stamp
         </Button>
-        <Button type="text" icon={<DownloadOutlined />}>
+        <Button type="text" icon={<DownloadOutlined />} onClick={handleCertificate}>
           ดาวน์โหลดเกียรติบัตร
         </Button>
-        {user.form_submit === false ? (
+        {!user.form_submit && (
           <Button onClick={() => setEdit(true)} type="text" icon={<EditOutlined />}>
             แก้ไขข้อมูล
           </Button>
-        ) : null}
+        )}
         <Button onClick={handleLogout} type="primary">
           ออกจากระบบ
         </Button>

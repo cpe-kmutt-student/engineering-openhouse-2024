@@ -13,6 +13,7 @@ import {
   STAMP_PATH,
   EVENTS_PATH,
   MAP_PATH,
+  CERTIFICATE_FORM_PATH,
 } from './configs/routes'
 import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
@@ -21,6 +22,7 @@ import ReactGA from 'react-ga'
 import ScrollToTop from './components/ScrollToTop'
 import { routeNavFilter } from './utils/nav'
 import { LoadingPage } from './pages/Loading'
+import Certificate from './pages/Certificate'
 
 const Home = lazy(() => import('./pages/Home'))
 const Department = lazy(() => import('./pages/Department'))
@@ -80,6 +82,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
             <Route path={QR_CODE_VERITY_PATH} element={<Protected element={<Stamp />} />} />
             <Route path={SATISFACTION_SURVEY_PATH} element={<Protected element={<SatisfactionSurvey />} />} />
+            <Route path={CERTIFICATE_FORM_PATH} element={<Protected element={<Certificate />} />} />
             <Route path={STAMP_PATH} element={<Protected element={<EStamp />} />} />
 
             <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />

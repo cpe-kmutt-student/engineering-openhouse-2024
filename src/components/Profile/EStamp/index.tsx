@@ -1,12 +1,14 @@
-import { Collapse, CollapseProps, Image } from 'antd'
+import { Collapse, CollapseProps, Image, Typography } from 'antd'
 import styles from './index.module.scss'
 import { stampImages, IStampImage, StampEnum } from 'src/contents/stamps'
 import React, { useEffect } from 'react'
 import { cacheImage } from 'src/utils/cacheImage'
 import { filterStampVariant } from 'src/utils/stamp'
+import { GiftOutlined } from '@ant-design/icons'
 
 interface Props {
-  stamps: IStampEvent
+  stamps: Omit<IStampEvent, 'reward'>
+  rewards: IStampEvent['reward']
 }
 
 export interface IStampEvent {
@@ -14,13 +16,19 @@ export interface IStampEvent {
   central: IStamp[]
   tour: IStamp[]
   workshop: IStamp[]
+  reward: {
+    reward_1: boolean
+    reward_2: boolean
+  }
 }
 
 export interface IStamp {
   department: string
   status: boolean
 }
-const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
+const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Element => {
+  const { Title, Text } = Typography
+
   const renderStamp = (event: StampEnum) => {
     return stamps[event].map((stamp: IStamp, i: number) => {
       const { style: stampStyle, stampImage } = filterStampVariant(stamp, event)
@@ -94,6 +102,21 @@ const EStampComponent: React.FC<Props> = ({ stamps }: Props): JSX.Element => {
   return (
     <div className={styles.eStamp}>
       <Collapse bordered={false} items={items} defaultActiveKey={['1']} style={{ marginBottom: '20px' }} />
+      <Title level={3}>ของที่ระลึก</Title>
+      <div className={styles.badgeGroup}>
+        <div className={styles.badge}>
+          <GiftOutlined style={{ fontSize: '50px', color: rewards.reward_1 ? '#ffd000' : '#EEEEEE' }} />
+          <Text strong style={{ color: '#FFFFFF' }}>
+            {rewards.reward_1 ? 'รางวัลที่ 2 (ได้รับแล้ว)' : 'รางวัลที่ 2 (ยังไม่ได้รับ)'}
+          </Text>
+        </div>
+        <div className={styles.badge}>
+          <GiftOutlined style={{ fontSize: '50px', color: rewards.reward_2 ? '#ffd000' : '#EEEEEE' }} />
+          <Text strong style={{ color: '#FFFFFF' }}>
+            {rewards.reward_2 ? 'รางวัลที่ 2 (ได้รับแล้ว)' : 'รางวัลที่ 2 (ยังไม่ได้รับ)'}
+          </Text>
+        </div>
+      </div>
     </div>
   )
 }
