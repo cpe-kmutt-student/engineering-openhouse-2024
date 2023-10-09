@@ -8,7 +8,7 @@ pnpm i
 
 Build vite (for production)
 ```sh
-pnpm build
+pnpm run build
 ```
 
 ## Start
