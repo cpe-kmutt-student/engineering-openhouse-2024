@@ -6,7 +6,7 @@ Install dependencies
 pnpm i
 ```
 
-Build vite (for production only)
+Build vite (for production)
 ```sh
 pnpm build
 ```
