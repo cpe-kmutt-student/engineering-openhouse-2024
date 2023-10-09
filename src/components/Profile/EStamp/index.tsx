@@ -107,13 +107,13 @@ const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Eleme
         <div className={styles.badge}>
           <GiftOutlined style={{ fontSize: '50px', color: rewards.reward_1 ? '#ffd000' : '#EEEEEE' }} />
           <Text strong style={{ color: '#FFFFFF' }}>
-            {rewards.reward_1 ? 'รางวัลที่ 2 (ได้รับแล้ว)' : 'รางวัลที่ 2 (ยังไม่ได้รับ)'}
+            {rewards.reward_1 ? 'รางวัลที่ 1 พวงกุญแจ (ได้รับแล้ว)' : 'รางวัลที่ 1 พวงกุญแจ (ยังไม่ได้รับ)'}
           </Text>
         </div>
         <div className={styles.badge}>
           <GiftOutlined style={{ fontSize: '50px', color: rewards.reward_2 ? '#ffd000' : '#EEEEEE' }} />
           <Text strong style={{ color: '#FFFFFF' }}>
-            {rewards.reward_2 ? 'รางวัลที่ 2 (ได้รับแล้ว)' : 'รางวัลที่ 2 (ยังไม่ได้รับ)'}
+            {rewards.reward_2 ? 'รางวัลที่ 2 เข็มกลัด (ได้รับแล้ว)' : 'รางวัลที่ 2 เข็มกลัด (ยังไม่ได้รับ)'}
           </Text>
         </div>
       </div>
