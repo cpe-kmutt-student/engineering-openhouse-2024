@@ -18,7 +18,7 @@ import {
 import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
 import { axiosInstance } from './utils/axios'
-import ReactGA from 'react-ga'
+import ReactGA from 'react-ga4'
 import ScrollToTop from './components/ScrollToTop'
 import { routeNavFilter } from './utils/nav'
 import { LoadingPage } from './pages/Loading'
@@ -58,7 +58,7 @@ const App: React.FC = (): JSX.Element => {
     handleLogin().then(() => setLoading(false))
   }, [handleLogin])
 
-  ReactGA.pageview(window.location.pathname + window.location.search)
+  ReactGA.initialize(import.meta.env.APP_GOOGLE_MEASURE_ID)
 
   if (loading) return <LoadingPage />
 
