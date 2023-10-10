@@ -4,6 +4,8 @@ import INNOX from '../images/center/InnoX.jpg'
 import Methane from '../images/center/Methane.jpg'
 import SeriousBacon from '../images/center/Serious-Bacon.jpg'
 import ConCertRule from '../images/center/Concert-Rule.jpg'
+import concert from '../images/concert.jpg'
+
 export interface IEventInfo {
   title: string
   link?: string
@@ -186,11 +188,11 @@ export const eventActivities: IEventInfo[] = [
     ],
   },
   {
-    title: 'กิจกรรมส่วนกลาง',
-    link: 'central',
+    title: 'Concert',
+    link: 'concert',
     linkable: true,
-    image: LXThumbnail,
-    thumbnail: LXThumbnail,
+    image: concert,
+    thumbnail: concert,
     description:
       'เร็ว ๆ นี้! อย่าพลาดกับคอนเสิร์ตที่น่าตื่นเต้นที่จะมาถึงในเร็ว ๆ นี้! ร่วมรับชมและประทับใจกับการแสดงสุดพิเศษที่เตรียมมาให้กับคุณ อย่าลืมรัดเข็มขัดและเตรียมพบกับศิลปินที่คุณรักในวันที่ 16 ตุลาคม 2566 เวลา16.00-18.30 น. ที่ อาคารพระจอมเกล้าราชานุสรณ์ 190 ปี (โรงยิม) มาชมคอนเสิร์ตที่จะทำให้คุณมีประสบการณ์ที่ไม่ลืมทั้งดนตรีที่น่าตื่นเต้นและบรรยากาศที่น่าทึ่ง! รอคอยพบคุณที่คอนเสิร์ตนี้!',
     description2: {

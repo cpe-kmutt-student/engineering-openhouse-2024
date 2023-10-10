@@ -10,7 +10,7 @@ export interface IContact {
 export const contacts: IContact[] = [
   {
     title: 'สโมสรนักศึกษาคณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี',
-    link: 'https://www.facebook.com/SAMOVIDVA',
+    link: 'https://www.facebook.com/profile.php?id=100087709743668',
     icon: <FacebookOutlined />,
   },
   {
