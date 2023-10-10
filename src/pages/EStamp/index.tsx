@@ -5,9 +5,6 @@ import EStampComponent, { IStampEvent } from 'src/components/Profile/EStamp'
 import { Alert, Typography } from 'antd'
 import { axiosInstance } from 'src/utils/axios'
 import ProfileNav from 'src/components/Profile/ProfileNav'
-import { isTodayOpenHouse } from 'src/utils/date'
-import { Navigate } from 'react-router-dom'
-import { BASE_PATH } from 'src/configs/routes'
 
 const EStamp: React.FC = (): JSX.Element => {
   const [stamps, setStamps] = useState<IStampEvent>({
@@ -38,7 +35,7 @@ const EStamp: React.FC = (): JSX.Element => {
 
   if (loading) return <LoadingPage />
 
-  if (!isTodayOpenHouse()) return <Navigate to={BASE_PATH} replace />
+  // if (!isTodayOpenHouse()) return <Navigate to={BASE_PATH} replace />
 
   return (
     <div className={styles.eStampPage}>
