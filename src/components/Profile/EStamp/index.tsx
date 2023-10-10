@@ -104,17 +104,35 @@ const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Eleme
       <Collapse bordered={false} items={items} defaultActiveKey={['1']} style={{ marginBottom: '20px' }} />
       <Title level={3}>ของที่ระลึก</Title>
       <div className={styles.badgeGroup}>
-        <div className={styles.badge}>
-          <GiftOutlined style={{ fontSize: '50px', color: rewards.reward_1 ? '#ffd000' : '#EEEEEE' }} />
-          <Text strong style={{ color: '#FFFFFF' }}>
-            {rewards.reward_1 ? 'รางวัลที่ 1 พวงกุญแจ (ได้รับแล้ว)' : 'รางวัลที่ 1 พวงกุญแจ (ยังไม่ได้รับ)'}
-          </Text>
+        <div className={`${styles.badge} ${rewards.reward_1 ? styles.receive : ''}`}>
+          <Image
+            src="/src/contents/images/badge/badge1.png"
+            alt="เข็มกลัด"
+            height={125}
+            preview={false}
+            className={styles.image}
+          ></Image>
+          <div className={styles.textGroup}>
+            <Text strong className={styles.name}>
+              เข็มกลัด
+            </Text>
+            <Text className={styles.status}>{rewards.reward_1 ? '(ได้รับแล้ว)' : '(ยังไม่ได้รับ)'}</Text>
+          </div>
         </div>
-        <div className={styles.badge}>
-          <GiftOutlined style={{ fontSize: '50px', color: rewards.reward_2 ? '#ffd000' : '#EEEEEE' }} />
-          <Text strong style={{ color: '#FFFFFF' }}>
-            {rewards.reward_2 ? 'รางวัลที่ 2 เข็มกลัด (ได้รับแล้ว)' : 'รางวัลที่ 2 เข็มกลัด (ยังไม่ได้รับ)'}
-          </Text>
+        <div className={`${styles.badge} ${rewards.reward_2 ? styles.receive : ''}`}>
+          <Image
+            src="/src/contents/images/badge/badge2.png"
+            alt="เข็มกลัด"
+            height={125}
+            preview={false}
+            className={styles.image}
+          ></Image>
+          <div className={styles.textGroup}>
+            <Text strong className={styles.name}>
+              พวงกุญแจ
+            </Text>
+            <Text className={styles.status}>{rewards.reward_2 ? '(ได้รับแล้ว)' : '(ยังไม่ได้รับ)'}</Text>
+          </div>
         </div>
       </div>
     </div>

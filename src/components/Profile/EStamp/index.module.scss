@@ -52,11 +52,43 @@
     margin-bottom: 20px;
 
     .badge {
+      width: 175px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 20px;
+
+      .textGroup {
+        display: flex;
+        flex-direction: column;
+
+        .name {
+          font-size: 24px;
+          color: #fff;
+        }
+
+        .status {
+          font-size: 16px;
+          color: #fff;
+        }
+      }
+
+      &.receive {
+        .image {
+          filter: drop-shadow(0px 0px 15px #ffa631);
+        }
+
+        .textGroup {
+          .name {
+            color: #ffb031;
+          }
+
+          .status {
+            color: #ffb031;
+          }
+        }
+      }
     }
 
     @media screen and (max-width: 512px) {
