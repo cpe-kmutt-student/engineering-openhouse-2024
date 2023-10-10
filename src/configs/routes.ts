@@ -18,3 +18,4 @@ export const NOT_FOUND_PATH = '*'
 
 // External
 export const OPEN_HOUSE_MAP = 'https://www.google.com/maps/d/edit?mid=1Hxak7Bh9K4PLuiL2tFHwDPeIAsJzZn4&usp=sharing'
+export const GOOGLE_MAP = 'https://maps.app.goo.gl/72WmL5CqacavaFkF6'

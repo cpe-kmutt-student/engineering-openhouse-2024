@@ -58,7 +58,7 @@ const App: React.FC = (): JSX.Element => {
     handleLogin().then(() => setLoading(false))
   }, [handleLogin])
 
-  ReactGA.initialize(import.meta.env.APP_GOOGLE_MEASURE_ID)
+  if (!import.meta.env.DEV) ReactGA.initialize(import.meta.env.APP_GOOGLE_MEASURE_ID)
 
   if (loading) return <LoadingPage />
 

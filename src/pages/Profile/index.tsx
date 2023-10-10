@@ -10,6 +10,7 @@ import { AccountType } from 'src/contents/register/enum'
 import EditProfile, { EditProfileForm } from 'src/components/Profile/EditProfile'
 import ProfileNav from 'src/components/Profile/ProfileNav'
 import { DownloadOutlined, EditOutlined } from '@ant-design/icons'
+import { buttonEvent } from 'src/utils/gaEvents'
 
 const Profile: React.FC = (): JSX.Element => {
   const [user, setUser] = useState<IUserInfo>({
@@ -67,11 +68,13 @@ const Profile: React.FC = (): JSX.Element => {
       is_advisor: user.is_advisor,
       currentProvince: user.currentProvince,
       schoolProvince: user.schoolProvince,
+      educationLevel: user.educationLevel,
     }
 
     const res = await axiosInstance.post('/api/users', newValues)
 
     if (res.status === 200) {
+      buttonEvent('editProfile')
       navigate(0)
     }
   }
@@ -82,6 +85,7 @@ const Profile: React.FC = (): JSX.Element => {
     try {
       const res = await axiosInstance.get(`/api/users/shortcode/${input}`)
       if (res.status === 200) {
+        buttonEvent('stampShortCode')
         setModalOpen(false)
         modalStampSuccess()
         setSubmit(false)
@@ -164,9 +168,12 @@ const Profile: React.FC = (): JSX.Element => {
         <Button onClick={() => setModalOpen(true)} type="text">
           กรอกรหัส E-Stamp
         </Button>
-        <Button type="text" icon={<DownloadOutlined />} onClick={handleCertificate}>
-          ดาวน์โหลดเกียรติบัตร
-        </Button>
+        {isDownloadCer && (
+          <Button type="text" icon={<DownloadOutlined />} onClick={handleCertificate}>
+            ดาวน์โหลดเกียรติบัตร
+          </Button>
+        )}
+
         {!user.form_submit && (
           <Button onClick={() => setEdit(true)} type="text" icon={<EditOutlined />}>
             แก้ไขข้อมูล
