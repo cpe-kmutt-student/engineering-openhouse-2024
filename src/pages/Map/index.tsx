@@ -1,9 +1,9 @@
-import { Button, Image, Typography } from 'antd'
+import { Button, Image, Space, Typography } from 'antd'
 import styles from './index.module.scss'
 import MapImage from 'src/contents/images/Map.webp'
 import { useEffect } from 'react'
 import { cacheImage } from 'src/utils/cacheImage'
-import { GOOGLE_MAP } from 'src/configs/routes'
+import { OPEN_HOUSE_EMBED } from 'src/configs/routes'
 import Sponsors from 'src/components/Sponsors'
 
 const Map: React.FC = (): JSX.Element => {
@@ -18,9 +18,23 @@ const Map: React.FC = (): JSX.Element => {
       <Title level={2}>แผนผังงาน</Title>
       <Image src={MapImage} alt="map" loading="lazy" preview={false} />
       <div style={{ textAlign: 'center', marginBottom: '20px', marginTop: '20px' }}>
-        <Link href={GOOGLE_MAP} target="_blank">
-          <Button type="primary">Google Map</Button>
-        </Link>
+        <Space direction="vertical" align="center" style={{ width: '100%' }}>
+          <div className={styles.mapEmbed}>
+            <iframe
+              src={OPEN_HOUSE_EMBED}
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              className={styles.googleMap}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <Link href={OPEN_HOUSE_EMBED} target="_blank">
+            <Button type="default" style={{ border: 'none' }}>
+              ดูแผนที่ภายในงาน
+            </Button>
+          </Link>
+        </Space>
       </div>
       <Sponsors />
     </div>

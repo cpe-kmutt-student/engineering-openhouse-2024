@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
       key: 'map',
       label: (
         <Link to={MAP_PATH} className={styles.link}>
-          แผนผังกิจกรรม
+          แผนผังงาน
         </Link>
       ),
     },
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
           <Button type="text">เกี่ยวกับเรา</Button>
         </Link>
         <Link to={MAP_PATH} className={styles.link}>
-          <Button type="text">แผนผังกิจกรรม</Button>
+          <Button type="text">แผนผังงาน</Button>
         </Link>
         {isAuthenticated && (
           <Link to={PROFILE_PATH} className={styles.link}>
