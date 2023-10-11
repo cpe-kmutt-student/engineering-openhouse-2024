@@ -10,7 +10,33 @@
 
     .alert {
         width: 512px;
+        margin: 20px auto;
+    }
+
+    .rewardCondition {
+        width: 512px;
         margin: 0 auto;
+
+        .text {
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        .description {
+            text-align: center;
+
+            span {
+                color: #ffb031;
+                font-size: 16px;
+            }
+        }
+
+        .condition {
+            display: grid;
+            grid-template-columns: 1fr 50px 30px;
+            gap: 30px;
+            margin: 20px 0;
+        }
     }
 
     @media screen and (max-width: 768px) {
@@ -22,6 +48,15 @@
         .alert {
             margin: auto;
             width: auto;
+        }
+
+        .rewardCondition {
+            width: auto;
+            margin: auto;
+
+            .text {
+                font-size: 16px;
+            }
         }
     }
 }

@@ -145,7 +145,7 @@ const Profile: React.FC = (): JSX.Element => {
   }
 
   useEffect(() => {
-    getUserInfo().then(() => setLoading(false))
+    getUserInfo()
     getCertificate()
     setLoading(false)
   }, [getUserInfo])
@@ -210,13 +210,15 @@ const Profile: React.FC = (): JSX.Element => {
       <Modal title="รับเกียรติบัตร" open={isCerModalOpen} centered closeIcon={false} footer={null}>
         <Form onFinish={handleCertificate}>
           <Space direction="vertical" align="center" style={{ width: '100%' }}>
-            <Title level={4}>
+            <Title level={3}>
               {user.firstName} {user.lastName}
             </Title>
-            <Title level={4}>
+            <Title level={5}>
               {user.firstNameEng} {user.lastNameEng}
             </Title>
-            <Title level={5}>หากยืนยันแล้วจะไม่สามารถแก้ไขข้อมูลได้</Title>
+            <Text type="danger" strong>
+              *หากยืนยันแล้วจะไม่สามารถแก้ไขข้อมูลได้*
+            </Text>
           </Space>
           <div className={styles.modalFormButton}>
             <Button type="text" onClick={() => setCerModalOpen(false)} style={{ color: '#000000' }}>
