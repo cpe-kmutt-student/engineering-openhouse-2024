@@ -4,7 +4,8 @@ import { stampImages, IStampImage, StampEnum } from 'src/contents/stamps'
 import React, { useEffect } from 'react'
 import { cacheImage } from 'src/utils/cacheImage'
 import { filterStampVariant } from 'src/utils/stamp'
-import { GiftOutlined } from '@ant-design/icons'
+import badge1 from '@/contents/images/badge/badge1.png'
+import badge2 from '@/contents/images/badge/badge2.png'
 
 interface Props {
   stamps: Omit<IStampEvent, 'reward'>
@@ -105,13 +106,7 @@ const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Eleme
       <Title level={3}>ของที่ระลึก</Title>
       <div className={styles.badgeGroup}>
         <div className={`${styles.badge} ${rewards.reward_1 ? styles.receive : ''}`}>
-          <Image
-            src="/src/contents/images/badge/badge1.png"
-            alt="เข็มกลัด"
-            height={125}
-            preview={false}
-            className={styles.image}
-          ></Image>
+          <Image src={badge1} alt="เข็มกลัด" height={125} preview={false} className={styles.image}></Image>
           <div className={styles.textGroup}>
             <Text strong className={styles.name}>
               เข็มกลัด
@@ -120,13 +115,7 @@ const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Eleme
           </div>
         </div>
         <div className={`${styles.badge} ${rewards.reward_2 ? styles.receive : ''}`}>
-          <Image
-            src="/src/contents/images/badge/badge2.png"
-            alt="เข็มกลัด"
-            height={125}
-            preview={false}
-            className={styles.image}
-          ></Image>
+          <Image src={badge2} alt="เข็มกลัด" height={125} preview={false} className={styles.image}></Image>
           <div className={styles.textGroup}>
             <Text strong className={styles.name}>
               พวงกุญแจ
