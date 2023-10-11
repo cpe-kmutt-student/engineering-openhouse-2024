@@ -4,8 +4,8 @@ import { stampImages, IStampImage, StampEnum } from 'src/contents/stamps'
 import React, { useEffect } from 'react'
 import { cacheImage } from 'src/utils/cacheImage'
 import { filterStampVariant } from 'src/utils/stamp'
-import badge1 from '@/contents/images/badge/badge1.png'
-import badge2 from '@/contents/images/badge/badge2.png'
+import badge1 from 'src/contents/images/badge/badge1.png'
+import badge2 from 'src/contents/images/badge/badge2.png'
 
 interface Props {
   stamps: Omit<IStampEvent, 'reward'>
