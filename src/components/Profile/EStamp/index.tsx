@@ -40,7 +40,7 @@ const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Eleme
   const items: CollapseProps['items'] = [
     {
       key: '1',
-      label: 'นิทรรศการ',
+      label: 'ส่วนกลาง',
       style: {
         border: 0,
         fontWeight: 'bold',
@@ -48,7 +48,7 @@ const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Eleme
       },
       children: (
         <div className={styles.stamps}>
-          <div className={styles.stampImages}>{renderStamp(StampEnum.carnival)}</div>
+          <div className={styles.stampImages}>{renderStamp(StampEnum.central)}</div>
         </div>
       ),
     },
@@ -68,6 +68,20 @@ const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Eleme
     },
     {
       key: '3',
+      label: 'นิทรรศการ',
+      style: {
+        border: 0,
+        fontWeight: 'bold',
+        fontSize: '16px',
+      },
+      children: (
+        <div className={styles.stamps}>
+          <div className={styles.stampImages}>{renderStamp(StampEnum.carnival)}</div>
+        </div>
+      ),
+    },
+    {
+      key: '4',
       label: 'พี่พาน้องทัวร์',
       style: {
         border: 0,
@@ -77,20 +91,6 @@ const EStampComponent: React.FC<Props> = ({ stamps, rewards }: Props): JSX.Eleme
       children: (
         <div className={styles.stamps}>
           <div className={styles.stampImages}>{renderStamp(StampEnum.tour)}</div>
-        </div>
-      ),
-    },
-    {
-      key: '4',
-      label: 'ส่วนกลาง',
-      style: {
-        border: 0,
-        fontWeight: 'bold',
-        fontSize: '16px',
-      },
-      children: (
-        <div className={styles.stamps}>
-          <div className={styles.stampImages}>{renderStamp(StampEnum.central)}</div>
         </div>
       ),
     },

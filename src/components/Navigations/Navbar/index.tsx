@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
       style: { padding: 0, margin: '10px' },
       label: isAuthenticated ? (
         <Button onClick={handleLogout} type="primary" style={{ width: '100px' }}>
-          Logout
+          Log Out
         </Button>
       ) : (
         <GoogleSignIn style={{ width: '100px' }} />
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
       <div className={styles.actionButtonGroup}>
         {isAuthenticated ? (
           <Button onClick={handleLogout} type="primary">
-            Logout
+            Log Out
           </Button>
         ) : (
           <GoogleSignIn />
