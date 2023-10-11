@@ -1,7 +1,7 @@
 import styles from './index.module.scss'
 import { useCallback, useEffect, useState } from 'react'
 import { LoadingPage } from '../Loading'
-import EStampComponent, { IStampEvent } from 'src/components/Profile/EStamp'
+import EStampComponent, { IStamp, IStampEvent } from 'src/components/Profile/EStamp'
 import { Alert, Divider, Typography } from 'antd'
 import { axiosInstance } from 'src/utils/axios'
 import ProfileNav from 'src/components/Profile/ProfileNav'
@@ -19,6 +19,17 @@ const EStamp: React.FC = (): JSX.Element => {
     },
   })
   const [loading, setLoading] = useState<boolean>(true)
+  const [Reward, setReward] = useState<{
+    carnival: number
+    central: number
+    tour: number
+    workshop: number
+  }>({
+    carnival: 0,
+    central: 0,
+    tour: 0,
+    workshop: 0,
+  })
 
   const { Title, Text } = Typography
 
@@ -27,6 +38,12 @@ const EStamp: React.FC = (): JSX.Element => {
 
     if (res.status === 200) {
       setStamps(res.data.data)
+      setReward({
+        carnival: res.data.data.carnival.filter((element: IStamp) => element.status === true).length,
+        central: res.data.data.central.filter((element: IStamp) => element.status === true).length,
+        tour: res.data.data.tour.filter((element: IStamp) => element.status === true).length,
+        workshop: res.data.data.workshop.filter((element: IStamp) => element.status === true).length,
+      })
     }
   }, [])
 
@@ -37,8 +54,6 @@ const EStamp: React.FC = (): JSX.Element => {
   if (loading) return <LoadingPage />
 
   // if (!isTodayOpenHouse()) return <Navigate to={BASE_PATH} replace />
-
-  // TODO : Reward conditions logics
 
   return (
     <div className={styles.eStampPage}>
@@ -58,41 +73,111 @@ const EStamp: React.FC = (): JSX.Element => {
         <Title level={3}>เงื่อนไขการรับของที่ระลึก</Title>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
-            เก็บ E-Stamp เวทีกลาง
+            ลงทะเบียนส่วนกลาง
           </Text>
           <Text strong className={styles.text}>
-            {1}/{1}
+            {Reward.central >= 1 ? 1 : Reward.central}/{1}
           </Text>
-          <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          {Reward.central >= 1 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
         </div>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
-            สะสมซุ้มกิจกรรมครบ 5 ดวง
+            พาน้องทัวร์ 1 รอบ
           </Text>
           <Text strong className={styles.text}>
-            {1}/{5}
+            {Reward.tour >= 1 ? 1 : Reward.tour}/{1}
           </Text>
-          <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          {Reward.tour >= 1 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
+        </div>
+        <div className={styles.condition}>
+          <Text strong className={styles.text}>
+            กิจกรรม Workshop 1 รอบ
+          </Text>
+          <Text strong className={styles.text}>
+            {Reward.workshop >= 1 ? 1 : Reward.workshop}/{1}
+          </Text>
+          {Reward.workshop >= 1 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
+        </div>
+        <Divider style={{ color: '#FFFFFF', fontSize: '18px', border: '#FFFFFF' }}>และ</Divider>
+        <div className={styles.condition}>
+          <Text strong className={styles.text}>
+            ลงทะเบียนส่วนกลาง
+          </Text>
+          <Text strong className={styles.text}>
+            {Reward.central >= 1 ? 1 : Reward.central}/{1}
+          </Text>
+          {Reward.central >= 1 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
+        </div>
+        <div className={styles.condition}>
+          <Text strong className={styles.text}>
+            กิจกรรมส่วนภาค 3 ภาค
+          </Text>
+          <Text strong className={styles.text}>
+            {Reward.carnival >= 3 ? 3 : Reward.carnival}/{3}
+          </Text>
+          {Reward.carnival >= 3 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
+        </div>
+        <div className={styles.condition}>
+          <Text strong className={styles.text}>
+            กิจกรรม Workshop 1 รอบ
+          </Text>
+          <Text strong className={styles.text}>
+            {Reward.workshop >= 1 ? 1 : Reward.workshop}/{1}
+          </Text>
+          {Reward.workshop >= 1 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
         </div>
         <Divider style={{ color: '#FFFFFF', fontSize: '18px', border: '#FFFFFF' }}>หรือ</Divider>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
-            เก็บ E-Stamp เวทีกลาง
+            ลงทะเบียนส่วนกลาง
           </Text>
           <Text strong className={styles.text}>
-            {1}/{1}
+            {Reward.central >= 1 ? 1 : Reward.central}/{1}
           </Text>
-          <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          {Reward.central >= 1 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
         </div>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
-            สะสม E-Stamp Workshop ครบ 2 ดวง
+            กิจกรรม Workshop 2 รอบ
           </Text>
           <Text strong className={styles.text}>
-            {1}/{2}
+            {Reward.workshop >= 2 ? 2 : Reward.workshop}/{2}
           </Text>
-          <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          {Reward.workshop >= 2 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
         </div>
+
         <div className={styles.description}>
           <Text italic>*สามารถรับของที่ระลึกได้ที่จุดลงทะเบียน ใต้อาคารเรียนรวม 4*</Text>
         </div>
