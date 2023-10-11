@@ -1,4 +1,4 @@
-import { Button, Form, Input, Modal, Result } from 'antd'
+import { Button, Form, Input, Modal, Result, Space, Typography } from 'antd'
 import styles from './index.module.scss'
 import React, { useCallback, useEffect, useState } from 'react'
 import { LoadingPage } from '../Loading'
@@ -13,6 +13,8 @@ import { DownloadOutlined, EditOutlined } from '@ant-design/icons'
 import { buttonEvent } from 'src/utils/gaEvents'
 
 const Profile: React.FC = (): JSX.Element => {
+  const { Title, Text } = Typography
+
   const [user, setUser] = useState<IUserInfo>({
     prefix: '',
     firstName: '',
@@ -32,8 +34,9 @@ const Profile: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true)
   const [isEdit, setEdit] = useState<boolean>(false)
   const [isModalOpen, setModalOpen] = useState<boolean>(false)
+  const [isCerModalOpen, setCerModalOpen] = useState<boolean>(false)
   const [isFormSubmitting, setSubmit] = useState<boolean>(false)
-  const [isDownloadCer, setDownloadCer] = useState<boolean>(false)
+  const [isDownloadCer, setDownloadCer] = useState<boolean>(true)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -131,9 +134,9 @@ const Profile: React.FC = (): JSX.Element => {
 
   const handleCertificate = async () => {
     // TODO : Certificate handler
+    setCerModalOpen(true)
     if (isDownloadCer && !user.form_submit) {
       const res = await axiosInstance.post('/api/users/cert')
-
       if (res.status === 200) {
         // TODO : Go to form
         console.log(res)
@@ -196,6 +199,27 @@ const Profile: React.FC = (): JSX.Element => {
           </Form.Item>
           <div className={styles.modalFormButton}>
             <Button type="text" onClick={() => setModalOpen(false)} style={{ color: '#000000' }}>
+              ยกเลิก
+            </Button>
+            <Button type="primary" htmlType="submit" loading={isFormSubmitting}>
+              ยืนยัน
+            </Button>
+          </div>
+        </Form>
+      </Modal>
+      <Modal title="รับเกียรติบัตร" open={isCerModalOpen} centered closeIcon={false} footer={null}>
+        <Form onFinish={handleCertificate}>
+          <Space direction="vertical" align="center" style={{ width: '100%' }}>
+            <Title level={4}>
+              {user.firstName} {user.lastName}
+            </Title>
+            <Title level={4}>
+              {user.firstNameEng} {user.lastNameEng}
+            </Title>
+            <Title level={5}>หากยืนยันแล้วจะไม่สามารถแก้ไขข้อมูลได้</Title>
+          </Space>
+          <div className={styles.modalFormButton}>
+            <Button type="text" onClick={() => setCerModalOpen(false)} style={{ color: '#000000' }}>
               ยกเลิก
             </Button>
             <Button type="primary" htmlType="submit" loading={isFormSubmitting}>
