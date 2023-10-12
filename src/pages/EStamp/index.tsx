@@ -183,7 +183,7 @@ const EStamp: React.FC = (): JSX.Element => {
         </div>
 
         <div className={styles.description}>
-          <Text italic>*สามารถรับของที่ระลึกได้ที่จุดลงทะเบียน ใต้อาคารเรียนรวม 4*</Text>
+          <Text italic>*สามารถรับของที่ระลึกได้ที่จุดลงทะเบียน ใต้อาคารเรียนรวม 4 และ อาคารวิศววัฒนะ (ตึกแดง)*</Text>
         </div>
       </div>
     </div>
