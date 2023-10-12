@@ -33,16 +33,20 @@ const EStamp: React.FC = (): JSX.Element => {
 
   const { Title, Text } = Typography
 
+  const filterStampRewardLength = (event: IStamp[]) => {
+    return event.filter((element: IStamp) => element.status === true).length
+  }
+
   const getEStamp = useCallback(async (): Promise<void> => {
     const res = await axiosInstance.get('/api/users/stamp')
 
     if (res.status === 200) {
       setStamps(res.data.data)
       setReward({
-        carnival: res.data.data.carnival.filter((element: IStamp) => element.status === true).length,
-        central: res.data.data.central.filter((element: IStamp) => element.status === true).length,
-        tour: res.data.data.tour.filter((element: IStamp) => element.status === true).length,
-        workshop: res.data.data.workshop.filter((element: IStamp) => element.status === true).length,
+        carnival: filterStampRewardLength(res.data.data.carnival),
+        central: filterStampRewardLength(res.data.data.central),
+        tour: filterStampRewardLength(res.data.data.tour),
+        workshop: filterStampRewardLength(res.data.data.workshop),
       })
     }
   }, [])
