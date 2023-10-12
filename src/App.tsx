@@ -14,6 +14,7 @@ import {
   EVENTS_PATH,
   MAP_PATH,
   CERTIFICATE_FORM_PATH,
+  SATISFACTION_SURVEY2_PATH,
 } from './configs/routes'
 import Protected from './components/Protected'
 import { AuthContext, IAuthContext, initialContextValue } from './utils/Context/AuthContext'
@@ -32,6 +33,7 @@ const Profile = lazy(() => import('./pages/Profile'))
 const Stamp = lazy(() => import('./pages/Stamp'))
 const Event = lazy(() => import('./pages/Event'))
 const SatisfactionSurvey = lazy(() => import('./pages/SatisfactionSurvey'))
+const SatisfactionSurvey2 = lazy(() => import('./pages/SatisfactionSurvey2'))
 const EStamp = lazy(() => import('./pages/EStamp'))
 const Events = lazy(() => import('./pages/Events'))
 const Map = lazy(() => import('./pages/Map'))
@@ -82,6 +84,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
             <Route path={QR_CODE_VERITY_PATH} element={<Protected element={<Stamp />} />} />
             <Route path={SATISFACTION_SURVEY_PATH} element={<Protected element={<SatisfactionSurvey />} />} />
+            <Route path={SATISFACTION_SURVEY2_PATH} element={<Protected element={<SatisfactionSurvey2 />} />} />
             <Route path={CERTIFICATE_FORM_PATH} element={<Protected element={<Certificate />} />} />
             <Route path={STAMP_PATH} element={<Protected element={<EStamp />} />} />
 

@@ -5,7 +5,7 @@ import { LoadingPage } from '../Loading'
 import ProfileInfo, { IUserInfo } from 'src/components/Profile/ProfileInfo'
 import { axiosInstance } from 'src/utils/axios'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { REGISTER_PATH, SATISFACTION_SURVEY_PATH, STAMP_PATH } from 'src/configs/routes'
+import { REGISTER_PATH, SATISFACTION_SURVEY2_PATH, STAMP_PATH } from 'src/configs/routes'
 import { AccountType } from 'src/contents/register/enum'
 import EditProfile, { EditProfileForm } from 'src/components/Profile/EditProfile'
 import ProfileNav from 'src/components/Profile/ProfileNav'
@@ -135,8 +135,7 @@ const Profile: React.FC = (): JSX.Element => {
     const res = await axiosInstance.post('/api/users/cert')
     if (res.status === 200) {
       if (user.form_submit === false) {
-        // TODO: Navigate to Form 2
-        return navigate(SATISFACTION_SURVEY_PATH)
+        return navigate(SATISFACTION_SURVEY2_PATH)
       } else {
         // TODO: Navigate to somewhere
         console.log('Success')
