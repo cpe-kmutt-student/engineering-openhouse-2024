@@ -485,16 +485,6 @@ export const departmentInfo: IDepartmentInfo[] = [
             time: '11.20 – 12.50',
             amount: 20,
           },
-          {
-            date: '10/16/2023',
-            time: '13.30 – 15.00',
-            amount: 20,
-          },
-          {
-            date: '10/16/2023',
-            time: '15.20 – 16.50',
-            amount: 20,
-          },
         ],
       },
     ],
@@ -796,12 +786,12 @@ export const departmentInfo: IDepartmentInfo[] = [
       },
       {
         date: '10/16/2023',
-        time: '09.30 – 11.00',
+        time: '13.30 – 15.00',
         amount: 20,
       },
       {
         date: '10/16/2023',
-        time: '11.20 – 12.50',
+        time: '15.20 – 16.50',
         amount: 20,
       },
     ],

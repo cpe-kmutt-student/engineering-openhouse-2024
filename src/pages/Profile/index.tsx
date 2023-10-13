@@ -104,7 +104,7 @@ const Profile: React.FC = (): JSX.Element => {
     return Modal.success({
       icon: null,
       centered: true,
-      content: <Result status="success" title="ได้รับแล้ว เย่" />,
+      content: <Result status="success" title="รับ E-stamp สำเร็จ" />,
       onOk: () => navigate(STAMP_PATH),
       okButtonProps: {
         className: styles.buttonModal,
