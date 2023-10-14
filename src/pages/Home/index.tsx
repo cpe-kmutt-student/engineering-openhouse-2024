@@ -52,7 +52,7 @@ const Home: React.FC = (): JSX.Element => {
             <button className={styles.registerButton}>ลงทะเบียน</button>
           </div>
         )}
-        <div style={{ textAlign: 'center', marginTop: '0.5rem' }} onClick={handleSignInWithGoogle}>
+        <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
           <Link to={MAP_PATH}>
             <Button type="default">แผนผังงาน</Button>
           </Link>
