@@ -75,6 +75,7 @@ const EStamp: React.FC = (): JSX.Element => {
       <EStampComponent stamps={stamps} rewards={stamps.reward} />
       <div className={styles.rewardCondition}>
         <Title level={3}>เงื่อนไขการรับของที่ระลึก</Title>
+        <Title level={4}>เข็มกลัด</Title>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
             ลงทะเบียนส่วนกลาง
@@ -90,7 +91,7 @@ const EStamp: React.FC = (): JSX.Element => {
         </div>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
-            พาน้องทัวร์ 1 รอบ
+            พี่พาน้องทัวร์ 1 รอบ
           </Text>
           <Text strong className={styles.text}>
             {Reward.tour >= 1 ? 1 : Reward.tour}/{1}
@@ -114,7 +115,7 @@ const EStamp: React.FC = (): JSX.Element => {
             <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
           )}
         </div>
-        <Divider style={{ color: '#FFFFFF', fontSize: '18px', border: '#FFFFFF' }}>และ</Divider>
+        <Title level={4}>พวงกุญแจ</Title>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
             ลงทะเบียนส่วนกลาง
@@ -130,7 +131,34 @@ const EStamp: React.FC = (): JSX.Element => {
         </div>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
-            กิจกรรมส่วนภาค 3 ภาค
+            กิจกรรม Workshop 2 รอบ
+          </Text>
+          <Text strong className={styles.text}>
+            {Reward.workshop >= 2 ? 2 : Reward.workshop}/{2}
+          </Text>
+          {Reward.workshop >= 2 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
+        </div>
+        <Divider style={{ color: '#FFFFFF', fontSize: '18px', border: '#FFFFFF' }}>หรือ</Divider>
+        <div className={styles.condition}>
+          <Text strong className={styles.text}>
+            ลงทะเบียนส่วนกลาง
+          </Text>
+          <Text strong className={styles.text}>
+            {Reward.central >= 1 ? 1 : Reward.central}/{1}
+          </Text>
+          {Reward.central >= 1 ? (
+            <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
+          ) : (
+            <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
+          )}
+        </div>
+        <div className={styles.condition}>
+          <Text strong className={styles.text}>
+            นิทรรศการ 3 ภาค
           </Text>
           <Text strong className={styles.text}>
             {Reward.carnival >= 3 ? 3 : Reward.carnival}/{3}
@@ -170,12 +198,12 @@ const EStamp: React.FC = (): JSX.Element => {
         </div>
         <div className={styles.condition}>
           <Text strong className={styles.text}>
-            กิจกรรม Workshop 2 รอบ
+            นิทรรศการ 6 ภาค
           </Text>
           <Text strong className={styles.text}>
-            {Reward.workshop >= 2 ? 2 : Reward.workshop}/{2}
+            {Reward.carnival >= 6 ? 6 : Reward.carnival}/{6}
           </Text>
-          {Reward.workshop >= 2 ? (
+          {Reward.carnival >= 6 ? (
             <CheckSquareOutlined style={{ color: '#ffb031', fontSize: '25px' }} />
           ) : (
             <BorderOutlined style={{ color: '#FFFFFF', fontSize: '25px' }} />
