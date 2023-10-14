@@ -9,6 +9,7 @@ import WorkshopTME from './images/stamps/TME-LABCom.png'
 import WorkshopENV from './images/stamps/ENV-LABCom.png'
 import WorkshopCHE from './images/stamps/CHE-LABCom.png'
 import WorkshopINC from './images/stamps/INC-LABCom.png'
+import WorkshopINNOX from './images/stamps/INNO-EXPOCom.png'
 
 import ExpoCPE from './images/stamps/CPE-V2-EXPOCom.png'
 import ExpoCE from './images/stamps/CE-EXPOCom.png'
@@ -143,6 +144,11 @@ export const stampImages: IStampImage[] = [
     department: DepartmentEnum.INC,
     event: StampEnum.workshop,
     image: WorkshopINC,
+  },
+  {
+    department: DepartmentEnum.INNOX,
+    event: StampEnum.workshop,
+    image: WorkshopINNOX,
   },
   {
     event: StampEnum.tour,

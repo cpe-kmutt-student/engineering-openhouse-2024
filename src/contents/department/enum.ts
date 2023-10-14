@@ -10,4 +10,5 @@ export enum DepartmentEnum {
   CHE = 'CHE',
   INC = 'INC',
   RC = 'RC',
+  INNOX = 'INNOX',
 }

@@ -1,63 +1,66 @@
 .eStampPage {
-    margin: 0 auto;
-    width: 720px;
+  margin: 0 auto;
+  width: 720px;
 
-    h3,
-    .paragraph {
-        color: #ffffff;
-        text-align: center;
+  h3,
+  .paragraph {
+    color: #ffffff;
+    text-align: center;
+  }
+  h4 {
+    color: #ffffff;
+    text-align: center;
+  }
+  .alert {
+    width: 512px;
+    margin: 20px auto;
+  }
+
+  .rewardCondition {
+    width: 512px;
+    margin: 0 auto;
+
+    .text {
+      font-size: 18px;
+      color: #ffffff;
     }
 
+    .description {
+      text-align: center;
+      margin-bottom: 50px;
+
+      span {
+        color: #ffb031;
+        font-size: 16px;
+      }
+    }
+
+    .condition {
+      display: grid;
+      grid-template-columns: 1fr 50px 30px;
+      gap: 30px;
+      margin: 20px 0;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding-inline: 25px;
+  }
+
+  @media screen and (max-width: 570px) {
     .alert {
-        width: 512px;
-        margin: 20px auto;
+      margin: 20px auto;
+      width: auto;
     }
 
     .rewardCondition {
-        width: 512px;
-        margin: 0 auto;
+      width: auto;
+      margin: auto;
 
-        .text {
-            font-size: 20px;
-            color: #ffffff;
-        }
-
-        .description {
-            text-align: center;
-            margin-bottom: 50px;
-
-            span {
-                color: #ffb031;
-                font-size: 16px;
-            }
-        }
-
-        .condition {
-            display: grid;
-            grid-template-columns: 1fr 50px 30px;
-            gap: 30px;
-            margin: 20px 0;
-        }
+      .text {
+        font-size: 16px;
+      }
     }
-
-    @media screen and (max-width: 768px) {
-        width: 100%;
-        padding-inline: 25px;
-    }
-
-    @media screen and (max-width: 570px) {
-        .alert {
-            margin: 20px auto;
-            width: auto;
-        }
-
-        .rewardCondition {
-            width: auto;
-            margin: auto;
-
-            .text {
-                font-size: 16px;
-            }
-        }
-    }
+  }
 }

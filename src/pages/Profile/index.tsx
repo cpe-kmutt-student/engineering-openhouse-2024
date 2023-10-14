@@ -168,7 +168,7 @@ const Profile: React.FC = (): JSX.Element => {
       <ProfileInfo user={user} />
       {isEdit && <EditProfile onFinish={onEditUser} userInfo={user} setEdit={setEdit} />}
       <div className={styles.actionButtons}>
-        <Button onClick={() => setModalOpen(true)} type="text">
+        <Button onClick={() => setModalOpen(true)} type="default">
           กรอกรหัส E-Stamp
         </Button>
         {isDownloadCer && (
@@ -178,7 +178,7 @@ const Profile: React.FC = (): JSX.Element => {
         )}
 
         {!user.form_submit && (
-          <Button onClick={() => setEdit(true)} type="text" icon={<EditOutlined />}>
+          <Button onClick={() => setEdit(true)} type="default" icon={<EditOutlined />}>
             แก้ไขข้อมูล
           </Button>
         )}
