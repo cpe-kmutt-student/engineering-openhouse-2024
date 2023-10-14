@@ -9,7 +9,7 @@ import EventSchedules from 'src/components/Home/EventSchedules'
 import { useCallback, useContext, useEffect } from 'react'
 import { AuthContext } from 'src/utils/Context/AuthContext'
 import { Link, useLocation } from 'react-router-dom'
-import { EVENTS_PATH } from 'src/configs/routes'
+import { EVENTS_PATH, MAP_PATH } from 'src/configs/routes'
 import { handleSignInWithGoogle } from 'src/utils/axios'
 
 const Home: React.FC = (): JSX.Element => {
@@ -52,6 +52,11 @@ const Home: React.FC = (): JSX.Element => {
             <button className={styles.registerButton}>ลงทะเบียน</button>
           </div>
         )}
+        <div style={{ textAlign: 'center', marginTop: '0.5rem' }} onClick={handleSignInWithGoogle}>
+          <Link to={MAP_PATH}>
+            <Button type="default">แผนผังงาน</Button>
+          </Link>
+        </div>
         <div className={styles.content}>
           <div className={styles.eventSchedules}>
             <Title level={2} style={{ textAlign: 'center' }}>
