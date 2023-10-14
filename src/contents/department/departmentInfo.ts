@@ -903,8 +903,8 @@ export const departmentInfo: IDepartmentInfo[] = [
     },
     image: Thumbnail,
     location: {
-      exhibition: 'นิทรรศการวิศวกรรมคอมพิวเตอร์: ชั้น 10 อาคารวิศววัฒนะ (S4)',
-      workshop: 'จุดนัดลงทะเบียน workshop: ชั้น 11 อาคารวิศววัฒนะ (S4)',
+      exhibition: 'นิทรรศการของภาควิชาวิศวกรรมเคมี (S15) ชั้น 1 ณ ภาควิชาวิศกรรรมเคมี',
+      workshop: 'บริเวณลานใต้ตึกภาควิชาวิศวกรรมเคมี (S15) ชั้น 1 ณ ภาควิชาวิศกรรรมเคมี',
     },
     contact: {
       social: [
