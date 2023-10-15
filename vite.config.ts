@@ -15,6 +15,39 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       eslint(),
+      VitePWA({
+        registerType: 'autoUpdate',
+        selfDestroying: true,
+        includeAssets: ['favicon.ico', 'logo.svg'],
+        manifest: {
+          name: 'Engineering Carnival 2023',
+          short_name: 'Engineering Carnival 2023',
+          description: 'Engineering Open house Carnival at Bangmod 2023',
+          start_url: '/',
+          background_color: '#450801',
+          theme_color: '#FFFFFF',
+          icons: [
+            {
+              src: '/contents/images/logo.svg',
+            },
+            {
+              src: '/contents/images/landing-background.svg',
+            },
+            {
+              src: '/contents/images/SmoLogo.svg',
+            },
+          ],
+        },
+        workbox: {
+          cleanupOutdatedCaches: true,
+          sourcemap: true,
+          globPatterns: ['**/*.{js,css,html,ico,png,jpg,webp,svg,webmanifest}'],
+        },
+        devOptions: {
+          enabled: false,
+          type: 'module',
+        },
+      }),
       tsconfigPaths(),
     ],
     resolve: {
