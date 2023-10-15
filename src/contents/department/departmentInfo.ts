@@ -234,33 +234,48 @@ export const departmentInfo: IDepartmentInfo[] = [
     workshopSchedule: [
       {
         date: '10/14/2023',
-        time: '09.30 – 11.00',
-        amount: 30,
+        time: '11.20 – 12.50',
+        amount: 40,
       },
       {
         date: '10/14/2023',
         time: '13.30 – 15.00',
-        amount: 30,
+        amount: 40,
+      },
+      {
+        date: '10/14/2023',
+        time: '15.20 – 16.50',
+        amount: 40,
       },
       {
         date: '10/15/2023',
-        time: '09.30 – 11.00',
-        amount: 30,
+        time: '11.20 – 12.50',
+        amount: 40,
       },
       {
         date: '10/15/2023',
         time: '13.30 – 15.00',
-        amount: 30,
+        amount: 40,
+      },
+      {
+        date: '10/15/2023',
+        time: '15.20 – 16.50',
+        amount: 40,
+      },
+      {
+        date: '10/16/2023',
+        time: '11.20 – 12.50',
+        amount: 40,
       },
       {
         date: '10/16/2023',
         time: '13.30 – 15.00',
-        amount: 30,
+        amount: 40,
       },
       {
         date: '10/16/2023',
         time: '15.20 – 16.50',
-        amount: 30,
+        amount: 40,
       },
     ],
   },
