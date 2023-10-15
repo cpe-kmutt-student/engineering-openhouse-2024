@@ -53,6 +53,7 @@ const EStamp: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getEStamp().then(() => setLoading(false))
+    setLoading(false)
   }, [getEStamp])
 
   if (loading) return <LoadingPage />
