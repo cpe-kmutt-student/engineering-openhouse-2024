@@ -45,6 +45,7 @@ const Profile: React.FC = (): JSX.Element => {
     const res = await axiosInstance.post('/api/auth/logout')
 
     if (res.status === 200) {
+      navigate('/')
       navigate(0)
     }
   }
