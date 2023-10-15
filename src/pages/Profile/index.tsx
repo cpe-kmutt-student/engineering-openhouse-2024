@@ -135,10 +135,10 @@ const Profile: React.FC = (): JSX.Element => {
   const handleCertificate = async () => {
     const res = await axiosInstance.post('/api/users/cert')
     if (res.status === 200) {
+      buttonEvent("downloadCertificate")
       if (user.form_submit === false) {
         return navigate(SATISFACTION_SURVEY2_PATH)
       } else {
-        // TODO: Navigate to somewhere
         console.log('Success')
         setCerModalOpen(false)
       }
