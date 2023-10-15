@@ -12,6 +12,9 @@ interface Props {
 const EventSchedules: React.FC<Props> = ({ showAll }: Props): JSX.Element => {
   const renderEvent = useMemo(() => {
     return eventSchedules
+      .filter((events) => {
+        return showAll ? EVENT_TO_SHOW : events.date === '10/15/2023'
+      })
       .slice(0, showAll ? eventSchedules.length : EVENT_TO_SHOW)
       .map((schedule: IEventSchedule, i: number) => {
         return <EventSchedulesModal schedule={schedule} key={i} />
