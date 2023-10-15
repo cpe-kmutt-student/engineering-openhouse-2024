@@ -82,11 +82,13 @@ const App: React.FC = (): JSX.Element => {
             <Route path={REGISTER_PATH} element={<Register />} />
 
             <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
+            <Route path={STAMP_PATH} element={<Protected element={<EStamp />} />} />
+
             <Route path={QR_CODE_VERITY_PATH} element={<Stamp />} />
+
             <Route path={SATISFACTION_SURVEY_PATH} element={<SatisfactionSurvey />} />
             <Route path={SATISFACTION_SURVEY2_PATH} element={<SatisfactionSurvey2 />} />
             <Route path={CERTIFICATE_FORM_PATH} element={<Certificate />} />
-            <Route path={STAMP_PATH} element={<EStamp />} />
 
             <Route path={NOT_FOUND_PATH} element={<Navigate to={BASE_PATH} />} />
           </Routes>

@@ -31,7 +31,10 @@ const Profile: React.FC = (): JSX.Element => {
     form_submit: false,
   })
 
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<{ user: boolean; certificate: boolean }>({
+    user: true,
+    certificate: true,
+  })
   const [isEdit, setEdit] = useState<boolean>(false)
   const [isModalOpen, setModalOpen] = useState<boolean>(false)
   const [isCerModalOpen, setCerModalOpen] = useState<boolean>(false)
@@ -139,17 +142,15 @@ const Profile: React.FC = (): JSX.Element => {
       if (user.form_submit === false) {
         return navigate(SATISFACTION_SURVEY2_PATH)
       } else {
-        console.log('Success')
         setCerModalOpen(false)
       }
     }
   }
 
   useEffect(() => {
-    getUserInfo()
-    getCertificate()
-    setLoading(false)
-  }, [getUserInfo])
+    getUserInfo().then(() => setLoading({ ...loading, user: false }))
+    getCertificate().then(() => setLoading({ ...loading, certificate: false }))
+  }, [getUserInfo, loading])
 
   useEffect(() => {
     if (location.state && location.state.requestStatus === 'Success') {
@@ -161,7 +162,7 @@ const Profile: React.FC = (): JSX.Element => {
     }
   }, [modalStampSuccess, location, modalStampError])
 
-  if (loading) return <LoadingPage />
+  if (loading.certificate && loading.user) return <LoadingPage />
 
   return (
     <div className={styles.profilePage}>
