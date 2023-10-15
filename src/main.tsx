@@ -4,11 +4,11 @@ import App from './App.tsx'
 import './index.scss'
 import { ConfigProvider } from 'antd'
 import { theme } from './configs/theme.ts'
-// import { registerSW } from 'virtual:pwa-register'
+import { registerSW } from 'virtual:pwa-register'
 
-// if ('serviceWorker' in navigator) {
-//   registerSW({ immediate: true })
-// }
+if ('serviceWorker' in navigator) {
+  registerSW({ immediate: true })
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
