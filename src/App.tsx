@@ -23,6 +23,7 @@ import ScrollToTop from './components/ScrollToTop'
 import { routeNavFilter } from './utils/nav'
 import { LoadingPage } from './pages/Loading'
 import Certificate from './pages/Certificate'
+import Protected from './components/Protected'
 
 const Home = lazy(() => import('./pages/Home'))
 const Department = lazy(() => import('./pages/Department'))
@@ -80,7 +81,7 @@ const App: React.FC = (): JSX.Element => {
 
             <Route path={REGISTER_PATH} element={<Register />} />
 
-            <Route path={PROFILE_PATH} element={<Profile />} />
+            <Route path={PROFILE_PATH} element={<Protected element={<Profile />} />} />
             <Route path={QR_CODE_VERITY_PATH} element={<Stamp />} />
             <Route path={SATISFACTION_SURVEY_PATH} element={<SatisfactionSurvey />} />
             <Route path={SATISFACTION_SURVEY2_PATH} element={<SatisfactionSurvey2 />} />
