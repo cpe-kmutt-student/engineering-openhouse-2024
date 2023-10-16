@@ -127,13 +127,13 @@ const Profile: React.FC = (): JSX.Element => {
     })
   }, [])
 
-  const getCertificate = async () => {
+  const getCertificate = useCallback(async () => {
     const res = await axiosInstance.get('/api/users/cert')
 
     if (res.status === 200) {
       setDownloadCer(res.data.data.cert)
     }
-  }
+  }, [])
 
   const handleCertificate = async () => {
     const res = await axiosInstance.post('/api/users/cert')
@@ -150,7 +150,7 @@ const Profile: React.FC = (): JSX.Element => {
   useEffect(() => {
     getUserInfo().then(() => setLoading({ ...loading, user: false }))
     getCertificate().then(() => setLoading({ ...loading, certificate: false }))
-  }, [getUserInfo, loading])
+  })
 
   useEffect(() => {
     if (location.state && location.state.requestStatus === 'Success') {
