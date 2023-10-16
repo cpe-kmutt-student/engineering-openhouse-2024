@@ -53,7 +53,7 @@ const Profile: React.FC = (): JSX.Element => {
     }
   }
 
-  const getUserInfo = useCallback(async (): Promise<void> => {
+  const getUserInfo = async (): Promise<void> => {
     const res = await axiosInstance.get('/api/users/info')
 
     if (res.status === 200) {
@@ -63,7 +63,15 @@ const Profile: React.FC = (): JSX.Element => {
     if (res.status === 204) {
       navigate(REGISTER_PATH, { replace: true })
     }
-  }, [navigate])
+  }
+
+  const getCertificate = async () => {
+    const res = await axiosInstance.get('/api/users/cert')
+
+    if (res.status === 200) {
+      setDownloadCer(res.data.data.cert)
+    }
+  }
 
   const onEditUser = async (values: EditProfileForm) => {
     const newValues: IUserInfo = {
@@ -127,14 +135,6 @@ const Profile: React.FC = (): JSX.Element => {
     })
   }, [])
 
-  const getCertificate = useCallback(async () => {
-    const res = await axiosInstance.get('/api/users/cert')
-
-    if (res.status === 200) {
-      setDownloadCer(res.data.data.cert)
-    }
-  }, [])
-
   const handleCertificate = async () => {
     const res = await axiosInstance.post('/api/users/cert')
     if (res.status === 200) {
@@ -150,7 +150,7 @@ const Profile: React.FC = (): JSX.Element => {
   useEffect(() => {
     getUserInfo().then(() => setLoading({ ...loading, user: false }))
     getCertificate().then(() => setLoading({ ...loading, certificate: false }))
-  })
+  }, [])
 
   useEffect(() => {
     if (location.state && location.state.requestStatus === 'Success') {
